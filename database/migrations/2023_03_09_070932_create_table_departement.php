@@ -6,26 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTableDepartement extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('table_departement', function (Blueprint $table) {
-            $table->id();
+        Schema::create('tb_departement', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('table_departement');
+        Schema::dropIfExists('tb_departement');
     }
 }
