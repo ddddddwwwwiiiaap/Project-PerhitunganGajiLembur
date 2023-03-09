@@ -1,23 +1,30 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12 text-center mb-4 mt-4">
+            {{ config('app.name', 'SIPG') }} - Sistem Infromasi Pendataan dan Gaji Karyawan
+            <br>
+            <span style="font-weight: bold">( Apurva - APPS )</span>
+        </div>
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
+                <div class="card-header bg-light text-center">Login  Sistem</div>
+                @if (session('message'))
+                <div class="col-md-12 mt-3">
+                    <div class="alert alert-danger alert-dismissable mb-0"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {{ session('message') }}
+                    </div>
+                </div>
+                @endif
+                <div class="card-body mt-3">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
+                        <div class="form-group row">
+                            <label for="username" class="col-md-3 col-form-label text-md-right">{{ __('Username') }}</label>
+                            <div class="col-md-7">
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username', Session::get('username')) }}" placeholder="Masukan username.." autofocus>
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -25,12 +32,10 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+                        <div class="form-group row">
+                            <label for="password" class="col-md-3 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <div class="col-md-7">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Masukan password.." autocomplete="current-password">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -39,8 +44,8 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="form-group row">
+                            <div class="col-md-7 offset-md-3">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -51,11 +56,14 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                        <div class="form-group row mb-0">
+                            <div class="col-md-7 offset-md-3">
+                                <button type="submit" class="btn btn-danger btn-block">
+                                    <i class="fa fa-unlock"></i> {{ __('Login') }}
                                 </button>
+                                {{-- <div class="col-md-12 text-center mt-3">
+                                    Belum punya akun ? <a href="#">Klik Daftar</a>
+                                </div> --}}
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -65,6 +73,12 @@
                             </div>
                         </div>
                     </form>
+                </div>
+                
+                <div id="loading"></div>
+
+                <div class="card-footer text-center text-secondary">
+                    Powered by <a href="#" class="font-weight-bold text-secondary" target="_blank">Apurva</a>.
                 </div>
             </div>
         </div>
