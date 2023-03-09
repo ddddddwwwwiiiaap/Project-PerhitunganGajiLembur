@@ -6,26 +6,30 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTableStaff extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('table_staff', function (Blueprint $table) {
-            $table->id();
+        Schema::create('tb_staff', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nip')->unique();
+            $table->unsignedInteger('position_id');
+            $table->unsignedInteger('departement_id');
+            $table->unsignedInteger('users_id')->nullable();
+            $table->string('name');
+            $table->date('birth');
+            $table->text('addres')->nullable();
+            $table->date('startdate');
+            $table->text('phone');
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('position_id')->references('id')->on('tb_position')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('departement_id')->references('id')->on('tb_departement')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('table_staff');
+        Schema::dropIfExists('tb_staff');
     }
 }
