@@ -6,26 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTablePosition extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('table_position', function (Blueprint $table) {
-            $table->id();
+        Schema::create('tb_position', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->enum('status', ['Staff', 'Daily Worker']);
+            $table->double('salary')->default(0);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('table_position');
+        Schema::dropIfExists('tb_position');
     }
 }
