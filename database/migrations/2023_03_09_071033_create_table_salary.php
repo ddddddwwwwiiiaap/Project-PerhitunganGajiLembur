@@ -6,26 +6,30 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTableSalary extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('table_salary', function (Blueprint $table) {
-            $table->id();
+        Schema::create('tb_salary', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('staff_id');
+            $table->double('salary')->default(0);
+            $table->double('uang_overtime')->default(0);
+            $table->double('pot_bpjs')->default(0);
+            $table->date('tgl_salary');
+            $table->string('periode')->nullable();
+            $table->string('transportasi')->nullable();
+            $table->double('total')->nullable()->default(0);
+            $table->string('status_gaji')->nullable();
+            $table->string('status')->nullable();
+            $table->string('jumlah_overtime')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('staff_id')->references('id')->on('tb_staff')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('table_salary');
+        Schema::dropIfExists('tb_salary');
     }
 }
