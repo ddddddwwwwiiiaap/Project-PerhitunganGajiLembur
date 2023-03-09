@@ -14,7 +14,13 @@ class CreateKategoriLembursTable extends Migration
     public function up()
     {
         Schema::create('kategori_lemburs', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('kode_lembur')->unique();
+            $table->integer('position_id')->unsigned();
+            $table->foreign('position_id')->on('tb_position')->references('id')->onDelete('Cascade')->onUpdate('Cascade');
+            $table->integer('departement_id')->unsigned();
+            $table->foreign('departement_id')->on('tb_departement')->references('id')->onDelete('Cascade')->onUpdate('Cascade');
+            $table->integer('besaran_uang');
             $table->timestamps();
         });
     }
