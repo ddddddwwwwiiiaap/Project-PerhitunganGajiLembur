@@ -7,6 +7,7 @@ use App\Models\Roles;
 
 class RolesController extends Controller
 {
+    //
     public function index()
     {
         $data['roles'] = Roles::all();
@@ -19,20 +20,20 @@ class RolesController extends Controller
         $data['title'] = "Role Baru";
         return view('roles.create', $data);
     }
-    
+
     public function store(Request $request)
-    {   
+    {
         $request->validate([
-            'name'=>'required|unique:roles',
-            'display_name'=>'required',
+            'name' => 'required|unique:roles',
+            'display_nam' => 'required',
         ]);
 
         Roles::create($request->all());
 
         $message = [
-            'alert-type'=>'success',
-            'message'=> 'Data roles created successfully'
-        ];  
+            'alert-type' => 'success',
+            'message' => 'Data roles created successfully'
+        ];
         return redirect()->route('roles.index')->with($message);
     }
 
@@ -46,27 +47,25 @@ class RolesController extends Controller
     public function update(Request $request, Roles $roles)
     {
         $request->validate([
-            'name'=>'required',
-            'display_name'=>'required',
+            'name' => 'required',
+            'display_name' => 'required',
         ]);
 
         $roles->update($request->all());
 
         $message = [
-            'alert-type'=>'success',
-            'message'=> 'Data roles updated successfully'
-        ];  
+            'alert-type' => 'success',
+            'message' => 'Data roles updated successfully'
+        ];
         return redirect()->route('roles.index')->with($message);
     }
 
     public function destroy(Request $request)
     {
         $id = $request->id;
-        if($id)
-        {   
+        if ($id) {
             $roles = roles::find($id);
-            if($roles)
-            {
+            if ($roles) {
                 $roles->delete();
             }
             $count = roles::count();

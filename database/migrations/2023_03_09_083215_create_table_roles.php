@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTableRoles extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('roles', function (Blueprint $table) {
@@ -16,8 +21,13 @@ class CreateTableRoles extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('table_roles');
     }
 }

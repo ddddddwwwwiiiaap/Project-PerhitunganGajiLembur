@@ -6,21 +6,28 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTableSalary extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('tb_salary', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('staff_id');
             $table->double('salary')->default(0);
-            $table->double('uang_overtime')->default(0);
-            $table->double('pot_bpjs')->default(0);
-            $table->date('tgl_salary');
             $table->string('periode')->nullable();
-            $table->string('transportasi')->nullable();
+            $table->integer('jumlah_jam_lembur');
+            $table->integer('jumlah_jam_lembur_berdasarkan_periode');
+            $table->integer('gaji_lembur_perjam');
+            $table->integer('jumlah_uang_lembur');
+            $table->integer('gaji_pokok');
             $table->double('total')->nullable()->default(0);
             $table->string('status_gaji')->nullable();
+            $table->date('tgl_salary');
             $table->string('status')->nullable();
-            $table->string('jumlah_overtime')->nullable();
+            
             $table->timestamps();
             $table->softDeletes();
 
@@ -28,8 +35,13 @@ class CreateTableSalary extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::dropIfExists('tb_salary');
+        Schema::dropIfExists('table_salary');
     }
 }

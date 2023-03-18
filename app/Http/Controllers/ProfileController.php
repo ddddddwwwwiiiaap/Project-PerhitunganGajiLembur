@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Staff;
+use App\Models\Master\Staff;
 use App\Models\Position;
 use App\Models\Departement;
 use App\Models\Roles;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
+    //
     public function index()
     {
         $data['staff'] = Staff::findOrFail(Auth::user()->staff->id ?? '');
@@ -32,13 +33,13 @@ class ProfileController extends Controller
             $path = "img/uploads/profile/";
             $ext = $picture->getClientOriginalExtension();
             $hash = md5($picture->getRealPath());
-            $picture->move(public_path($path), $hash.'.'.$ext);
+            $picture->move(public_path($path), $hash . '.' . $ext);
             if ($staff->photo) {
                 unlink(public_path($staff->photo));
             }
-           
+
             $staff->update([
-                'photo' => 'img/uploads/profile/'.$hash.'.'.$ext
+                'photo' => 'img/uploads/profile/' . $hash . '.' . $ext
             ]);
         }
         $message = [
@@ -57,8 +58,7 @@ class ProfileController extends Controller
             $data['departement'] = Departement::all();
             $data['roles'] = Roles::where('name', '!=', 'superadmin')->get();
             return view('profile.edit', $data);
-        }
-        else {
+        } else {
             return abort(404);
         }
     }
@@ -68,13 +68,13 @@ class ProfileController extends Controller
     {
         $staff = Staff::find($id);
         $request->validate([
-            'name'=>'required|max:100',
-            'birth'=>'required|date',
-            'startdate'=>'required|date',
-            'phone'=>'required|max:13',
-            'position_id'=>'required',
-            'departement_id'=>'required',
-            'addres'=>'required',
+            'name' => 'required|max:100',
+            'birth' => 'required|date',
+            'startdate' => 'required|date',
+            'phone' => 'required|max:13',
+            'position_id' => 'required',
+            'departement_id' => 'required',
+            'addres' => 'required',
         ]);
         $staff->update($request->all());
         $message = [

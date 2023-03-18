@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTablePosition extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('tb_position', function (Blueprint $table) {
@@ -17,8 +22,13 @@ class CreateTablePosition extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::dropIfExists('tb_position');
+        Schema::dropIfExists('table_position');
     }
 }

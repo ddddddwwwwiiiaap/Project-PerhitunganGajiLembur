@@ -3,16 +3,21 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Master\Departement;
 
 class TableDepartement extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        //
+        $departement = [
+            ['name'=>'House Keeping'],
+            ['name'=>'Front Office'],
+            ['name'=>'F&B Service'],
+            ['name'=>'F&B Production'],
+        ];
+        foreach($departement as $row)
+        {
+            Departement::create($row);
+        }
     }
 }

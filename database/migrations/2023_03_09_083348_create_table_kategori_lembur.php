@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKategoriLembursTable extends Migration
+class CreateTableKategoriLembur extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateKategoriLembursTable extends Migration
      */
     public function up()
     {
-        Schema::create('kategori_lemburs', function (Blueprint $table) {
+        Schema::create('tb_kategori_lembur', function (Blueprint $table) {
             $table->increments('id');
             $table->string('kode_lembur')->unique();
             $table->integer('position_id')->unsigned();
@@ -32,6 +32,6 @@ class CreateKategoriLembursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kategori_lemburs');
+        Schema::dropIfExists('table_kategori_lembur');
     }
 }

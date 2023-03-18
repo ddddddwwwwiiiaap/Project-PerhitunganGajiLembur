@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Master;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Position;
+use App\Models\Master\Position;
 
 class PositionController extends Controller
 {
@@ -22,6 +23,10 @@ class PositionController extends Controller
 
     public function store(Request $request)
     {
+        $request->merge([
+            'salary' => preg_replace('/\D/', '', $request->salary),
+        ]);
+
         $request->validate([
             'name'=>'required',
             'salary'=>'required',

@@ -16,7 +16,7 @@ class CreateTableStaff extends Migration
             $table->unsignedInteger('users_id')->nullable();
             $table->string('name');
             $table->date('birth');
-            $table->text('addres')->nullable();
+            $table->text('address')->nullable();
             $table->date('startdate');
             $table->text('phone');
             $table->timestamps();
