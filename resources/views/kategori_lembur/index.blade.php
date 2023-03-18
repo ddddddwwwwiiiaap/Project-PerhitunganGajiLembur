@@ -8,14 +8,6 @@
         <div class="container-fluid">
             <form>
                 <div class="form-inline">
-                    <div class="input-group app-shadow">
-                        <div class="input-group-append">
-                            <div class="input-group-text bg-white border-0">
-                                <span><i class="fa fa-search"></i> </span>
-                            </div>
-                        </div>
-                        <input type="search" placeholder="Search" aria-label="Search..." class="form-control input-flat border-0" id="search">
-                    </div>
                     <a href="{{ route('kategori_lembur.create') }}" class="btn btn-default app-shadow d-none d-md-inline-block ml-auto">
                         <i class="fas fa-user-plus fa-fw"></i> Tambah
                     </a>
@@ -33,7 +25,7 @@
                             Kategori Lembur
                             <span id="count" class="badge badge-danger float-right float-xl-right mt-1"></span>
                         </div>
-                        <table id="datatable" class="table table-hover table-striped">
+                        <table id="itemtable" class="table table-hover table-striped">
                             <thead>
                                 <tr>
                                     <th class="text-center" style="width: 100px;">No</th>
@@ -55,34 +47,41 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @php $no = 1; @endphp
-                                @foreach($kategori_lembur as $data)
-                                <tr id="hide{{$data->id}}">
+                                @foreach($kategori_lembur as $item)
+                                <tr id="hide{{$item->id}}">
                                     <td>
-                                        <center>{{$no++}}</center>
-                                    </td>
-                                    <td>
-                                        <center>{{$data->kode_lembur}}</center>
-                                    </td>
-                                    <td>
-                                        <center>{{$data->tb_position->name}}</center>
-                                    </td>
-                                    <td>
-                                        <center>{{$data->tb_departement->name}}</center>
-                                    </td>
-                                    <td>
-                                        <center>Rp.{{$data->besaran_uang}}</center>
+                                        <center>
+                                            {{ $loop->iteration }}
+                                        </center>
                                     </td>
                                     <td>
                                         <center>
-                                            <div class="btn-group">
-                                                <a href="{{ route('kategori_lembur.edit', $data->id) }}" class="btn btn-sm btn-warning app-shadow">
-                                                    <i class="fas fa-edit fa-fw"></i>
-                                                </a>
-                                                <button type="button" class="btn btn-sm btn-danger app-shadow" onclick="hapus({{$data->id}})">
-                                                    <i class="fas fa-trash fa-fw"></i>
-                                                </button>
-                                            </div>
+                                            {{ $item->kode_lembur ?? '' }}
+                                        </center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            {{ $item->tb_position->name ?? '' }}
+                                        </center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            {{ $item->tb_departement->name ?? '' }}
+                                        </center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            {{ 'Rp. ' . number_format($item->besaran_uang ?? '', 0, ',', '.') }}
+                                        </center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            <a href="{{ route('kategori_lembur.edit', $item->id) }}" class="btn btn-sm btn-warning app-shadow">
+                                                <i class="fas fa-edit fa-fw"></i>
+                                            </a>
+                                            <button class="btn btn-sm btn-danger" onclick="hapus({{ $item->id }})">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
                                         </center>
                                     </td>
                                 </tr>
@@ -95,53 +94,45 @@
         </div>
     </div>
 </div>
+
+<a href="{{ route('kategori_lembur.create') }}" class="btn btn-lg rounded-circle btn-primary btn-fly d-block d-md-none app-shadow">
+    <span><i class="fas fa-user-plus fa-sm align-middle"></i></span>
+</a>
+
 @endsection
 @section('scripts')
-<script src="{{ asset ('js/sweetalert.min.js') }}"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{ asset('js/sweetalert.min.js') }}"></script>
+<script src="{{ asset('js/sweetalert-dev.js') }}"></script>
+<script src="{{ asset('js/datatables.js') }}"></script>
 <script>
-    $(document).ready(function() {
-        $('#datatable').DataTable({
-            "paging": true,
-            "lengthChange": true,
-            "searching": true,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
-    });
-
     function hapus(id) {
         swal({
-                title: "Apakah Anda Yakin?",
-                text: "Data yang dihapus tidak dapat dikembalikan!",
-                type: "warning",
+                title: 'Yakin.. ?',
+                text: "Data anda akan dihapus. Tekan tombol yes untuk melanjutkan.",
+                type: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Ya, Hapus!",
-                cancelButtonText: "Tidak, Batalkan!",
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes!',
                 closeOnConfirm: false,
                 closeOnCancel: false
             },
             function(isConfirm) {
                 if (isConfirm) {
                     $.ajax({
-                        url: "{{ url('kategori_lembur') }}" + '/' + id,
-                        type: "POST",
-                        data: {
-                            '_method': 'DELETE',
-                            '_token': $('meta[name=csrf-token]').attr('content')
-                        },
+                        url: "{{URL::to('/kategori_lembur/destroy')}}",
+                        data: "id=" + id,
                         success: function(data) {
-                            swal("Terhapus!", "Data berhasil dihapus.", "success");
-                            $('#hide' + id).hide();
-                        },
-                        error: function() {
-                            swal("Gagal!", "Data gagal dihapus.", "error");
+                            swal("Deleted", data.message, "success");
+                            $("#count").html(data.count);
+                            $("#hide" + id).hide(300);
                         }
                     });
+
                 } else {
-                    swal("Dibatalkan", "Data batal dihapus.", "error");
+                    swal("Canceled", "Anda Membatalkan! :)", "error");
                 }
             });
     }

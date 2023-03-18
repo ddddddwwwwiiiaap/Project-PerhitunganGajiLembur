@@ -92,12 +92,6 @@
                             <p>Penggajian</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ route('absensi.index') }}" class="nav-link {{ $page == 'absensi' ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-tasks"></i>
-                            <p>Absensi</p>
-                        </a>
-                    </li>
                
                     <li class="nav-header">Special Menu</li>
                     

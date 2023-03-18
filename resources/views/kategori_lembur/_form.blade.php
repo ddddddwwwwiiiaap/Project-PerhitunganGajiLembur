@@ -14,13 +14,7 @@
     <div class="form-group row">
         <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Masukkan Kode Lembur <span class="text-danger">*</span></label>
         <div class="col-12 col-md-5 col-lg-5">
-            <!--jika sama akan memunculkan pesan kode lembur sudah ada-->
-            @if ($errors->has('kode_lembur'))
-            <div class="alert alert-danger">
-                <strong>{{ $errors->first('kode_lembur') }}</strong>
-            </div>
-            @endif
-            <input id="kode_lembur" name="kode_lembur" type="text" class="form-control @error('kode_lembur') is-invalid @enderror" value="{{ old('kode_lembur', $kategori_lembur->kode_lembur ?? '') }}">
+            <input type="text" name="kode_lembur" class="form-control @error('kode_lembur') is-invalid @enderror" value="{{ old('kode_lembur', $kategori_lembur->kode_lembur ?? '') }}">
             @error('kode_lembur')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $errors->first('kode_lembur') }}</strong>
@@ -64,16 +58,21 @@
     </div>
 
     <div class="form-group row">
-        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Besaran Uang<span class="text-danger">*</span></label>
+        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Besaran Uang</label>
         <div class="col-12 col-md-5 col-lg-5">
-            <input name="besaran_uang" type="text" class="form-control @error('besaran_uang') is-invalid @enderror" value="{{ old('besaran_uang', $kategori_lembur->besaran_uang ?? '') }}">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+                <input type="text" name="besaran_uang" class="form-control @error('besaran_uang') is-invalid @enderror" value="{{ old('besaran_uang', $kategori_lembur->besaran_uang ?? '') }}" placeholder="100.000" autocomplete="off" oninput="format(this)">
+            </div>
             @error('besaran_uang')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('besaran_uang') }}</strong>
-            </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('besaran_uang') }}</strong>
+                </span>
             @enderror
-        </div>
-    </div>
+        </div> 
+    </div> 
 
 </div>
 <div class="card-footer">

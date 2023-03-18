@@ -11,22 +11,6 @@
         <span class="col-form-label text-bold">Data Lembur Pegawai</span>
     </div>
     <br>
-    <!--<div class="form-group row">
-        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end"> Kode Kategori Lembur <span class="text-danger">*</span></label>
-        <div class="col-12 col-md-5 col-lg-5">
-        <select name="kategori_lembur_id" class="form-control @error('kategori_lembur_id') is-invalid @enderror">
-                <option value="">-- Pilih Kategori Lembur --</option>
-                @foreach ($kategori_lembur as $item)
-                <option value="{{ $item->id }}" {{ $item->id == old('kategori_lembur_id', $lembur_pegawai->kategori_lembur_id ?? '') ? 'selected' : '' }}>{{ $item->kode_lembur }}</option>
-                @endforeach
-            </select>
-            @error('kategori_lembur_id')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('kategori_lembur_id') }}</strong>
-            </span>
-            @enderror
-        </div>
-    </div>-->
 
     <div class="form-group row">
         <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">NIP & Nama Staff <span class="text-danger">*</span></label>
@@ -54,7 +38,6 @@
                 <strong>{{ $errors->first('mulai_lembur') }}</strong>
             </span>
             @enderror
-
         </div>
     </div>
 
@@ -81,7 +64,32 @@
             @enderror
         </div>
     </div>
+
+    <div class="form-group row">
+        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Tanggal Lembur Pegawai<span class="text-danger">*</span></label>
+        <div class="col-12 col-md-5 col-lg-5">
+            <input type="date" name="tanggal_lembur" class="form-control @error('tanggal_lembur') is-invalid @enderror" value="{{ old('tanggal_lembur', $lembur_pegawai->tanggal_lembur ?? '') }}" autocomplete="off">
+            @error('tanggal_lembur')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->first('tanggal_lembur') }}</strong>
+            </span>
+            @enderror
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Periode <span class="text-danger">*</span></label> 
+        <div class="col-12 col-md-5 col-lg-5">
+            <input type="text" name="periode" class="form-control datepicker @error('periode') is-invalid @enderror" value="{{ old('periode') }}" placeholder="Pilih Periode">
+            @if ($errors->has('periode'))
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->first('periode') }}</strong>
+            </span>
+            @endif
+        </div>
+    </div>
 </div>
+
 <div class="card-footer">
     <div class="offset-md-4">
         <div class="form-group mb-0">

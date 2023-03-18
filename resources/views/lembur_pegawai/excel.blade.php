@@ -13,6 +13,7 @@ header ("Content-Disposition: attachment; filename=Laporan-Lembur-Pegawai-period
     <style>
         #master td {
             vertical-align: middle;
+
         }
     </style>
 </head>

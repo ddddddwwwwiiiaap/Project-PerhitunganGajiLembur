@@ -21,7 +21,7 @@
             </select>
             @error('status')
                 <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('status') }}</strong>
+                    <strong>{{ $errors->first('+') }}</strong>
                 </span>
             @enderror
         </div> 

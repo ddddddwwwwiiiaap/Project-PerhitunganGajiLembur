@@ -108,10 +108,10 @@
     <div class="form-group row">
         <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Alamat <span class="text-danger">*</span></label> 
         <div class="col-12 col-md-5 col-lg-5">
-            <textarea name="addres" class="form-control @error('addres') is-invalid @enderror" placeholder="Masukan alamat..">{{ old('addres', $staff->addres ?? '') }}</textarea>
-            @error('addres')
+            <textarea name="address" class="form-control @error('address') is-invalid @enderror" placeholder="Masukan alamat..">{{ old('address', $staff->address ?? '') }}</textarea>
+            @error('address')
                 <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('addres') }}</strong>
+                    <strong>{{ $errors->first('address') }}</strong>
                 </span>
             @enderror
         </div> 

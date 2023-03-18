@@ -36,43 +36,105 @@
                         <table id="datatable" class="table table-hover table-striped">
                             <thead>
                                 <tr>
-                                    <th class="text-center" style="width: 100px;">#</th>
-                                    <th>Nama</th>
-                                    <th>NIP</th>
-                                    <th>Tgl. Lahir</th>
-                                    <th>Alamat</th>
-                                    <th>No. Telpon</th>
-                                    <th>Position</th>
-                                    <th>Departement</th>
+                                    <th>
+                                        <center>
+                                            No
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            Nama
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            NIP
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            Tanggal Lahir
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            Alamat
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            No. HP
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            Position
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            Departement
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            Action
+                                        </center>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($staff as $item)
                                 <tr id="hide{{ $item->id }}">
-                                    <td class="text-center">
-                                        <a href="#" class="text-secondary nav-link p-0" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="{{ route('master.staff.edit', $item->id) }}">
-                                                <i class="far fa-edit mr-1"></i> Edit
-                                            </a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="javascript:void(0)" onClick="hapus({{$item->id}})">
-                                                <i class="far fa-trash-alt mr-2"></i> Hapus
-                                            </a>
-                                        </div>
+                                    <td>
+                                        <center>
+                                            {{ $loop->iteration }}
+                                        </center>
+                                    <td>
+                                        <center>
+                                            {{ $item->name ?? '' }}
+                                        </center>
                                     </td>
-                                    <td>{{ $item->name ?? '' }}</td>
-                                    <td>{{ $item->nip ?? '' }}</td>
-                                    <td>{{ $item->birth ?? '' }}</td>
-                                    <td>{{ $item->addres ?? '' }}</td>
-                                    <td>{{ $item->phone ?? '' }}</td>
-                                    <td style="line-height: 1">
+                                    <td>
+                                        <center>
+                                            {{ $item->nip ?? '' }}
+                                        </center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            {{ $item->birth ?? '' }}
+                                        </center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            {{ $item->address ?? '' }}
+                                        </center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            {{ $item->phone ?? '' }}
+                                        </center>
+                                    </td>
+                                    <td>
+                                        <center>
                                         {{ $item->position->name ?? '' }} <br>
                                         <small><span class="badge {{ $item->position->status == 'Staff' ? 'badge-info' : 'badge-secondary' }}">{{ $item->position->status ?? '' }}</span></small>
+                                        </center>
                                     </td>
-                                    <td>{{ $item->departement->name ?? '' }}</td>
+                                    <td>
+                                        <center>
+                                            {{ $item->departement->name ?? '' }}
+                                        </center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            <a href="{{ route('master.staff.edit', $item->id) }}" class="btn btn-sm btn-warning app-shadow">
+                                                <i class="fas fa-edit fa-fw"></i>
+                                            </a>
+                                            <button type="button" class="btn btn-sm btn-danger app-shadow" onclick="hapus({{ $item->id }})">
+                                                <i class="fas fa-trash fa-fw"></i>
+                                            </button>
+                                        </center>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>

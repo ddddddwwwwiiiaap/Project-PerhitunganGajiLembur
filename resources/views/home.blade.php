@@ -6,7 +6,7 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="row">
-							<div class="col-md-4 col-sm-4 col-12">
+							<div class="col-md-6 col-sm-4 col-12">
 								<div class="info-box bg-info-gradient">
 									<span class="info-box-icon"><i class="fa fa-money"></i></span>
 									<div class="info-box-content">
@@ -15,17 +15,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-4 col-sm-4 col-12">
-								<div class="info-box bg-success-gradient">
-									<span class="info-box-icon"><i class="fa fa-calendar"></i></span>
-		
-									<div class="info-box-content">
-										<span class="info-box-text">Schedule</span>
-										<span class="info-box-number">{{ $schedule ?? 0 }}</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-4 col-12">
+							<div class="col-md-6 col-sm-4 col-12">
 								<div class="info-box bg-secondary-gradient">
 									<span class="info-box-icon"><i class="fa fa-user-circle"></i></span>
 									<div class="info-box-content">

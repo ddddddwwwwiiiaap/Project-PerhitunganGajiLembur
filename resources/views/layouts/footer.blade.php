@@ -8,9 +8,6 @@
         <a href="{{ route('master.staff.index') }}" class="navbar-brand text-secondary"><i class="fas fa-user-circle"></i> <small class="d-block">Staff</small></a>
     </div> 
     <div class="col text-center">
-        <a href="{{ route('absensi.index') }}" class="navbar-brand text-secondary"><i class="fas fa fa-address-book-o"></i> <small class="d-block">Absensi</small></a>
-    </div>
-    <div class="col text-center">
         <a href="" class="navbar-brand text-secondary nav-link" data-widget="pushmenu"><i class="fas fa-bars"></i> <small class="d-block">Menu</small></a>
     </div>
 </nav>

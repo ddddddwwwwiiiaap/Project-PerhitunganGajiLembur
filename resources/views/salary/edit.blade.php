@@ -26,7 +26,7 @@
                             <form action="{{ route('salary.update', $salary->id) }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                 @csrf
                                 @method('patch')
-                                @include('salary._form')
+                                @include('salary.detail._form')
                             </form>
                             <div id="loading"></div>
                         </div>
