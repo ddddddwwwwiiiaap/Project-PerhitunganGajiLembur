@@ -16,7 +16,7 @@
                         </div>
                         <input type="search" placeholder="Search" aria-label="Search..." class="form-control input-flat border-0" id="search">
                     </div>
-                    <a href="{{ route('lembur_pegawai.create') }}" class="btn btn-default app-shadow d-none d-md-inline-block ml-auto">
+                    <a href="{{ route('lembur_pegawai.create' ) }}" class="btn btn-default app-shadow d-none d-md-inline-block ml-auto">
                         <i class="fas fa-user-plus fa-fw"></i> Tambah
                     </a>
                 </div>
