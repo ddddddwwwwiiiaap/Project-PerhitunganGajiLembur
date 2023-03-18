@@ -8,7 +8,7 @@
     <div class="content pb-5 pt-3">
         <br class="container-fluid">
         <div class="form-inline">
-            <a href="{{ route('kategori_lembur.create') }}" class="btn btn-default app-shadow d-none d-md-inline-block ml-auto">
+            <a href="{{ route('lembur_pegawai.create') }}" class="btn btn-default app-shadow d-none d-md-inline-block ml-auto">
                 <i class="fas fa-user-plus fa-fw"></i> Tambah
             </a>
         </div>
