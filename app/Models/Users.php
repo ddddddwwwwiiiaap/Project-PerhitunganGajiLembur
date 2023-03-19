@@ -12,7 +12,7 @@ class Users extends Authenticatable
 {
     use Notifiable, SoftDeletes;
 
-    protected $fillable = ['role_id', 'email', 'name', 'username', 'foto', 'password'];
+    protected $fillable = ['role_id', 'email', 'name', 'username', 'address', 'foto', 'password'];
     protected $hidden = ['password', 'remember_token'];
     protected $dates = ['deleted_at'];
     protected $casts = ['email_verified_at' => 'datetime'];

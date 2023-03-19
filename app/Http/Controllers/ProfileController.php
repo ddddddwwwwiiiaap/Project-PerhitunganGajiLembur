@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Master\Staff;
-use App\Models\Position;
-use App\Models\Departement;
+use App\Models\Master\Position;
+use App\Models\Master\Departement;
 use App\Models\Roles;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 
 class ProfileController extends Controller
 {
-    //
     public function index()
     {
         $data['staff'] = Staff::findOrFail(Auth::user()->staff->id ?? '');
@@ -30,7 +29,7 @@ class ProfileController extends Controller
         $staff = Staff::findOrFail(Auth::user()->staff->id);
         if ($request->hasFile('picture') && $request->file('picture')->isValid()) {
             $picture = $request->picture;
-            $path = "img/uploads/profile/";
+            $path = "img/uploads/profile/";//berfungsi untuk menyimpan gambar di folder public/img/uploads/profile
             $ext = $picture->getClientOriginalExtension();
             $hash = md5($picture->getRealPath());
             $picture->move(public_path($path), $hash . '.' . $ext);
@@ -74,7 +73,6 @@ class ProfileController extends Controller
             'phone' => 'required|max:13',
             'position_id' => 'required',
             'departement_id' => 'required',
-            'addres' => 'required',
         ]);
         $staff->update($request->all());
         $message = [

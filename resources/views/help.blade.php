@@ -17,7 +17,7 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Description</h5>
-                            <p class="card-text">Halaman ini didesain untuk membantu user atau pengguna aplikasi {{ config('app.name', 'Laravel') }}. Jika saat penggunaan aplikasi ini ada yang
+                            <p class="card-text">Halaman ini didesain untuk membantu user atau pengguna aplikasi {{ config('app.name', 'Perhitungan Gaji Lembur BRI') }}. Jika saat penggunaan aplikasi ini ada yang
                                 dibingunkan silahkan anda baca cara penggunaan icon yang ada dibawah ini atau hubungi adminsitrator atau developer untuk lebih cepat mengatasi masalah yang dihadapi.
                                 selanjutnya anda juga dapat membuat form pengaduan atau form bantuan untuk di kirim ke developer. silahkan anda buat form bantuan yang ada dibawah ini :
                             </p>

@@ -2,7 +2,7 @@
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             @guest
-            {{ config('app.name', 'Laravel') }}
+            {{ config('app.name', 'Perhitungan Gaji Lembur BRI') }}
             @else
             <span style="font-size: 14px">{{ Auth::user()->role->display_name ?? '' }}</span>
             @endguest

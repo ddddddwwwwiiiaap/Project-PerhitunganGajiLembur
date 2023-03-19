@@ -11,7 +11,6 @@ use Storage;
 
 class UsersController extends Controller
 {
-
     public function index()
     {
         $data['users'] = Users::all();

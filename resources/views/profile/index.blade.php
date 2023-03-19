@@ -45,7 +45,7 @@
                                         <tr>
                                             <td>Alamat</td>
                                             <td>:</td>
-                                            <td>{{ ucwords($staff->addres ?? '-') }}</td>
+                                            <td>{{ ucwords($staff->address ?? '-') }}</td>
                                         </tr>
                                       </tbody>
                                  </table>
@@ -65,7 +65,7 @@
                                         <input type="file" name="picture" accept=".jpg, .png, .jpeg" id="UploadFotoProfil">
                                     </form>
                                 @else
-                                    <img class="profile-user-img img-fluid img-circle" src="{{ ('img/user.jpg') }}" alt="User profile picture" style="width: 100px; height: 100px;">
+                                    <img class="profile-user-img img-fluid img-circle" src="{{ ('img/user.jpg') }}" alt="User profile picture" style="width: 100px; height: 100px;">//berfungsi 
                                 @endif
                             </div>
                             <h3 class="profile-username text-center  pt-2">{{ ucwords(Auth::user()->staff->name ?? Auth::user()->name) }}</h3>

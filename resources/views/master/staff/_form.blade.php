@@ -116,7 +116,7 @@
             @enderror
         </div> 
     </div>
-    @if (!isset($staff->users_id))
+    <!--@if (!isset($staff->users_id))
     <div class="form-group row">
         <div class="col-12 col-md-5 col-lg-5 offset-md-4">
             <div class="checkbox">
@@ -157,7 +157,7 @@
                 @endforeach
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
 <div class="card-footer">
     <div class="offset-md-4">

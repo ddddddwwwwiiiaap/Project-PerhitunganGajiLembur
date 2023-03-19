@@ -104,14 +104,14 @@ class StaffController extends Controller
         ]);
 
         //message nip tidak boleh sama
-        $nip = Staff::where('nip', $request->nip)->first();
+        /*$nip = Staff::where('nip', $request->nip)->first();
         if ($nip) {
             $message = [
                 'alert-type' => 'error',
                 'message' => 'NIP sudah ada'
             ];
             return redirect()->route('master.staff.index')->with($message);
-        }
+        }*/
 
         if ($request->has('makeUserAccount')) {
             $msg = [

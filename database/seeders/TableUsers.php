@@ -28,15 +28,14 @@ class TableUsers extends Seeder
         
         Staff::create([
             'users_id' => $user->id,
-            'nip' => '1234567890',
+            'nip' => '20200140055',
             'position_id' => 1,
             'departement_id' => 1,
-            'name' => 'Tasrin Adiputra',
-            'birth' => date('Y-m-d'),
-            'startdate' => date('Y-m-d'),
-            'address' => 'Makassar',
-            'address' => null,
-            'phone' => '081234567890',
+            'name' => 'Dwi Aprilya Anggoro Putry',
+            'birth' => date('2002-04-01'),
+            'startdate' => date('2023-03-01'),
+            'address' => 'Indonesia',
+            'phone' => '085799811481',
         ]);
     }
 }
