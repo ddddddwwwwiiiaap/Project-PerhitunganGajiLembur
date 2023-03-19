@@ -11,9 +11,7 @@ class TableDepartement extends Seeder
     {
         $departement = [
             ['name'=>'House Keeping'],
-            ['name'=>'Front Office'],
-            ['name'=>'F&B Service'],
-            ['name'=>'F&B Production'],
+            ['name'=>'TI'],
         ];
         foreach($departement as $row)
         {

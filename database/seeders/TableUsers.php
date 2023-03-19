@@ -31,7 +31,7 @@ class TableUsers extends Seeder
             'nip' => '20200140055',
             'position_id' => 1,
             'departement_id' => 1,
-            'name' => 'Dwi Aprilya Anggoro Putry',
+            'name' => 'Dwi Aprilya A P',
             'birth' => date('2002-04-01'),
             'startdate' => date('2023-03-01'),
             'address' => 'Indonesia',

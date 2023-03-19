@@ -112,7 +112,7 @@
     </div>
 </div>
 
-<a href=" " class="btn btn-lg rounded-circle btn-primary btn-fly d-block d-md-none app-shadow">
+<a href="{{ route('salary.create') }} " class="btn btn-lg rounded-circle btn-primary btn-fly d-block d-md-none app-shadow">
     <span><i class="fas fa-plus fa-sm align-middle"></i></span>
 </a>
 
