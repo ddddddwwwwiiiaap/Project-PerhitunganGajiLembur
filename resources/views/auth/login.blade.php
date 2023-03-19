@@ -9,7 +9,6 @@
                     <div class="card-header pb-0 text-left bg-transparent">
                         <h3 class="font-weight-bolder text-info text-gradient">Selamat Datang</h3>
                         <p class="mb-0">Silahkan login.<br></p>
-                        <p class="mb-0">Belum memiliki akun? Hubungi admin.<br></p>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}" method="POST" role="form text-left">

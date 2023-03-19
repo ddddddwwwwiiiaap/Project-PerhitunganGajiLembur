@@ -20,9 +20,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
-  <link rel="icon" type="image/png" href="{{ asset('http://files.web.neo.id/08/a3/08a3e4e2-1504-4355-ac9c-3b8e878c92f6.jpg') }}">
+  <link rel="icon" type="image/png" href="{{ asset('https://upload.wikimedia.org/wikipedia/commons/5/5b/Logo_Bank_Rakyat_Indonesia.svg') }}">
   <title>
-    Sistem Informasi Kost Griya Linggang Hayu
+  Perhitungan Gaji Lembur BRI
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
