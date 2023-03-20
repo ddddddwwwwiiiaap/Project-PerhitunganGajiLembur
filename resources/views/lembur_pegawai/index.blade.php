@@ -6,11 +6,22 @@
 @section('content')
 <div class="content-wrapper pb-3">
     <div class="content pb-5 pt-3">
-        <br class="container-fluid">
-        <div class="form-inline">
-            <a href="{{ route('lembur_pegawai.create') }}" class="btn btn-default app-shadow d-none d-md-inline-block ml-auto">
-                <i class="fas fa-user-plus fa-fw"></i> Tambah
-            </a>
+        <div class="container-fluid">
+            <form>
+                <div class="form-inline">
+                    <div class="input-group app-shadow">
+                        <div class="input-group-append">
+                            <div class="input-group-text bg-white border-0">
+                                <span><i class="fa fa-search"></i> </span>
+                            </div>
+                        </div>
+                        <input type="search" placeholder="Search" aria-label="Search..." class="form-control input-flat border-0" id="search">
+                    </div>
+                    <a href="{{ route('lembur_pegawai.create') }}" class="btn btn-default app-shadow d-none d-md-inline-block ml-auto">
+                        <i class="fas fa-user-plus fa-fw"></i> Tambah
+                    </a>
+                </div>
+            </form>
         </div>
         </br>
         <div class="row">
@@ -45,7 +56,7 @@
                     </table>
                     <div class="table-responsive">
                         <div class="card-body p-3">
-                            <table class="table table-bordered mb-0" style="font-size: 14px;">
+                            <table id="datatable" class="table table-bordered mb-0" style="font-size: 14px;">
                                 <thead>
                                     <tr class="bg-light">
                                         <th>
@@ -185,7 +196,10 @@
         </div>
     </div>
 </div>
-</div>
+
+<a href="{{ route('lembur_pegawai.create') }}" class="btn btn-lg rounded-circle btn-primary btn-fly d-block d-md-none app-shadow">
+    <span><i class="fas fa-user-plus fa-sm align-middle"></i></span>
+</a>
 
 @endsection
 

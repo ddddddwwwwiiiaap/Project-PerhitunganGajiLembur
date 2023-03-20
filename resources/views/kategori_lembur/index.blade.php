@@ -4,10 +4,18 @@
 @endsection
 @section('content')
 <div class="content-wrapper pb-3">
-    <div class="content-header">
+<div class="content-header">
         <div class="container-fluid">
             <form>
                 <div class="form-inline">
+                    <div class="input-group app-shadow">
+                        <div class="input-group-append">
+                            <div class="input-group-text bg-white border-0">
+                                <span><i class="fa fa-search"></i> </span>
+                            </div>
+                        </div>
+                        <input type="search" placeholder="Search" aria-label="Search..." class="form-control input-flat border-0" id="search">
+                    </div>
                     <a href="{{ route('kategori_lembur.create') }}" class="btn btn-default app-shadow d-none d-md-inline-block ml-auto">
                         <i class="fas fa-user-plus fa-fw"></i> Tambah
                     </a>
@@ -25,7 +33,7 @@
                             Kategori Lembur
                             <span id="count" class="badge badge-danger float-right float-xl-right mt-1"></span>
                         </div>
-                        <table id="itemtable" class="table table-hover table-striped">
+                        <table id="datatable" class="table table-hover table-striped">
                             <thead>
                                 <tr>
                                     <th class="text-center" style="width: 100px;">No</th>
