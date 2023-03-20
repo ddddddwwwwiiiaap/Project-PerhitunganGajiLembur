@@ -8,12 +8,6 @@
                     <div class="card text-justify">
                         <div class="card-header">
                             {{ $title ?? 'Butuh Bantuan' }}
-                            <div class="float-right">
-                                <a href="#" class="text-secondary nav-link pt-0 pb-0 pr-0 rounded-circle" title="Lihat opsi" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                <div class="dropdown-menu text-center pl-3" style="width: 20px;">
-                                    <a href="javascript:void(0)" class="text-secondary"><i class="fa fa-question"></i> Buat Form Bantuan</a><br>
-                                </div>
-                            </div>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Description</h5>
@@ -21,9 +15,6 @@
                                 dibingunkan silahkan anda baca cara penggunaan icon yang ada dibawah ini atau hubungi adminsitrator atau developer untuk lebih cepat mengatasi masalah yang dihadapi.
                                 selanjutnya anda juga dapat membuat form pengaduan atau form bantuan untuk di kirim ke developer. silahkan anda buat form bantuan yang ada dibawah ini :
                             </p>
-                        </div>
-                        <div class="card-footer text-muted">
-                            <button type="submit" class="btn btn-primary">Buat Form Bantuan</button>
                         </div>
                     </div>
                 </div>
