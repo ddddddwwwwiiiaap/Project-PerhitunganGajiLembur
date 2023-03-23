@@ -19,7 +19,7 @@ class CreateTableSalary extends Migration
             $table->double('salary')->default(0);
             $table->string('periode')->nullable();
             $table->integer('jumlah_jam_lembur');
-            $table->integer('jumlah_jam_lembur_berdasarkan_periode');
+            $table->integer('jumlah_jam_lembur_periode');
             $table->integer('gaji_lembur_perjam');
             $table->integer('jumlah_uang_lembur');
             $table->integer('gaji_pokok');

@@ -66,7 +66,7 @@ class Lembur_PegawaiController extends Controller
         $kategori_lembur = Kategori_Lembur::where('position_id', $staff->position_id)->where('departement_id', $staff->departement_id)->first();
 
         $lembur_pegawai = new Lembur_Pegawai;
-        //$lembur_pegawai->jumlah_jam_lembur_berdasarkan_periode = $jumlah_jam_lembur_berdasarkan_periode;
+        //$lembur_pegawai->jumlah_jam_lembur_periode = $jumlah_jam_lembur_periode;
         $lembur_pegawai->kategori_lembur_id = $kategori_lembur->id;
         $lembur_pegawai->staff_id = $request->staff_id;
         $lembur_pegawai->periode = $request->periode;

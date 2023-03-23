@@ -72,6 +72,11 @@
                                             </th>
                                             <th>
                                                 <center>
+                                                    Status
+                                                </center>
+                                            </th>
+                                            <th>
+                                                <center>
                                                     Total Jam Lembur
                                                 </center>
                                             </th>
@@ -94,13 +99,14 @@
                                                     Total Gaji
                                                 </center>
                                             </th>
+                                            <tr>
                                         </tr>
 
                                     </thead>
                                     <tbody>
                                         @forelse ($salary as $item)
                                         <tr style="line-height: 1;">
-                                        <td class="text-center">
+                                            <td class="text-center">
                                                 <a href="#" class="text-secondary nav-link p-0" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="fas fa-ellipsis-v"></i>
                                                 </a>
@@ -117,7 +123,12 @@
                                             </td>
                                             <td>
                                                 <center>
-                                                    {{ $item->jumlah_jam_lembur_berdasarkan_periode . ' Jam' }}
+                                                    <span class="badge {{ $item->status_gaji == 'Lunas' ? 'badge-success' : 'badge-danger' }}">{{ $item->status_gaji ?? 'Belum Lunas' }}</span>
+                                                </center>
+                                            </td>
+                                            <td>
+                                                <center>
+                                                    {{ $item->jumlah_jam_lembur_periode . ' Jam' }}
                                                 </center>
                                             </td>
                                             <td>
@@ -132,7 +143,7 @@
                                             </td>
                                             <td>
                                                 <center>
-                                                {{ 'Rp. ' . number_format($item->staff->position->salary ?? '', 0, ',', '.') }} {{ $item->staff->position->status == 'Staff' ? '/ Bln' : '/ Bln' }}
+                                                    {{ 'Rp. ' . number_format($item->staff->position->salary ?? '', 0, ',', '.') }} {{ $item->staff->position->status == 'Staff' ? '/ Bln' : '/ Bln' }}
                                                 </center>
                                             </td>
                                             <td>
@@ -151,6 +162,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
+                            
                             <div class="text-right">
                                 @if (!empty($filter))
                                 <a href="{{ route('salary.export.excel', [$staff->id, $filter]) }}" class="btn btn-success btn-sm" id="export-excel">
@@ -177,10 +189,10 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.6-rc.1/dist/js/select2.min.js"></script>
 
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-    <script src="{{ asset('js/sweetalert.min.js') }}"></script>
-    <script src="{{ asset('js/sweetalert-dev.js') }}"></script>
-    <script src="{{ asset('js/datatables.js') }}"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{ asset('js/sweetalert.min.js') }}"></script>
+<script src="{{ asset('js/sweetalert-dev.js') }}"></script>
+<script src="{{ asset('js/datatables.js') }}"></script>
 @include('alert.mk-notif')
 <script>
     $('.select2').select2({
@@ -199,35 +211,34 @@
         $('#export-excel').removeClass("disabled");
     }
 
-    function hapus(id){
-            swal({
-            title: 'Yakin.. ?',
-            text: "Data anda akan dihapus. Tekan tombol yes untuk melanjutkan.",
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes!',
-            closeOnConfirm: false,
-            closeOnCancel: false
+    function hapus(id) {
+        swal({
+                title: 'Yakin.. ?',
+                text: "Data anda akan dihapus. Tekan tombol yes untuk melanjutkan.",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes!',
+                closeOnConfirm: false,
+                closeOnCancel: false
             },
-            function(isConfirm){
+            function(isConfirm) {
                 if (isConfirm) {
                     $.ajax({
-                        url:"{{URL::to('/salary/destroyDetail')}}",
-                        data:"id=" + id ,
-                        success: function(data)
-                        {
+                        url: "{{URL::to('/salary/destroyDetail')}}",
+                        data: "id=" + id,
+                        success: function(data) {
                             swal("Deleted", data.message, "success");
                             $("#count").html(data.count);
-                            $("#hide"+id).hide(300);
+                            $("#hide" + id).hide(300);
                         }
                     });
-                    
-                }else{
-                    swal("Canceled", "Anda Membatalkan! :)","error");
+
+                } else {
+                    swal("Canceled", "Anda Membatalkan! :)", "error");
                 }
             });
-        }
+    }
 </script>
 @endsection

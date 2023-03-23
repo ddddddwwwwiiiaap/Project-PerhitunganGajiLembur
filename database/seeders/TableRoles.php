@@ -11,7 +11,7 @@ class TableRoles extends Seeder
     {
         $roles = [
             ['name'=>'admin', 'display_name'=>'Administrator'],
-            ['name'=>'karyawan', 'display_name'=>'Karyawan'],
+            ['name'=>'petugas', 'display_name'=>'petugas'],
         ];
         foreach($roles as $row)
         {

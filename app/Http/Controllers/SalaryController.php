@@ -90,22 +90,22 @@ class SalaryController extends Controller
             'total' => 'nullable',
         ]);
 
-        $jumlah_jam_lembur_berdasarkan_periode = Lembur_Pegawai::where('staff_id', $request->staff_id)->where('periode', $request->periode)->sum('jumlah_jam');
+        $jumlah_jam_lembur_periode = Lembur_Pegawai::where('staff_id', $request->staff_id)->where('periode', $request->periode)->sum('jumlah_jam');
 
         $jumlah_jam_lembur = $request->jumlah_jam;
 
-        $jumlah_jam_lembur_berdasarkan_periode += $jumlah_jam_lembur;
+        $jumlah_jam_lembur_periode += $jumlah_jam_lembur;
 
         $staff = Staff::where('id', $request->staff_id)->first(); //berfungsi 
         $kategori_lembur = Kategori_Lembur::where('position_id', $staff->position_id)->where('departement_id', $staff->departement_id)->first();
         $position = Position::where('id', $staff->position_id)->first();
 
         $request->merge([
-            'jumlah_jam_lembur_berdasarkan_periode' => $jumlah_jam_lembur_berdasarkan_periode,
+            'jumlah_jam_lembur_periode' => $jumlah_jam_lembur_periode,
             'gaji_lembur_perjam' => $kategori_lembur->besaran_uang,
-            'jumlah_uang_lembur' => $kategori_lembur->besaran_uang * $jumlah_jam_lembur_berdasarkan_periode,
+            'jumlah_uang_lembur' => $kategori_lembur->besaran_uang * $jumlah_jam_lembur_periode,
             'salary' => $position->salary,
-            'total' => $position->salary + ($kategori_lembur->besaran_uang * $jumlah_jam_lembur_berdasarkan_periode),
+            'total' => $position->salary + ($kategori_lembur->besaran_uang * $jumlah_jam_lembur_periode),
         ]);
 
         $request->request->add(['tgl_salary' => date('Y-m-d', strtotime($request->tgl_salary))]);
@@ -178,16 +178,16 @@ class SalaryController extends Controller
     public function destroyDetail(Request $request)
     {
         $id = $request->id;
-        if ($id){
+        if ($id) {
             $salary = Salary::find($id);
-            if($salary){
+            if ($salary) {
                 $salary->delete();
                 $message = [
                     'alert-type' => 'success',
                     'message' => 'Data salary deleted successfully'
                 ];
                 return redirect()->route('salary.index')->with($message);
-            }else{
+            } else {
                 $message = [
                     'alert-type' => 'error',
                     'message' => 'Data salary not found'
@@ -238,5 +238,28 @@ class SalaryController extends Controller
             ->get();
         $data['filter'] = $f;
         return view('salary.excel', $data);
+    }
+
+    public function statusGaji(Request $request)
+    {
+        $id = $request->id;
+        if ($id) {
+            $salary = Salary::find($id);
+            if ($salary) {
+                $salary->status = $request->status;
+                $salary->save();
+                $message = [
+                    'alert-type' => 'success',
+                    'message' => 'Status salary updated successfully'
+                ];
+                return redirect()->route('salary.index')->with($message);
+            } else {
+                $message = [
+                    'alert-type' => 'error',
+                    'message' => 'Data salary not found'
+                ];
+                return redirect()->route('salary.index')->with($message);
+            }
+        }
     }
 }

@@ -81,14 +81,16 @@
 
 </div>
 <div class="card-footer">
-    <div class="float-left">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="dibayar" name="status_gaji" value="Lunas" class="toggle-form-dibayar" checked>
-            <label class="form-check-label" for="dibayar">
-                Tandai telah di gaji
-            </label>
+
+<!--buatkan code tambah telah di gaji di role admin saja-->
+    @if (Auth::user()->role == 'admin')
+    <div class="form-group">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck1" name="is_paid">
+            <label class="custom-control-label" for="customCheck1">Telah Dibayar</label>
         </div>
     </div>
+    @endif
     <div class="text-right">
         <div class="form-group mb-0">
             <a href="{{ url()->previous() }}" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Back</a>

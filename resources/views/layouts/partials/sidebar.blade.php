@@ -3,7 +3,7 @@
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
     <a class="nav-link {{ (request()->segment(2) == 'dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
       <img src="http://files.web.neo.id/08/a3/08a3e4e2-1504-4355-ac9c-3b8e878c92f6.jpg" class="navbar-brand-img h-100" alt="main_logo">
-      <span class="ms-1 font-weight-bold">Perhitungan Gaji Lembur BRI</span>
+      <span class="ms-1 font-weight-bold">Perhitungan Gaji Lembur</span>
     </a>
   </div>
   <hr class="horizontal dark mt-0">

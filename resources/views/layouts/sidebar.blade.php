@@ -103,6 +103,33 @@
                     </li>
 
                     <li class="nav-item">
+                        <a href="{{ route('roles.index') }}" class="nav-link {{ $page == 'roles' ? 'active' : '' }}">
+                            <i class="nav-icon fa fa-user-circle-o"></i>
+                            <p>Roles</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
+                            <i class="nav-icon fa fa-sign-out"></i>
+                            <p>Logout</p>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+                @endif
+                @if (Auth::user()->hasRole('petugas'))
+                    <li class="nav-item">
+                        <a href="{{ route('salary.index') }}" class="nav-link {{ $page == 'salary' ? 'active' : '' }}">
+                            <i class="nav-icon fa fa-money"></i>
+                            <p>Penggajian</p>
+                        </a>
+                    </li>
+               
+                    <li class="nav-header">Special Menu</li>
+
+                    <li class="nav-item">
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
                             <i class="nav-icon fa fa-sign-out"></i>
                             <p>Logout</p>

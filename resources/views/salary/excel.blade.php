@@ -75,7 +75,7 @@ header ("Content-Disposition: attachment; filename=Laporan-salary-staff-".strtol
                 </td>
                 <td>
                     <center>
-                        {{ $item->jumlah_jam_lembur_berdasarkan_periode }}
+                        {{ $item->jumlah_jam_lembur_periode }}
                     </center>
                 </td>
                 <td>
