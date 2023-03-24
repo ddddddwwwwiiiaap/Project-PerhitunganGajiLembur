@@ -99,7 +99,12 @@
                                                     Total Gaji
                                                 </center>
                                             </th>
-                                            <tr>
+                                            <th>
+                                                <center>
+                                                    Aksi
+                                                </center>
+                                            </th>
+                                        <tr>
                                         </tr>
 
                                     </thead>
@@ -123,7 +128,7 @@
                                             </td>
                                             <td>
                                                 <center>
-                                                    <span class="badge {{ $item->status_gaji == 'Lunas' ? 'badge-success' : 'badge-danger' }}">{{ $item->status_gaji ?? 'Belum Lunas' }}</span>
+                                                <span class="badge {{ $item->status_gaji == 'sudah di ACC' ? 'badge-success' : 'badge-danger' }}">{{ $item->status_gaji ?? 'belum di ACC' }}</span>
                                                 </center>
                                             </td>
                                             <td>
@@ -151,6 +156,17 @@
                                                     {{ 'Rp. ' . number_format($item->total, 0, ',', '.') }}
                                                 </center>
                                             </td>
+                                            <td>
+                                                <center>
+                                                <a href="{{ route('salary.statusgaji', $item->id) }}" class="btn btn-sm btn-danger" title="Belum Lunas" data-toggle="tooltip" data-placement="right">
+                                                        <i class="fas fa-times"></i>
+                                                    </a>
+                                                    <a href="{{ route('salary.statusgaji', $item->id) }}" class="btn btn-sm btn-success" title="Lunas" data-toggle="tooltip" data-placement="right">
+                                                        <i class="fas fa-check"></i>
+                                                    </a>
+
+                                                </center>
+                                            </td>
                                         </tr>
                                         @empty
                                         <tr>
@@ -162,7 +178,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            
+
                             <div class="text-right">
                                 @if (!empty($filter))
                                 <a href="{{ route('salary.export.excel', [$staff->id, $filter]) }}" class="btn btn-success btn-sm" id="export-excel">

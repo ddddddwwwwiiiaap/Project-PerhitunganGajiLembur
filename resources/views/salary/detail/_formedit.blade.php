@@ -82,6 +82,18 @@
 </div>
 <div class="card-footer">
 
+<!--hanya tampil di role admin saja-->
+
+    <div class="float-left">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="dibayar" name="status_gaji" value="Lunas" class="toggle-form-dibayar" checked>
+            <label class="form-check-label" for="dibayar">
+                Tandai telah di gaji
+            </label>
+        </div>
+    </div>
+
+
     <div class="text-right">
         <div class="form-group mb-0">
             <a href="{{ url()->previous() }}" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Back</a>

@@ -65,6 +65,29 @@ class SalaryController extends Controller
         return view('salary.detail.create', $data);
     }
 
+    public function storeedit(Request $request)
+    {
+        $request->validate([
+            'status' => 'required',
+            'periode' => 'required',
+        ]);
+
+        if (empty($request->session()->get('salary'))) {
+            $salary = new Salary();
+            $salary->fill($request->all());
+            $request->session()->put('salary', $salary);
+        } else {
+            $salary = $request->session()->get('salary');
+            $salary->fill($request->all());
+            $request->session()->put('salary', $salary);
+        }
+
+        $data['request'] = $request->session()->get('salary');
+        $data['position'] = Position::where('status', $request->status)->get();
+        $data['staff'] = Staff::all();
+        return view('salary.detail.createedit', $data);
+    }
+
     public function getSalary(Request $request)
     {
         $id = $request->staff_id;
@@ -96,7 +119,7 @@ class SalaryController extends Controller
 
         $jumlah_jam_lembur_periode += $jumlah_jam_lembur;
 
-        $staff = Staff::where('id', $request->staff_id)->first(); //berfungsi 
+        $staff = Staff::where('id', $request->staff_id)->first();
         $kategori_lembur = Kategori_Lembur::where('position_id', $staff->position_id)->where('departement_id', $staff->departement_id)->first();
         $position = Position::where('id', $staff->position_id)->first();
 
@@ -131,16 +154,18 @@ class SalaryController extends Controller
             ];
         }
 
+
         return redirect()->route('salary.index')->with($message);
     }
 
-    public function edit(Salary $salary)
+    public function editDetail($id)
     {
         $data['title'] = "Edit Salary";
         $data['staff'] = Staff::all();
-        $data['salary'] = $salary;
-        return view('salary.edit', $data);
+        $data['salary'] = Salary::find($id);
+        return view('salary.detail.edit', $data);
     }
+
 
     public function update(Request $request, Salary $salary)
     {
@@ -164,9 +189,23 @@ class SalaryController extends Controller
             'uang_overtime' => 'required|max:20',
             'pot_bpjs' => 'nullable|max:13',
             'tgl_salary' => 'required',
+            'status_gaji' => 'required',
         ]);
 
         $salary->update($request->all());
+
+        $message = [
+            'alert-type' => 'success',
+            'message' => 'Data salary updated successfully'
+        ];
+        return redirect()->route('salary.index')->with($message);
+    }
+
+    public function updateStatus(Salary $salary)
+    {
+        $salary->update([
+            'status_gaji' => '1',
+        ]);
 
         $message = [
             'alert-type' => 'success',
@@ -240,26 +279,23 @@ class SalaryController extends Controller
         return view('salary.excel', $data);
     }
 
-    public function statusGaji(Request $request)
+    //button untuk merubah status_gaji dari belum lunas menjadi lunas dan sebaliknya pada halaman detail salary
+    public function statusgaji($id)
     {
-        $id = $request->id;
-        if ($id) {
-            $salary = Salary::find($id);
-            if ($salary) {
-                $salary->status = $request->status;
-                $salary->save();
-                $message = [
-                    'alert-type' => 'success',
-                    'message' => 'Status salary updated successfully'
-                ];
-                return redirect()->route('salary.index')->with($message);
-            } else {
-                $message = [
-                    'alert-type' => 'error',
-                    'message' => 'Data salary not found'
-                ];
-                return redirect()->route('salary.index')->with($message);
-            }
+        $salary = Salary::find($id);
+        if ($salary->status_gaji == "belum di ACC") {
+            $salary->update([
+                'status_gaji' => 'sudah di ACC',
+            ]);
+        } else {
+            $salary->update([
+                'status_gaji' => "belum di ACC",
+            ]);
         }
+        $message = [
+            'alert-type' => 'success',
+            'message' => 'Data salary updated successfully'
+        ];
+        return redirect()->route('salary.index')->with($message);
     }
 }

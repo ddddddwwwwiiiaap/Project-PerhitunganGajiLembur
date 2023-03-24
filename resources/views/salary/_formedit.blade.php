@@ -1,35 +1,49 @@
-<div class="card-body pt-0 pl-1 pr-1 pb-0">
-
-    @if (empty($staff))
-    <div class="alert alert-warning text-justify">
-        <strong>Warning !!</strong> Data staff belum ada, anda tidak dapat melakukan absensi. Silahkan input data staff terlebih dulu
-        <a class="float-right" href="{{ route('salary.index') }}" data-toggle="tooltip" title="Silahkan klik untuk menginput data pekerja" style="text-decoration-color: blue;">
-            <span class="text-primary">Input Sekarang ?</span>
-        </a>
-    </div>
-    @endif
-
-    
-
-</div>
-<div class="card-footer">
-    <!--edit status_gaji-->
-    @if ($salary->status_gaji == 'Belum Dibayar')
-    <div class="form-group row">
-        <label for="status_gaji" class="col-sm-2 col-form-label">Status Gaji</label>
-        <div class="col-sm-10">
-            <select name="status_gaji" id="status_gaji" class="form-control select2">
-                <option value="Belum Dibayar" selected>Belum Dibayar</option>
-                <option value="Sudah Dibayar">Sudah Dibayar</option>
-            </select>
+<div class="card-body">
+    <div class="card card-solid">
+        <div class="card-body pb-0 pt-3">
+            <blockquote>
+            <b>Keterangan!!</b><br>
+            <small><cite title="Source Title">Inputan Yang Ditanda Bintang Merah (<span class="text-danger">*</span>) Harus Di Isi !!</cite></small>
+            </blockquote>
         </div>
     </div>
-    @else
-    @endif
-    <div class="text-right">
+    <div class="card-header with-border pl-0 pb-1">
+        <span class="col-form-label text-bold">STATUS</span>
+    </div>
+    <br> 
+    <div class="form-group row">
+        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Pilih Status Position Staff <span class="text-danger">*</span></label> 
+        <div class="col-12 col-md-5 col-lg-5">
+            <select name="status" class="form-control select2 @error('status') is-invalid @enderror">
+                <option value=""></option>
+                <option value="Staff" {{ "Staff" == old('status', $salary['status'] ?? '') ? 'selected' : '' }}>Staff</option>
+                <option value="Daily Worker" {{ "Daily Worker" == old('status', $salary->status ?? '') ? 'selected' : '' }}>Daily Worker</option>
+            </select>
+            @error('status')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('+') }}</strong>
+                </span>
+            @enderror
+        </div> 
+    </div>
+
+    <div class="form-group row">
+        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Periode <span class="text-danger">*</span></label> 
+        <div class="col-12 col-md-5 col-lg-5">
+            <input type="text" name="periode" class="form-control datepicker @error('periode') is-invalid @enderror" value="{{ old('periode', $salary->periode ?? '') }}" placeholder="bulan-tahun.." autocomplete="off" onkeypress="return false">
+            @error('periode')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('periode') }}</strong>
+                </span>
+            @enderror
+        </div> 
+    </div>
+</div>
+<div class="card-footer">
+    <div class="float-right">
         <div class="form-group mb-0">
-            <a href="{{ url()->previous() }}" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Back</a>
-            <button type="submit" class="btn btn-primary" name="submit"><i class="fas fa-check mr-1"></i> Simpan</button>
+            <button type="reset" class="btn btn-secondary"><i class="fas fa-undo mr-1"></i> Reset</button>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-right mr-1"></i> Next</button>
         </div>
     </div>
 </div>

@@ -18,4 +18,13 @@ class Salary extends Model
     {
         return $this->belongsTo(Staff::class, 'staff_id');
     }
+
+    public function updateStatus($id, $status)
+    {
+        //update status gaji
+        $salary = Salary::find($id);
+        $salary->status_gaji = $status;
+        $salary->save();
+    }
 }
+

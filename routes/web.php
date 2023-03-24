@@ -87,10 +87,17 @@ Route::middleware('auth')->group(function () {
         Route::middleware('role:admin|accounting')->group(function () {
             Route::get('salary/create', 'SalaryController@create')->name('salary.create');
             Route::post('salary/detail/create', 'SalaryController@store')->name('salary.store');
+            Route::post('salary/detail.edit', 'SalaryController@storeedit')->name('salary.storeedit');
             Route::post('salary/detail/create/store', 'SalaryController@storeDetail')->name('salary.detail.store');
             Route::get('salary/detail/{salary}/edit', 'SalaryController@edit')->name('salary.edit');
-
+            //salary editDetail
+            Route::get('salary/detail/{salary}/editDetail', 'SalaryController@editDetail')->name('salary.editDetail');
+            
             Route::patch('salary/{salary}/update', 'SalaryController@update')->name('salary.update');
+            //updateStatus
+            Route::get('salary/{salary}/updateStatus', 'SalaryController@updateStatus')->name('salary.updateStatus');
+            //updateStatusGaji
+            Route::get('salary/{salary}/statusgaji', 'SalaryController@statusgaji')->name('salary.statusgaji');
             Route::get('staff/get_salary', 'SalaryController@getSalary');
             Route::get('salary/{id}', 'SalaryController@destroyDetail')->name('salary.destroyDetail');
             Route::get('salary/export/excel/id={id}/filter={filter}', 'SalaryController@excel')->name('salary.export.excel');
