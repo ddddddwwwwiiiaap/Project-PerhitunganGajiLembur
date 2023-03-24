@@ -45,12 +45,27 @@ header ("Content-Disposition: attachment; filename=Laporan-salary-staff-".strtol
             <tr style="background-color: royalblue">
                 <th>
                     <center>
+                        No
+                    </center>
+                </th>
+                <th>
+                    <center>
                         Periode
                     </center>
                 </th>
                 <th>
                     <center>
-                        Total Lembur
+                        Status
+                    </center>
+                </th>
+                <th>
+                    <center>
+                        Total Jam Lembur
+                    </center>
+                </th>
+                <th>
+                    <center>
+                        Gaji Lembur Perjam
                     </center>
                 </th>
                 <th>
@@ -58,6 +73,10 @@ header ("Content-Disposition: attachment; filename=Laporan-salary-staff-".strtol
                         Total Gaji Lembur
                     </center>
                 </th>
+                <th>
+                    <center>
+                        Gaji Perbulan
+                    </center>
                 <th>
                     <center>
                         Total Gaji
@@ -70,17 +89,37 @@ header ("Content-Disposition: attachment; filename=Laporan-salary-staff-".strtol
             <tr style="line-height: 1;">
                 <td>
                     <center>
+                        {{ $loop->iteration }}
+                    </center>
+                </td>
+                <td>
+                    <center>
                         {{ ucwords($item->periode) }}
                     </center>
                 </td>
                 <td>
                     <center>
-                        {{ $item->jumlah_jam_lembur_periode }}
+                        <span class="badge {{ $item->status_gaji == 'sudah di ACC' ? 'badge-success' : 'badge-danger' }}">{{ $item->status_gaji ?? 'belum di ACC' }}</span>
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        {{ $item->jumlah_jam_lembur_periode . ' Jam' }}
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        {{ 'Rp. ' . number_format($item->gaji_lembur_perjam, 0, ',', '.') }}
                     </center>
                 </td>
                 <td>
                     <center>
                         {{ 'Rp. ' . number_format($item->jumlah_uang_lembur, 0, ',', '.') }}
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        {{ 'Rp. ' . number_format($item->staff->position->salary ?? '', 0, ',', '.') }} {{ $item->staff->position->status == 'Staff' ? '/ Bln' : '/ Bln' }}
                     </center>
                 </td>
                 <td>

@@ -121,10 +121,14 @@ header ("Content-Disposition: attachment; filename=Laporan-Lembur-Pegawai-period
                     <center>{{$data->jumlah_jam}}</center>
                 </td>
                 <td>
-                    <center>{{$data->Kategori_lembur->besaran_uang}}</center>
+                    <center>
+                        {{ 'Rp. ' . number_format($data->Kategori_lembur->besaran_uang ?? '', 0, ',', '.') }}
+                    </center>
                 </td>
                 <td>
-                    <center>{{$data->jumlah_jam * $data->Kategori_lembur->besaran_uang}}</center>
+                    <center>
+                        {{ 'Rp. ' . number_format($data->jumlah_jam * $data->Kategori_lembur->besaran_uang ?? '', 0, ',', '.') }}
+                    </center>
                 </td>
                 <td>
                     <center>{{$data->tanggal_lembur}}</center>
