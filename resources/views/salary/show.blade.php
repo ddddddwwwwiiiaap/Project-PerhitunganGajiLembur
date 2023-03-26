@@ -101,7 +101,7 @@
                                             </th>
                                             <th>
                                                 <center>
-                                                    Aksi
+                                                    Persetujuan
                                                 </center>
                                             </th>
                                         <tr>
