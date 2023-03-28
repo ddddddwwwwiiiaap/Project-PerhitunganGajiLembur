@@ -158,10 +158,10 @@
                                             </td>
                                             <td>
                                                 <center>
-                                                <a href="{{ route('salary.statusgaji', $item->id) }}" class="btn btn-sm btn-danger" title="Belum Lunas" data-toggle="tooltip" data-placement="right">
+                                                <a href="{{ route('salary.statusgaji', $item->id) }}" class="btn btn-sm btn-danger" title="Belum Di ACC" data-toggle="tooltip" data-placement="right">
                                                         <i class="fas fa-times"></i>
                                                     </a>
-                                                    <a href="{{ route('salary.statusgaji', $item->id) }}" class="btn btn-sm btn-success" title="Lunas" data-toggle="tooltip" data-placement="right">
+                                                    <a href="{{ route('salary.statusgaji', $item->id) }}" class="btn btn-sm btn-success" title="Sudah Di ACC" data-toggle="tooltip" data-placement="right">
                                                         <i class="fas fa-check"></i>
                                                     </a>
 
