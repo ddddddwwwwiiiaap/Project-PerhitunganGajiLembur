@@ -3,7 +3,7 @@ header ("Cache-Control: no-cache, must-revalidate");
 header ("Pragma: no-cache");
 header ("Content-type: application/x-msexcel");
 header ("Content-type: application/octet-stream");
-header ("Content-Disposition: attachment; filename=Laporan-salary-staff-".strtolower($staff->name)."-periode-".ucwords($filter ?? 'All').".xls");
+header ("Content-Disposition: attachment; filename=Laporan-salary-staff-".strtolower($staff->name).ucwords($filter ?? 'All').".xls");
 @endphp
 <!DOCTYPE html>
 <html>

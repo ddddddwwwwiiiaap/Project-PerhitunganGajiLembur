@@ -14,7 +14,7 @@
 
 <footer class="main-footer d-none d-md-block ">
     <div class="float-right">
-    Pembuat : <a href="#" data-toggle="tooltip" title="Lihat Situs" target="_blank">Dwi Aprilya Anggoro Putry & Prizandeva Oktura Rizqy</a>
+    Pembuat : <a data-toggle="tooltip" target="_blank">Dwi Aprilya Anggoro Putry & Prizandeva Oktura Rizqy</a>
     </div>
-    <strong>Copyright &copy; {{ date('Y') }} <a href="#" data-toggle="tooltip" title="Lihat Situs" target="_blank">Dwi Aprilya Anggoro Putry & Prizandeva Oktura Rizqy</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; {{ date('Y') }} <a data-toggle="tooltip" target="_blank">Dwi Aprilya Anggoro Putry & Prizandeva Oktura Rizqy</a>.</strong> All rights reserved.
 </footer>

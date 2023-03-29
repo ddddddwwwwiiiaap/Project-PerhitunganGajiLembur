@@ -283,13 +283,13 @@ class SalaryController extends Controller
     public function statusgaji($id)
     {
         $salary = Salary::find($id);
-        if ($salary->status_gaji == "belum di ACC") {
+        if ($salary->status_gaji == "Unverified") {
             $salary->update([
-                'status_gaji' => 'sudah di ACC',
+                'status_gaji' => 'Verified',
             ]);
         } else {
             $salary->update([
-                'status_gaji' => "belum di ACC",
+                'status_gaji' => "Unverified",
             ]);
         }
         $message = [

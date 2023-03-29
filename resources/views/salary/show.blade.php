@@ -128,7 +128,7 @@
                                             </td>
                                             <td>
                                                 <center>
-                                                <span class="badge {{ $item->status_gaji == 'sudah di ACC' ? 'badge-success' : 'badge-danger' }}">{{ $item->status_gaji ?? 'belum di ACC' }}</span>
+                                                <span class="badge {{ $item->status_gaji == 'Verified' ? 'badge-success' : 'badge-danger' }}">{{ $item->status_gaji ?? 'Unverified' }}</span>
                                                 </center>
                                             </td>
                                             <td>
@@ -158,10 +158,10 @@
                                             </td>
                                             <td>
                                                 <center>
-                                                <a href="{{ route('salary.statusgaji', $item->id) }}" class="btn btn-sm btn-danger" title="Belum Di ACC" data-toggle="tooltip" data-placement="right">
+                                                <a href="{{ route('salary.statusgaji', $item->id) }}" class="btn btn-sm btn-danger" title="Unverified" data-toggle="tooltip" data-placement="right">
                                                         <i class="fas fa-times"></i>
                                                     </a>
-                                                    <a href="{{ route('salary.statusgaji', $item->id) }}" class="btn btn-sm btn-success" title="Sudah Di ACC" data-toggle="tooltip" data-placement="right">
+                                                    <a href="{{ route('salary.statusgaji', $item->id) }}" class="btn btn-sm btn-success" title="Verified" data-toggle="tooltip" data-placement="right">
                                                         <i class="fas fa-check"></i>
                                                     </a>
 
