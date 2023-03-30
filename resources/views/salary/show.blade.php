@@ -97,7 +97,7 @@
                                             </th>
                                             <th>
                                                 <center>
-                                                    <p style="text-align: center;">Jml jam</p>
+                                                    <p style="text-align: center;">Total Jumlah Jam</p>
                                                 </center>
                                             </th>
                                             <th>
@@ -107,12 +107,7 @@
                                             </th>
                                             <th>
                                                 <center>
-                                                    <p style="text-align: center;">Jumlah<br> Upah<br> Lembur</p>
-                                                </center>
-                                            </th>
-                                            <th>
-                                                <center>
-                                                    <p style="text-align: center;">Pembulatan</p>
+                                                    <p style="text-align: center;">Total<br> Upah<br> Lembur</p>
                                                 </center>
                                             </th>
                                             <th>
@@ -178,13 +173,9 @@
                                             </td>
                                             <td>
                                                 <center>
-                                                {{ 'Rp. ' . number_format($item->staff->jumlah * $item->jumlah_jam_lembur_periode * 0.0058 * 2 ?? '', 0, ',', '.') }}
+                                                    {{ 'Rp. ' . number_format($item->jumlah_upah_lembur_periode ?? '', 0, ',', '.') }}
                                                 </center>
                                             </td>
-                                            <td>
-                                                <center>
-                                                {{ 'Rp. ' . number_format(round($item->staff->jumlah * $item->jumlah_jam_lembur_periode * 0.0058 * 2, -3), 0, ',', '.') }}
-                                                </center>
                                             <td>
                                                 <center>
                                                     <a href="{{ route('salary.statusgaji', $item->id) }}" class="btn btn-sm btn-danger" title="Unverified" data-toggle="tooltip" data-placement="right">

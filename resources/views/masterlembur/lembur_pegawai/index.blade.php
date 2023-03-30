@@ -66,11 +66,6 @@
                                         </th>
                                         <th>
                                             <center>
-                                                <p>Periode</p>
-                                            </center>
-                                        </th>
-                                        <th>
-                                            <center>
                                                 <p>Nama</p>
                                             </center>
                                         </th>
@@ -172,9 +167,6 @@
                                             <center>{{$no++}}</center>
                                         </td>
                                         <td>
-                                            <center>{{$data->periode}}</center>
-                                        </td>
-                                        <td>
                                             <center>{{$data->staff->name}}</center>
                                         </td>
                                         <td>
@@ -225,14 +217,13 @@
                                         </td>
                                         <td>
                                             <center>
-                                                <!--salary_position di tambah salary_departemen dikali jumlah_jam dikali 1/173 dikali 2-->
-                                                {{ 'Rp. ' . number_format($data->staff->jumlah * $data->jumlah_jam * 0.0058 * 2 ?? '', 0, ',', '.') }}
+                                                Rp. {{ number_format($data->jumlah_upah_lembur ?? '', 0, ',', '.')}}
                                             </center>
                                         </td>
                                         <td>
                                             <center>
                                                 <!--Untuk membulatkan ribu rupiah dari 500-999 ke atas 0-499 ke bawah-->
-                                                {{ 'Rp. ' . number_format(round($data->staff->jumlah * $data->jumlah_jam * 0.0058 * 2, -3), 0, ',', '.') }}
+                                                Rp. {{ number_format($data->pembulatan ?? '', 0, ',', '.')}}
 
                                             </center>
                                         </td>

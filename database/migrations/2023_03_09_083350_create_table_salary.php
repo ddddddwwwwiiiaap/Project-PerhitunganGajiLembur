@@ -16,12 +16,15 @@ class CreateTableSalary extends Migration
         Schema::create('tb_salary', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('staff_id');
+            $table->unsignedInteger('lembur_pegawai_id')->nullable();
             $table->double('salary')->default(0);
             $table->string('periode')->nullable();
             $table->integer('jumlah_jam_lembur');
             $table->integer('jumlah_jam_lembur_periode');
             $table->integer('gaji_lembur_perjam');
             $table->integer('jumlah_uang_lembur');
+            $table->integer('jumlah_upah_lembur_periode');
+            $table->integer('total_upah');
             $table->integer('gaji_pokok');
             $table->double('total')->nullable()->default(0);
             $table->string('status_gaji')->nullable();
@@ -32,6 +35,7 @@ class CreateTableSalary extends Migration
             $table->softDeletes();
 
             $table->foreign('staff_id')->references('id')->on('tb_staff')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('lembur_pegawai_id')->references('id')->on('tb_lembur_pegawai')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

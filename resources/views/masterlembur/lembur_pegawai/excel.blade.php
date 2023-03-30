@@ -42,11 +42,6 @@ header ("Content-Disposition: attachment; filename=Laporan-Lembur-Pegawai-period
                 </th>
                 <th>
                     <center>
-                        Periode
-                    </center>
-                </th>
-                <th>
-                    <center>
                         Nama
                     </center>
                 </th>
@@ -143,9 +138,6 @@ header ("Content-Disposition: attachment; filename=Laporan-Lembur-Pegawai-period
             <tr style="line-height: 1;" id="hide{{$data->id}}">
                 <td>
                     <center>{{$no++}}</center>
-                </td>
-                <td>
-                    <center>{{$data->periode}}</center>
                 </td>
                 <td>
                     <center>{{$data->staff->name}}</center>

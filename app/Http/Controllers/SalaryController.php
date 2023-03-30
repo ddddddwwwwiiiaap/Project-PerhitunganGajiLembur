@@ -111,20 +111,30 @@ class SalaryController extends Controller
             'pot_bpjs' => 'nullable',
             'transportasi' => 'nullable',
             'total' => 'nullable',
-        ]);
+        ]);        
+        
 
         $jumlah_jam_lembur_periode = Lembur_Pegawai::where('staff_id', $request->staff_id)->where('periode', $request->periode)->sum('jumlah_jam');
 
         $jumlah_jam_lembur = $request->jumlah_jam;
 
-        $jumlah_jam_lembur_periode += $jumlah_jam_lembur;
+        $jumlah_jam_lembur_periode += $jumlah_jam_lembur; 
 
+        $jumlah_upah_lembur_periode = Lembur_Pegawai::where('staff_id', $request->staff_id)->where('periode', $request->periode)->sum('pembulatan');
+
+        $jumlah_upah_lembur = $request->jumlah_upah;
+
+        $jumlah_upah_lembur_periode += $jumlah_upah_lembur;
+
+
+        
         $staff = Staff::where('id', $request->staff_id)->first();
         $position = Position::where('id', $staff->position_id)->first();
         
 
         $request->merge([
             'jumlah_jam_lembur_periode' => $jumlah_jam_lembur_periode,
+            'jumlah_upah_lembur_periode' => $jumlah_upah_lembur_periode,
             'salary' => $position->salary_position,
         ]);
 
@@ -151,7 +161,6 @@ class SalaryController extends Controller
             ];
         }
 
-
         return redirect()->route('salary.index')->with($message);
     }
 
@@ -173,11 +182,31 @@ class SalaryController extends Controller
             $staff_id_new = '';
         }
 
+        $jumlah_jam_lembur_periode = Lembur_Pegawai::where('staff_id', $request->staff_id)->where('periode', $request->periode)->sum('jumlah_jam');
+
+        $jumlah_jam_lembur = $request->jumlah_jam;
+
+        $jumlah_jam_lembur_periode += $jumlah_jam_lembur; 
+
+        $jumlah_upah_lembur_periode = Lembur_Pegawai::where('staff_id', $request->staff_id)->where('periode', $request->periode)->sum('pembulatan');
+
+        $jumlah_upah_lembur = $request->jumlah_upah;
+
+        $jumlah_upah_lembur_periode += $jumlah_upah_lembur;
+
+
+        
+        $staff = Staff::where('id', $request->staff_id)->first();
+        $position = Position::where('id', $staff->position_id)->first();
+
         $request->merge([
             'tgl_salary' => date('Y-m-d', strtotime($request->tgl_salary)),
             'salary' => preg_replace('/\D/', '', $request->salary),
             'uang_overtime' => preg_replace('/\D/', '', $request->uang_overtime),
             'pot_bpjs' => preg_replace('/\D/', '', $request->pot_bpjs),
+            'jumlah_jam_lembur_periode' => $jumlah_jam_lembur_periode,
+            'jumlah_upah_lembur_periode' => $jumlah_upah_lembur_periode,
+            'salary' => $position->salary_position,
         ]);
 
         $request->validate([

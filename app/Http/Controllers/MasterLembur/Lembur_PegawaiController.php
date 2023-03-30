@@ -54,21 +54,29 @@ class Lembur_PegawaiController extends Controller
             'periode' => 'required',
         ]);
 
+        //hitung 'jumlah upah lembur' yaitu 'jumlah' database dari tabel staff dikali 'jumlah jam' yang diinputkan user di kali '0.0058' dikali '2'
+        $staff = Staff::where('id', $request->staff_id)->first();
+        $jumlah_upah_lembur = $staff->jumlah * $request->jumlah_jam * 1 / 173 * 2;
+        $request->request->add(['jumlah_upah_lembur' => $jumlah_upah_lembur]);
+
+        //hitung jumlah upah lembur pegawai dengan pembulatan rupiah terdekat sesuai aturan bank
+        $pembulatan = round($jumlah_upah_lembur, -3);
+        $request->request->add(['pembulatan' => $pembulatan]);
+
+
         $data['request'] = $request->session()->get('salary');
         $data['position'] = Position::where('status', $request->status)->get();
         $data['staff'] = Staff::all();
 
-        //memanggil data tb_position dan tb_departement
-        $staff = Staff::where('id', $request->staff_id)->first();
-
         $lembur_pegawai = new Lembur_Pegawai;
-        //$lembur_pegawai->jumlah_jam_lembur_periode = $jumlah_jam_lembur_periode;
         $lembur_pegawai->staff_id = $request->staff_id;
         $lembur_pegawai->periode = $request->periode;
         $lembur_pegawai->mulai_lembur = $request->mulai_lembur;
         $lembur_pegawai->selesai_lembur = $request->selesai_lembur;
         $lembur_pegawai->jumlah_jam = $request->jumlah_jam;
         $lembur_pegawai->tanggal_lembur = $request->tanggal_lembur;
+        $lembur_pegawai->jumlah_upah_lembur = $request->jumlah_upah_lembur;
+        $lembur_pegawai->pembulatan = $request->pembulatan;
         $lembur_pegawai->save();
 
         $message = [
@@ -98,6 +106,16 @@ class Lembur_PegawaiController extends Controller
             'tanggal_lembur' => 'required|date',
             'periode' => 'required',
         ]);
+
+        //hitung 'jumlah upah lembur' yaitu 'jumlah' database dari tabel staff dikali 'jumlah jam' yang diinputkan user di kali '0.0058' dikali '2'
+        $staff = Staff::where('id', $request->staff_id)->first();
+        $jumlah_upah_lembur = $staff->jumlah * $request->jumlah_jam * 1 / 173 * 2;
+        $request->request->add(['jumlah_upah_lembur' => $jumlah_upah_lembur]);
+
+        //hitung jumlah upah lembur pegawai dengan pembulatan rupiah terdekat sesuai aturan bank
+        $pembulatan = round($jumlah_upah_lembur, -3);
+        $request->request->add(['pembulatan' => $pembulatan]);
+
 
         $lembur_pegawai->staff_id = $request->staff_id;
         $lembur_pegawai->periode = $request->periode;

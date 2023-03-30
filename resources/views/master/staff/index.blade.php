@@ -48,22 +48,7 @@
                                     </th>
                                     <th>
                                         <center>
-                                            NIP
-                                        </center>
-                                    </th>
-                                    <th>
-                                        <center>
-                                            Tanggal Lahir
-                                        </center>
-                                    </th>
-                                    <th>
-                                        <center>
-                                            Alamat
-                                        </center>
-                                    </th>
-                                    <th>
-                                        <center>
-                                            No. HP
+                                            PN
                                         </center>
                                     </th>
                                     <th>
@@ -108,21 +93,6 @@
                                     <td>
                                         <center>
                                             {{ $item->nip ?? '' }}
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            {{ $item->birth ?? '' }}
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            {{ $item->address ?? '' }}
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            {{ $item->phone ?? '' }}
                                         </center>
                                     </td>
                                     <td>

@@ -23,6 +23,8 @@ class CreateTableLemburPegawai extends Migration
             $table->integer('jumlah_jam');
             $table->integer('total_uang_lembur');
             $table->date('tanggal_lembur');
+            $table->double('jumlah_upah_lembur')->nullable()->default(0);
+            $table->double('pembulatan')->nullable()->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -38,12 +38,8 @@ class StaffController extends Controller
         // dd($request->all());
         $request->validate([
             'name'=>'required|max:100',
-            'birth'=>'required|date',
-            'startdate'=>'required|date',
-            'phone'=>'required|max:13',
             'position_id'=>'required',
             'departement_id'=>'required',
-            'address'=>'required',
             'nip'=>'required',
             'salary_staff'=>'required',
         ]);
@@ -110,12 +106,8 @@ class StaffController extends Controller
         
         $request->validate([
             'name'=>'required|max:100',
-            'birth'=>'required|date',
-            'startdate'=>'required|date',
-            'phone'=>'required|max:13',
             'position_id'=>'required',
             'departement_id'=>'required',
-            'address'=>'required',
             'salary_staff'=>'required',
         ]);
 
