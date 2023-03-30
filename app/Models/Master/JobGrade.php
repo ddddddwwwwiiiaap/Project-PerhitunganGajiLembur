@@ -4,10 +4,10 @@ namespace App\Models\Master;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Departement extends Model
+class JobGrade extends Model
 {
-    protected $table = 'tb_departement';
-    protected $fillable = ['name', 'salary_departemen'];
+    protected $table = 'tb_jobgrade';
+    protected $fillable = ['name', 'salary_jobgrade'];
 
     public function getNameAttribute($name)
     {

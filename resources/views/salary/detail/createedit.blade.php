@@ -103,7 +103,7 @@
                 data:{"staff_id" : staff_id, "periode": periode},
                 success: function(html)
                 {
-                    let position = html.get_position
+                    let premium = html.get_premium
                     @if($request->status != "Staff")
                         let count = html.count_kehadiran
                     @else
@@ -111,14 +111,14 @@
                     @endif
                     console.log(html);
                     $('input[name=total_kehadiran]').val(count);
-                    $('#salary_preview').html(to_rupiah(position.salary));
+                    $('#salary_preview').html(to_rupiah(premium.salary));
                     $('#total_kehadiran').html(count);
 
-                    let total_salary = parseInt(count) * parseInt(position.salary);
+                    let total_salary = parseInt(count) * parseInt(premium.salary);
                     $('#total_salary').html(to_rupiah(total_salary));
                     $('#total_salary_hidden').val(total_salary)
 
-                    $('#total_salary_hidden_preview').html(to_rupiah(position.salary));
+                    $('#total_salary_hidden_preview').html(to_rupiah(premium.salary));
                     if($('#grand_total_salary_hidden').val() == 0)
                     {
                         $('button[name=submit]').removeAttr('disabled');

@@ -16,7 +16,7 @@
                         </div>
                         <input type="search" placeholder="Search" aria-label="Search..." class="form-control input-flat border-0" id="search">
                     </div>
-                    <a href="{{ route('master.position.create') }}" class="btn btn-default app-shadow d-none d-md-inline-block ml-auto">
+                    <a href="{{ route('master.premium.create') }}" class="btn btn-default app-shadow d-none d-md-inline-block ml-auto">
                         <i class="fas fa-user-plus fa-fw"></i> Tambah
                     </a>
                 </div>
@@ -64,7 +64,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($position as $item)
+                                @foreach ($premium as $item)
                                 <tr id="hide{{ $item->id }}">
                                     <td>
                                         <center>
@@ -82,12 +82,12 @@
                                     </td>
                                     <td>
                                         <center>
-                                            Rp. {{ number_format($item->salary_position ?? '', 0, ',', '.')}}
+                                            Rp. {{ number_format($item->salary_premium ?? '', 0, ',', '.')}}
                                         </center>
                                     </td>
                                     <td>
                                         <center>
-                                            <a href="{{ route('master.position.edit', $item->id) }}" class="btn btn-sm btn-warning app-shadow">
+                                            <a href="{{ route('master.premium.edit', $item->id) }}" class="btn btn-sm btn-warning app-shadow">
                                                 <i class="fas fa-edit fa-fw"></i>
                                             </a>
                                             <button type="button" class="btn btn-sm btn-danger app-shadow" onclick="hapus({{ $item->id }})">
@@ -106,7 +106,7 @@
     </div>
 </div>
 
-<a href="{{ route('master.position.create') }}" class="btn btn-lg rounded-circle btn-primary btn-fly d-block d-md-none app-shadow">
+<a href="{{ route('master.premium.create') }}" class="btn btn-lg rounded-circle btn-primary btn-fly d-block d-md-none app-shadow">
     <span><i class="fas fa-user-plus fa-sm align-middle"></i></span>
 </a>
 
@@ -134,7 +134,7 @@
             function(isConfirm) {
                 if (isConfirm) {
                     $.ajax({
-                        url: "{{URL::to('/master/position/destroy')}}",
+                        url: "{{URL::to('/master/premium/destroy')}}",
                         data: "id=" + id,
                         success: function(data) {
                             swal("Deleted", data.message, "success");

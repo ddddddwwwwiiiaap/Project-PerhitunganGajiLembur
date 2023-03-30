@@ -8,13 +8,13 @@
         </div>
     </div>
     <div class="card-header with-border pl-0 pb-1">
-        <span class="col-form-label text-bold">JOB GRADE</span>
+        <span class="col-form-label text-bold">PREMIUM</span>
     </div>
     <br> 
     <div class="form-group row">
         <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Nama <span class="text-danger">*</span></label> 
         <div class="col-12 col-md-5 col-lg-5">
-            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $departement->name ?? '') }}" placeholder="Name.." autocomplete="off">
+            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $premium->name ?? '') }}" placeholder="Name.." autocomplete="off">
             @error('name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('name') }}</strong>
@@ -29,15 +29,31 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Rp</span>
                 </div>
-                <input type="text" name="salary_departemen" class="form-control @error('salary_departemen') is-invalid @enderror" value="{{ old('salary_departemen', $departement->salary_departemen ?? '') }}" placeholder="100.000" autocomplete="off" oninput="format(this)">
-                @error('salary_departemen')
+                <input type="text" name="salary_premium" class="form-control @error('salary_premium') is-invalid @enderror" value="{{ old('salary_premium', $premium->salary_premium ?? '') }}" placeholder="100.000" autocomplete="off" oninput="format(this)">
+                @error('salary_premium')
                     <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('salary_departemen') }}</strong>
+                        <strong>{{ $errors->first('salary_premium') }}</strong>
                     </span>
                 @enderror
             </div>
         </div> 
     </div> 
+
+    <div class="form-group row">
+        <label class="col-12 col-md-4 col-xs-4 col-form-label">Status</label> 
+        <div class="col-12 col-md-5 col-lg-5">
+            <select name="status" class="form-control select2 @error('status') is-invalid @enderror">
+                <option value="">Pilih</option>
+                <option value="Staff" {{ 'Staff' == old('status', $premium->status ?? '') ? 'selected' : '' }}>Staff</option>
+                <option value="Daily Worker" {{ 'Daily Worker' == old('status', $premium->status ?? '') ? 'selected' : '' }}>Daily Worker</option>
+            </select>
+            @error('status')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('status') }}</strong>
+                </span>
+            @enderror
+        </div> 
+    </div>     
 </div>
 <div class="card-footer">
     <div class="offset-md-4">

@@ -3,7 +3,7 @@ header ("Cache-Control: no-cache, must-revalidate");
 header ("Pragma: no-cache");
 header ("Content-type: application/x-msexcel");
 header ("Content-type: application/octet-stream");
-header ("Content-Disposition: attachment; filename=Laporan-salary-staff-".strtolower($staff->name).ucwords($filter ?? 'All').".xls");
+header ("Content-Dispremium: attachment; filename=Laporan-salary-staff-".strtolower($staff->name).ucwords($filter ?? 'All').".xls");
 @endphp
 <!DOCTYPE html>
 <html>
@@ -30,8 +30,8 @@ header ("Content-Disposition: attachment; filename=Laporan-salary-staff-".strtol
             <td colspan="3">: {{ $staff->name }}</td>
         </tr>
         <tr>
-            <td width="100">Position Status</td>
-            <td colspan="3">: {{ $staff->position->status }}</td>
+            <td width="100">Premium Status</td>
+            <td colspan="3">: {{ $staff->premium->status }}</td>
         </tr>
         <tr>
             <td>Periode</td>
@@ -125,16 +125,16 @@ header ("Content-Disposition: attachment; filename=Laporan-salary-staff-".strtol
                 </td>
                 <td>
                     <center>
-                        {{ 'Rp. ' . number_format($item->staff->salary_staff ?? '', 0, ',', '.') }} {{ $item->staff->position->status == 'Staff' ? '/ Bln' : '/ Bln' }}
+                        {{ 'Rp. ' . number_format($item->staff->salary_staff ?? '', 0, ',', '.') }} {{ $item->staff->premium->status == 'Staff' ? '/ Bln' : '/ Bln' }}
                     </center>
                 </td>
                 <td>
                     <center>
-                        {{ 'Rp. ' . number_format($item->staff->position->salary_position ?? '', 0, ',', '.') }} {{ $item->staff->position->status == 'Staff' ? '/ Bln' : '/ Bln' }}
+                        {{ 'Rp. ' . number_format($item->staff->premium->salary_premium ?? '', 0, ',', '.') }} {{ $item->staff->premium->status == 'Staff' ? '/ Bln' : '/ Bln' }}
                     </center>
                 <td>
                     <center>
-                        {{ 'Rp. ' . number_format($item->staff->departement->salary_departemen ?? '', 0, ',', '.') }} {{ $item->staff->position->status == 'Staff' ? '/ Bln' : '/ Bln' }}
+                        {{ 'Rp. ' . number_format($item->staff->jobgrade->salary_jobgrade ?? '', 0, ',', '.') }} {{ $item->staff->premium->status == 'Staff' ? '/ Bln' : '/ Bln' }}
                     </center>
                 </td>
                 <td>

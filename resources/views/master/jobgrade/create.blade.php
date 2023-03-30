@@ -16,14 +16,14 @@
                                     <h3 class="card-title">{{ $title }}</h3>
                                 </div>
                                 <div class="back-top">
-                                <a href="{{ route('master.departement.index') }}" class="btn text-muted">
+                                <a href="{{ route('master.jobgrade.index') }}" class="btn text-muted">
                                     <i class="fa fa-arrow-left fa-fw"></i></span>
                                 </a>
                             </div>
                             </div> 
-                            <form action="{{ route('master.departement.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                            <form action="{{ route('master.jobgrade.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                 @csrf
-                                @include('master.departement._form')
+                                @include('master.jobgrade._form')
                             </form>
                             <div id="loading"></div>
                         </div>

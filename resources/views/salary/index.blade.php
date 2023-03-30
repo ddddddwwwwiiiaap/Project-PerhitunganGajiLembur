@@ -83,16 +83,16 @@
                                     </td>
                                     <td>
                                         <center>
-                                            {{ $item->staff->position->name }}
+                                            {{ $item->staff->premium->name }}
                                         </center>
                                     </td>
                                     <td>
                                         <center>
-                                            {{ $item->staff->departement->name }}
+                                            {{ $item->staff->jobgrade->name }}
                                         </center>
                                     <td>
                                         <center>
-                                            {{ 'Rp. ' . number_format($item->staff->salary_staff ?? '', 0, ',', '.') }} {{ $item->staff->position->status == 'Staff' ? '/ Bln' : '/ Bln' }}
+                                            {{ 'Rp. ' . number_format($item->staff->salary_staff ?? '', 0, ',', '.') }} {{ $item->staff->premium->status == 'Staff' ? '/ Bln' : '/ Bln' }}
                                         </center>
                                     </td>
                                     <td>

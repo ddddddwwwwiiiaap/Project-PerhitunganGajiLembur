@@ -23,10 +23,10 @@
                                 </a>
                             </div>
                         </div>
-                        <form action="{{ route('master.departement.update', $departement->id) }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                        <form action="{{ route('master.jobgrade.update', $jobgrade->id) }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                             @csrf
                             @method('patch')
-                            @include('master.departement._form')
+                            @include('master.jobgrade._form')
                         </form>
                         <div id="loading"></div>
                     </div>

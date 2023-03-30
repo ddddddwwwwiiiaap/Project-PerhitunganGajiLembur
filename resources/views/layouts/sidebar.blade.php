@@ -35,13 +35,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('master.position.index') }}" class="nav-link {{ $sub == 'position' ? 'active' : '' }}">
+                            <a href="{{ route('master.premium.index') }}" class="nav-link {{ $sub == 'premium' ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-circle-o"></i>
                                 <p>Tunjangan Premium</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('master.departement.index') }}" class="nav-link {{ $sub == 'departement' ? 'active' : '' }}">
+                            <a href="{{ route('master.jobgrade.index') }}" class="nav-link {{ $sub == 'jobgrade' ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-circle-o"></i>
                                 <p>Tunjangan Job Grade</p>
                             </a>

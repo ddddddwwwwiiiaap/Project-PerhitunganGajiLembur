@@ -16,7 +16,7 @@
                         </div>
                         <input type="search" placeholder="Search" aria-label="Search..." class="form-control input-flat border-0" id="search">
                     </div>
-                    <a href="{{ route('master.departement.create') }}" class="btn btn-default app-shadow d-none d-md-inline-block ml-auto">
+                    <a href="{{ route('master.jobgrade.create') }}" class="btn btn-default app-shadow d-none d-md-inline-block ml-auto">
                         <i class="fas fa-user-plus fa-fw"></i> Tambah
                     </a>
                 </div>
@@ -59,7 +59,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($departement as $item)
+                                @foreach ($jobgrade as $item)
                                 <tr id="hide{{ $item->id }}">
                                     <td>
                                         <center>
@@ -73,11 +73,11 @@
                                     </td>
                                     <td>
                                         <center>
-                                        Rp. {{ number_format($item->salary_departemen ?? '', 0, ',', '.')}}                                        </center>
+                                        Rp. {{ number_format($item->salary_jobgrade ?? '', 0, ',', '.')}}                                        </center>
                                     </td>
                                     <td>
                                         <center>
-                                            <a href="{{ route('master.departement.edit', $item->id) }}" class="btn btn-sm btn-warning">
+                                            <a href="{{ route('master.jobgrade.edit', $item->id) }}" class="btn btn-sm btn-warning">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <button class="btn btn-sm btn-danger" onclick="hapus({{ $item->id }})">
@@ -95,7 +95,7 @@
     </div>
 </div>
 
-<a href="{{ route('master.departement.create') }}" class="btn btn-lg rounded-circle btn-primary btn-fly d-block d-md-none app-shadow">
+<a href="{{ route('master.jobgrade.create') }}" class="btn btn-lg rounded-circle btn-primary btn-fly d-block d-md-none app-shadow">
     <span><i class="fas fa-user-plus fa-sm align-middle"></i></span>
 </a>
 
@@ -123,7 +123,7 @@
             function(isConfirm) {
                 if (isConfirm) {
                     $.ajax({
-                        url: "{{URL::to('/master/departement/destroy')}}",
+                        url: "{{URL::to('/master/jobgrade/destroy')}}",
                         data: "id=" + id,
                         success: function(data) {
                             swal("Deleted", data.message, "success");

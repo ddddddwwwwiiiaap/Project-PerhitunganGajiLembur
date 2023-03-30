@@ -5,8 +5,8 @@ namespace App\Http\Controllers\MasterLembur;
 use App\Http\Controllers\Controller;
 use App\Models\MasterLembur\Lembur_Pegawai;
 use App\Models\Master\Staff;
-use App\Models\Master\Position;
-use App\Models\Master\Departement;
+use App\Models\Master\Premium;
+use App\Models\Master\JobGrade;
 use Illuminate\Http\Request;
 use DB;
 
@@ -38,8 +38,8 @@ class Lembur_PegawaiController extends Controller
     {
         $data['title'] = "Buat Lembur Pegawai";
         $data['staff'] = Staff::all();
-        $data['position'] = Position::all();
-        $data['departement'] = Departement::all();
+        $data['premium'] = Premium::all();
+        $data['jobgrade'] = JobGrade::all();
         return view('masterlembur.lembur_pegawai.create', $data);
     }
 
@@ -65,7 +65,7 @@ class Lembur_PegawaiController extends Controller
 
 
         $data['request'] = $request->session()->get('salary');
-        $data['position'] = Position::where('status', $request->status)->get();
+        $data['premium'] = Premium::where('status', $request->status)->get();
         $data['staff'] = Staff::all();
 
         $lembur_pegawai = new Lembur_Pegawai;
@@ -91,8 +91,8 @@ class Lembur_PegawaiController extends Controller
         $data['title'] = "Edit Lembur Pegawai";
         $data['lembur_pegawai'] = $lembur_pegawai;
         $data['staff'] = Staff::all();
-        $data['position'] = Position::all();
-        $data['departement'] = Departement::all();
+        $data['premium'] = Premium::all();
+        $data['jobgrade'] = JobGrade::all();
         return view('masterlembur.lembur_pegawai.edit', $data);
     }
 

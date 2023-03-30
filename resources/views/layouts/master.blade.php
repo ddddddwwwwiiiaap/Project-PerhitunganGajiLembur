@@ -2,7 +2,7 @@
 
 @section('slot')
 @include('layouts.partials.sidebar')
-<main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
+<main class="main-content premium-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
     <!-- Navbar -->
     @include('layouts.partials.navbar')
     <!-- End Navbar -->

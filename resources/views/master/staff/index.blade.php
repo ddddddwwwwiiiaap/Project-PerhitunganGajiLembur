@@ -102,17 +102,17 @@
                                     </td>
                                     <td>
                                         <center>
-                                        Rp. {{ number_format($item->position->salary_position ?? '', 0, ',', '.')}}
+                                        Rp. {{ number_format($item->premium->salary_premium ?? '', 0, ',', '.')}}
                                         </center>
                                     </td>
                                     <td>
                                         <center>
-                                            Rp. {{ number_format($item->departement->salary_departemen ?? '', 0, ',', '.')}}
+                                            Rp. {{ number_format($item->jobgrade->salary_jobgrade ?? '', 0, ',', '.')}}
                                         </center>
                                     </td>
                                     <td>
                                         <center>
-                                            <!--jumlah antara salary_staff, salary_position, dan salary_departement-->
+                                            <!--jumlah antara salary_staff, salary_premium, dan salary_jobgrade-->
                                             Rp. {{ number_format($item->jumlah ?? '', 0, ',', '.')}}
                                         </center>
                                     <td>

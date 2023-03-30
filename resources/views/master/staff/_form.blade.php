@@ -55,15 +55,15 @@
     <div class="form-group row">
         <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Premium <span class="text-danger">*</span></label>
         <div class="col-12 col-md-5 col-lg-5">
-            <select name="position_id" class="form-control select2 @error('position_id') is-invalid @enderror">
+            <select name="premium_id" class="form-control select2 @error('premium_id') is-invalid @enderror">
                 <option value=""></option>
-                @foreach ($position as $item)
-                <option value="{{ $item->id }}" {{ $item->id == old('position_id', $staff->position_id ?? '') ? 'selected' : '' }}>{{ $item->name }}</option>
+                @foreach ($premium as $item)
+                <option value="{{ $item->id }}" {{ $item->id == old('premium_id', $staff->premium_id ?? '') ? 'selected' : '' }}>{{ $item->name }}</option>
                 @endforeach
             </select>
-            @error('position_id')
+            @error('premium_id')
             <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('position_id') }}</strong>
+                <strong>{{ $errors->first('premium_id') }}</strong>
             </span>
             @enderror
         </div>
@@ -72,15 +72,15 @@
     <div class="form-group row">
         <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Job Grade <span class="text-danger">*</span></label>
         <div class="col-12 col-md-5 col-lg-5">
-            <select name="departement_id" class="form-control select2 @error('departement_id') is-invalid @enderror">
+            <select name="jobgrade_id" class="form-control select2 @error('jobgrade_id') is-invalid @enderror">
                 <option value=""></option>
-                @foreach ($departement as $item)
-                <option value="{{ $item->id }}" {{ $item->id == old('departement_id', $staff->departement_id ?? '') ? 'selected' : '' }}>{{ $item->name }}</option>
+                @foreach ($JobGrade as $item)
+                <option value="{{ $item->id }}" {{ $item->id == old('jobgrade_id', $staff->jobgrade_id ?? '') ? 'selected' : '' }}>{{ $item->name }}</option>
                 @endforeach
             </select>
-            @error('departement_id')
+            @error('jobgrade_id')
             <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('departement_id') }}</strong>
+                <strong>{{ $errors->first('jobgrade_id') }}</strong>
             </span>
             @enderror
         </div>

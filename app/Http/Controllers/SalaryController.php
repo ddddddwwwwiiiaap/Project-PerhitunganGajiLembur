@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Salary;
 use App\Models\Master\Staff;
-use App\Models\Master\Position;
+use App\Models\Master\Premium;
 use App\Models\MasterLembur\Lembur_Pegawai;
-use App\Models\Kategori_Lembur;
 
 use DB;
 
@@ -35,9 +34,8 @@ class SalaryController extends Controller
         $data['salary'] = $request->session()->get('salary');
 
         $data['staff'] = Staff::all();
-        $data['position'] = Position::all();
+        $data['premium'] = Premium::all();
         $data['lembur_pegawai'] = Lembur_Pegawai::all();
-        $data['kategori_lembur'] = Kategori_Lembur::all();
         $data['count'] = Salary::count();
         return view('salary.create', $data);
     }
@@ -60,7 +58,7 @@ class SalaryController extends Controller
         }
 
         $data['request'] = $request->session()->get('salary');
-        $data['position'] = Position::where('status', $request->status)->get();
+        $data['premium'] = Premium::where('status', $request->status)->get();
         $data['staff'] = Staff::all();
         return view('salary.detail.create', $data);
     }
@@ -83,7 +81,7 @@ class SalaryController extends Controller
         }
 
         $data['request'] = $request->session()->get('salary');
-        $data['position'] = Position::where('status', $request->status)->get();
+        $data['premium'] = Premium::where('status', $request->status)->get();
         $data['staff'] = Staff::all();
         return view('salary.detail.createedit', $data);
     }
@@ -91,8 +89,8 @@ class SalaryController extends Controller
     public function getSalary(Request $request)
     {
         $id = $request->staff_id;
-        $position_id = Staff::where('id', $id)->first()->position_id;
-        $data['get_position'] = Position::where('id', $position_id)->first();
+        $premium_id = Staff::where('id', $id)->first()->premium_id;
+        $data['get_premium'] = Premium::where('id', $premium_id)->first();
         return response()->json($data);
     }
 
@@ -129,13 +127,13 @@ class SalaryController extends Controller
 
         
         $staff = Staff::where('id', $request->staff_id)->first();
-        $position = Position::where('id', $staff->position_id)->first();
+        $premium = Premium::where('id', $staff->premium_id)->first();
         
 
         $request->merge([
             'jumlah_jam_lembur_periode' => $jumlah_jam_lembur_periode,
             'jumlah_upah_lembur_periode' => $jumlah_upah_lembur_periode,
-            'salary' => $position->salary_position,
+            'salary' => $premium->salary_premium,
         ]);
 
         $request->request->add(['tgl_salary' => date('Y-m-d', strtotime($request->tgl_salary))]);
@@ -197,7 +195,7 @@ class SalaryController extends Controller
 
         
         $staff = Staff::where('id', $request->staff_id)->first();
-        $position = Position::where('id', $staff->position_id)->first();
+        $premium = Premium::where('id', $staff->premium_id)->first();
 
         $request->merge([
             'tgl_salary' => date('Y-m-d', strtotime($request->tgl_salary)),
@@ -206,7 +204,7 @@ class SalaryController extends Controller
             'pot_bpjs' => preg_replace('/\D/', '', $request->pot_bpjs),
             'jumlah_jam_lembur_periode' => $jumlah_jam_lembur_periode,
             'jumlah_upah_lembur_periode' => $jumlah_upah_lembur_periode,
-            'salary' => $position->salary_position,
+            'salary' => $premium->salary_premium,
         ]);
 
         $request->validate([
@@ -264,7 +262,7 @@ class SalaryController extends Controller
 
     public function show($id, Request $request)
     {
-        // filter berdasarkan departement
+        // filter berdasarkan jobgrade
         $f = $request->filter ?? null;
 
         $data['title'] = "Detail Penggajian";
@@ -286,7 +284,7 @@ class SalaryController extends Controller
 
     public function excel($id, $filter)
     {
-        // filter berdasarkan departement
+        // filter berdasarkan jobgrade
         $f = $filter ?? 'all';
         $data['title'] = "Detail Penggajian";
         $data['staff'] = Staff::find($id);

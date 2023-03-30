@@ -35,8 +35,8 @@
                     <label class="text-bold">{{ $request->status }}</label><br>
                     <select name="staff_id" class="form-control select2" required>
                         <option value=""></option>
-                        @foreach ($position as $position)
-                        @foreach ($position->staff as $item)
+                        @foreach ($premium as $premium)
+                        @foreach ($premium->staff as $item)
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                         @endforeach
                         @endforeach

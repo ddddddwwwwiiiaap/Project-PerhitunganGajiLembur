@@ -3,7 +3,7 @@ header ("Cache-Control: no-cache, must-revalidate");
 header ("Pragma: no-cache");
 header ("Content-type: application/x-msexcel");
 header ("Content-type: application/octet-stream");
-header ("Content-Disposition: attachment; filename=Laporan-Lembur-Pegawai-periode-".ucwords($filter ?? 'All').".xls");
+header ("Content-Dispremium: attachment; filename=Laporan-Lembur-Pegawai-periode-".ucwords($filter ?? 'All').".xls");
 @endphp
 <!DOCTYPE html>
 <html>
@@ -151,11 +151,11 @@ header ("Content-Disposition: attachment; filename=Laporan-Lembur-Pegawai-period
                     </center>
                 </td>
                 <td>
-                    {{ 'Rp. ' . number_format($data->staff->position->salary_position ?? '', 0, ',', '.') }}
+                    {{ 'Rp. ' . number_format($data->staff->premium->salary_premium ?? '', 0, ',', '.') }}
                 </td>
                 <td>
                     <center>
-                        {{ 'Rp. ' . number_format($data->staff->departement->salary_departemen ?? '', 0, ',', '.') }}
+                        {{ 'Rp. ' . number_format($data->staff->jobgrade->salary_jobgrade ?? '', 0, ',', '.') }}
                     </center>
                 </td>
                 <td>
@@ -190,7 +190,7 @@ header ("Content-Disposition: attachment; filename=Laporan-Lembur-Pegawai-period
                 </td>
                 <td>
                     <center>
-                        <!--salary_position di tambah salary_departemen dikali jumlah_jam dikali 1/173 dikali 2-->
+                        <!--salary_premium di tambah salary_jobgrade dikali jumlah_jam dikali 1/173 dikali 2-->
                         {{ 'Rp. ' . number_format($data->staff->jumlah * $data->jumlah_jam * 0.0058 * 2 ?? '', 0, ',', '.') }}
                     </center>
                 </td>

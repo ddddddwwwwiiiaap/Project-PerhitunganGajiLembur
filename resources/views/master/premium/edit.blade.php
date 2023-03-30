@@ -23,10 +23,10 @@
                                 </a>
                             </div>
                             </div> 
-                            <form action="{{ route('master.position.update', $position->id) }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                            <form action="{{ route('master.premium.update', $premium->id) }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                 @csrf
                                 @method('patch')
-                                @include('master.position._form')
+                                @include('master.premium._form')
                             </form>
                             <div id="loading"></div>
                         </div>

@@ -10,7 +10,7 @@ class Staff extends Model
 {
 
     protected $table = 'tb_staff';
-    protected $fillable = ['nip', 'position_id', 'departement_id', 'users_id', 'name', 'birth', 'address', 'startdate', 'phone', 'salary_staff', 'jumlah'];
+    protected $fillable = ['nip', 'premium_id', 'jobgrade_id', 'users_id', 'name', 'birth', 'address', 'startdate', 'phone', 'salary_staff', 'jumlah'];
     protected $dates = ['deleted_at'];
 
     public function getNameAttribute($name)
@@ -23,14 +23,14 @@ class Staff extends Model
         return ucfirst($name);
     }
 
-    public function position()
+    public function premium()
     {
-        return $this->belongsTo(Position::class);
+        return $this->belongsTo(Premium::class);
     }
 
-    public function departement()
+    public function jobgrade()
     {
-        return $this->belongsTo(Departement::class);
+        return $this->belongsTo(JobGrade::class);
     }
 
     public function users() {
@@ -47,39 +47,5 @@ class Staff extends Model
 
     public function salary() {
         return $this->hasMany(\App\Models\Salary::class);
-    }
-    
-
-    /*public function getNameAttribute($name)
-    {
-        return strtoupper($name);
-    }
-
-    public function getAddresAttribute($name)
-    {
-        return ucfirst($name);
-    }
-
-    public function position()
-    {
-        return $this->belongsTo(Position::class);
-    }
-
-    public function departement()
-    {
-        return $this->belongsTo(Departement::class);
-    }
-
-    public function users() {
-        return $this->belongsTo(Users::class);
-    }
-
-    public function schedules() {
-        return $this->hasMany(\App\Models\Schedule::class);
-    }
-
-    public function salary() {
-        return $this->hasMany(\App\Models\Salary::class);
-    }*/
-    
+    }    
 }

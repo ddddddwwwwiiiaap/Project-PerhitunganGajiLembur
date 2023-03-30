@@ -27,8 +27,8 @@ Route::namespace('Auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/home/getStaffPosition', 'HomeController@getStaffPosition');
-    Route::get('/home/getStaffDepartement', 'HomeController@getStaffDepartement');
+    Route::get('/home/getStaffPremium', 'HomeController@getStaffPremium');
+    Route::get('/home/getStaffJobGrade', 'HomeController@getStaffJobGrade');
 
     //personal karyawan
     Route::get('/users/account/{id}/edit', 'UsersController@editAccount')->name('users.account.edit');
@@ -54,23 +54,23 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('role:admin|accounting|supervisor')->group(function () {
         Route::namespace('Master')->prefix('master')->name('master.')->group(function () {
-            Route::get('position', 'PositionController@index')->name('position.index');
+            Route::get('premium', 'PremiumController@index')->name('premium.index');
             Route::middleware('role:admin|accounting')->group(function () {
-                Route::get('position/create', 'PositionController@create')->name('position.create');
-                Route::post('position', 'PositionController@store')->name('position.store');
-                Route::get('position/{position}/edit', 'PositionController@edit')->name('position.edit');
-                Route::patch('position/{position}/update', 'PositionController@update')->name('position.update');
-                Route::get('position/{id}', 'PositionController@destroy')->name('position.destroy');
+                Route::get('premium/create', 'PremiumController@create')->name('premium.create');
+                Route::post('premium', 'PremiumController@store')->name('premium.store');
+                Route::get('premium/{premium}/edit', 'PremiumController@edit')->name('premium.edit');
+                Route::patch('premium/{premium}/update', 'PremiumController@update')->name('premium.update');
+                Route::get('premium/{id}', 'PremiumController@destroy')->name('premium.destroy');
             });
 
-            Route::get('departement', 'DepartementController@index')->name('departement.index');
+            Route::get('jobgrade', 'JobGradeController@index')->name('jobgrade.index');
             Route::get('staff', 'StaffController@index')->name('staff.index');
             Route::middleware('role:admin|accounting')->group(function () {
-                Route::get('departement/create', 'DepartementController@create')->name('departement.create');
-                Route::post('departement', 'DepartementController@store')->name('departement.store');
-                Route::get('departement/{departement}/edit', 'DepartementController@edit')->name('departement.edit');
-                Route::patch('departement/{departement}/update', 'DepartementController@update')->name('departement.update');
-                Route::get('departement/{id}', 'DepartementController@destroy')->name('departement.destroy');
+                Route::get('jobgrade/create', 'JobGradeController@create')->name('jobgrade.create');
+                Route::post('jobgrade', 'JobGradeController@store')->name('jobgrade.store');
+                Route::get('jobgrade/{jobgrade}/edit', 'JobGradeController@edit')->name('jobgrade.edit');
+                Route::patch('jobgrade/{jobgrade}/update', 'JobGradeController@update')->name('jobgrade.update');
+                Route::get('jobgrade/{id}', 'JobGradeController@destroy')->name('jobgrade.destroy');
 
                 Route::get('staff/create', 'StaffController@create')->name('staff.create');
                 Route::post('staff', 'StaffController@store')->name('staff.store');
@@ -125,20 +125,20 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::namespace('Master')->prefix('master')->name('master.')->group(function () {
-        Route::get('position', 'PositionController@index')->name('position.index');
-        Route::get('position/create', 'PositionController@create')->name('position.create');
-        Route::post('position', 'PositionController@store')->name('position.store');
-        Route::get('position/{position}/edit', 'PositionController@edit')->name('position.edit');
-        Route::patch('position/{position}/update', 'PositionController@update')->name('position.update');
-        Route::get('position/{id}', 'PositionController@destroy')->name('position.destroy');
+        Route::get('premium', 'PremiumController@index')->name('premium.index');
+        Route::get('premium/create', 'PremiumController@create')->name('premium.create');
+        Route::post('premium', 'PremiumController@store')->name('premium.store');
+        Route::get('premium/{premium}/edit', 'PremiumController@edit')->name('premium.edit');
+        Route::patch('premium/{premium}/update', 'PremiumController@update')->name('premium.update');
+        Route::get('premium/{id}', 'PremiumController@destroy')->name('premium.destroy');
 
-        Route::get('departement', 'DepartementController@index')->name('departement.index');
+        Route::get('jobgrade', 'JobGradeController@index')->name('jobgrade.index');
         Route::get('staff', 'StaffController@index')->name('staff.index');
-        Route::get('departement/create', 'DepartementController@create')->name('departement.create');
-        Route::post('departement', 'DepartementController@store')->name('departement.store');
-        Route::get('departement/{departement}/edit', 'DepartementController@edit')->name('departement.edit');
-        Route::patch('departement/{departement}/update', 'DepartementController@update')->name('departement.update');
-        Route::get('departement/{id}', 'DepartementController@destroy')->name('departement.destroy');
+        Route::get('jobgrade/create', 'JobGradeController@create')->name('jobgrade.create');
+        Route::post('jobgrade', 'JobGradeController@store')->name('jobgrade.store');
+        Route::get('jobgrade/{jobgrade}/edit', 'JobGradeController@edit')->name('jobgrade.edit');
+        Route::patch('jobgrade/{jobgrade}/update', 'JobGradeController@update')->name('jobgrade.update');
+        Route::get('jobgrade/{id}', 'JobGradeController@destroy')->name('jobgrade.destroy');
 
         Route::get('staff/create', 'StaffController@create')->name('staff.create');
         Route::post('staff', 'StaffController@store')->name('staff.store');

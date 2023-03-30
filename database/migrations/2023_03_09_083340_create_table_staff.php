@@ -11,21 +11,17 @@ class CreateTableStaff extends Migration
         Schema::create('tb_staff', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nip')->unique();
-            $table->unsignedInteger('position_id');
-            $table->unsignedInteger('departement_id');
+            $table->unsignedInteger('premium_id');
+            $table->unsignedInteger('jobgrade_id');
             $table->unsignedInteger('users_id')->nullable();
             $table->string('name');
-            $table->date('birth');
-            $table->text('address')->nullable();
-            $table->date('startdate');
-            $table->text('phone');
             $table->double('salary_staff')->default(0);
             $table->double('jumlah')->nullable()->default(0);
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('position_id')->references('id')->on('tb_position')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('departement_id')->references('id')->on('tb_departement')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('premium_id')->references('id')->on('tb_premium')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('jobgrade_id')->references('id')->on('tb_jobgrade')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }

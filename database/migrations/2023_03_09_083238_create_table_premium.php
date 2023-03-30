@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableDepartement extends Migration
+class CreateTablePremium extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateTableDepartement extends Migration
      */
     public function up()
     {
-        Schema::create('tb_departement', function (Blueprint $table) {
+        Schema::create('tb_premium', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->double('salary_departemen')->default(0);
+            $table->enum('status', ['Staff', 'Daily Worker']);
+            $table->double('salary_premium')->default(0);
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateTableDepartement extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_departement');
+        Schema::dropIfExists('table_premium');
     }
 }

@@ -4,10 +4,10 @@ namespace App\Models\Master;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Position extends Model
+class Premium extends Model
 {
-    protected $table = 'tb_position';
-    protected $fillable = ['name', 'salary_position', 'status'];
+    protected $table = 'tb_premium';
+    protected $fillable = ['name', 'salary_premium', 'status'];
 
     public function getNameAttribute($name)
     {

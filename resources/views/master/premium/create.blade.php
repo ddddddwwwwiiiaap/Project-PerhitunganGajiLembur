@@ -16,14 +16,14 @@
                                     <h3 class="card-title">{{ $title }}</h3>
                                 </div>
                                 <div class="back-top">
-                                <a href="{{ route('master.position.index') }}" class="btn text-muted">
+                                <a href="{{ route('master.premium.index') }}" class="btn text-muted">
                                     <i class="fa fa-arrow-left fa-fw"></i></span>
                                 </a>
                             </div>
                             </div> 
-                            <form action="{{ route('master.position.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                            <form action="{{ route('master.premium.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                 @csrf
-                                @include('master.position._form')
+                                @include('master.premium._form')
                             </form>
                             <div id="loading"></div>
                         </div>

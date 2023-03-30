@@ -178,11 +178,11 @@
                                             </center>
                                         </td>
                                         <td>
-                                            {{ 'Rp. ' . number_format($data->staff->position->salary_position ?? '', 0, ',', '.') }}
+                                            {{ 'Rp. ' . number_format($data->staff->premium->salary_premium ?? '', 0, ',', '.') }}
                                         </td>
                                         <td>
                                             <center>
-                                                {{ 'Rp. ' . number_format($data->staff->departement->salary_departemen ?? '', 0, ',', '.') }}
+                                                {{ 'Rp. ' . number_format($data->staff->jobgrade->salary_jobgrade ?? '', 0, ',', '.') }}
                                             </center>
                                         </td>
                                         <td>
