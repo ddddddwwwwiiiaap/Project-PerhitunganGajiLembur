@@ -31,6 +31,10 @@ class StaffController extends Controller
 
     public function store(Request $request)
     {
+        $request->merge([
+            'salary_staff' => preg_replace('/\D/', '', $request->salary_staff),
+        ]);
+
         // dd($request->all());
         $request->validate([
             'name'=>'required|max:100',
@@ -41,6 +45,7 @@ class StaffController extends Controller
             'departement_id'=>'required',
             'address'=>'required',
             'nip'=>'required',
+            'salary_staff'=>'required',
         ]);
 
         //message nip tidak boleh sama
@@ -52,6 +57,12 @@ class StaffController extends Controller
             ];
             return redirect()->route('master.staff.index')->with($message);
         }
+
+        //tabel jumlah di dapet dengan salary_staff + salary_position + salary_departement
+        $position = Position::where('id', $request->position_id)->first();
+        $departement = Departement::where('id', $request->departement_id)->first();
+        //perhitungan secara realtime jumlah di dapat di update
+        $request->request->add(['jumlah' => $request->salary_staff + $position->salary_position + $departement->salary_departemen]);
 
         if ($request->has('makeUserAccount')) {
             $msg = [
@@ -93,6 +104,10 @@ class StaffController extends Controller
 
     public function update(Request $request, Staff $staff)
     {
+        $request->merge([
+            'salary_staff' => preg_replace('/\D/', '', $request->salary_staff),
+        ]);
+        
         $request->validate([
             'name'=>'required|max:100',
             'birth'=>'required|date',
@@ -101,7 +116,15 @@ class StaffController extends Controller
             'position_id'=>'required',
             'departement_id'=>'required',
             'address'=>'required',
+            'salary_staff'=>'required',
         ]);
+
+        //update otomatis tabel jumlah di dapet dengan salary_staff + salary_position + salary_departement
+        $position = Position::where('id', $request->position_id)->first();
+        $departement = Departement::where('id', $request->departement_id)->first();
+        $jumlah = $request->salary_staff + $position->salary_position + $departement->salary_departemen;
+        $request->request->add(['jumlah' => $jumlah]);
+
 
         //message nip tidak boleh sama
         /*$nip = Staff::where('nip', $request->nip)->first();

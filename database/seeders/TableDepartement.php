@@ -10,8 +10,6 @@ class TableDepartement extends Seeder
     public function run()
     {
         $departement = [
-            ['name'=>'House Keeping'],
-            ['name'=>'TI'],
         ];
         foreach($departement as $row)
         {

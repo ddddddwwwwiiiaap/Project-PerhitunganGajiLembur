@@ -30,7 +30,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header bg-light">
-                            Data Position
+                            Data Premium
                             <span id="count" class="badge badge-danger float-right float-xl-right mt-1">{{ $count }}</span>
                         </div>
                         <table id="datatable" class="table table-hover table-striped">
@@ -53,12 +53,12 @@
                                     </th>
                                     <th>
                                         <center>
-                                            Salary
+                                            Besaran Uang
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            Action
+                                            Aksi
                                         </center>
                                     </th>
                                 </tr>
@@ -82,7 +82,7 @@
                                     </td>
                                     <td>
                                         <center>
-                                            Rp. {{ number_format($item->salary ?? '', 0, ',', '.')}}
+                                            Rp. {{ number_format($item->salary_position ?? '', 0, ',', '.')}}
                                         </center>
                                     </td>
                                     <td>

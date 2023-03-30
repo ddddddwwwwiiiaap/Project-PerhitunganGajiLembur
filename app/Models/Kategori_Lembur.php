@@ -23,6 +23,6 @@ class Kategori_Lembur extends Model
 
     public function lembur_pegawai()
     {
-        return $this->hasMany('App\Models\Lembur_Pegawai','kategori_lembur_id');
+        return $this->hasMany('App\Models\Master\Lembur_Pegawai','kategori_lembur_id');
     }
 }

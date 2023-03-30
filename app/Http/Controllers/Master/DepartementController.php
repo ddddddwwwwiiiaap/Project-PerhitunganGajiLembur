@@ -8,12 +8,6 @@ use App\Models\Master\Departement;
 
 class DepartementController extends Controller
 {
-    //
-    public function __invoke(Request $request)
-    {
-        //
-    }
-
     public function index()
     {
         $data['departement'] = Departement::all();
@@ -23,31 +17,32 @@ class DepartementController extends Controller
 
     public function create()
     {
-        return view('master.departement.create', ['title' => 'Tambah Departement']);
+        return view('master.departement.create', ['title' => 'Tambah Job Grade']);
     }
 
     public function store(Request $request)
     {
         $request->merge([
-            'salary' => preg_replace('/\D/', '', $request->salary),
+            'salary_departemen' => preg_replace('/\D/', '', $request->salary_departemen),
         ]);
 
         $request->validate([
             'name' => 'required|max:100',
+            'salary_departemen'=>'required',
         ]);
 
         Departement::create($request->all());
 
         $message = [
             'alert-type' => 'success',
-            'message' => 'Data departement created successfully'
+            'message' => 'Data Job Grade created successfully'
         ];
         return redirect()->route('master.departement.index')->with($message);
     }
 
     public function edit(Departement $departement)
     {
-        $data['title'] = 'Edit Departement';
+        $data['title'] = 'Edit Job Grade';
         $data['departement'] = $departement;
         return view('master.departement.edit', $data);
     }
@@ -55,18 +50,19 @@ class DepartementController extends Controller
     public function update(Request $request, Departement $departement)
     {
         $request->merge([
-            'salary' => preg_replace('/\D/', '', $request->salary),
+            'salary_departemen' => preg_replace('/\D/', '', $request->salary_departemen),
         ]);
 
         $request->validate([
             'name' => 'required|max:100',
+            'salary_departemen'=>'required',
         ]);
 
         $departement->update($request->all());
 
         $message = [
             'alert-type' => 'success',
-            'message' => 'Data departement updated successfully'
+            'message' => 'Data Job Grade updated successfully'
         ];
         return redirect()->route('master.departement.index')->with($message);
     }
@@ -83,7 +79,7 @@ class DepartementController extends Controller
             $message = [
                 'alert-type' => 'success',
                 'count' => $count,
-                'message' => 'Data departement deleted successfully.'
+                'message' => 'Data Job Grade deleted successfully.'
             ];
             return response()->json($message);
         }

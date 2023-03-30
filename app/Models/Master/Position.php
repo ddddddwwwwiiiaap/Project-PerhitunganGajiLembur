@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Position extends Model
 {
     protected $table = 'tb_position';
-    protected $fillable = ['name', 'salary', 'status'];
+    protected $fillable = ['name', 'salary_position', 'status'];
 
     public function getNameAttribute($name)
     {

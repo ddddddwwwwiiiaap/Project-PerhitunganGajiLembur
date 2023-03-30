@@ -34,30 +34,6 @@ class TableUsers extends Seeder
             'username'  => 'petugas',
             'password'  => bcrypt('petugas'),
         ]);
-        
-        Staff::create([
-            'users_id' => $useradmin->id,
-            'nip' => '20200140055',
-            'position_id' => 1,
-            'departement_id' => 1,
-            'name' => 'Dwi Aprilya A P',
-            'birth' => date('2002-04-01'),
-            'startdate' => date('2023-03-01'),
-            'address' => 'Indonesia',
-            'phone' => '085799811481',
-        ]);
-
-        Staff::create([
-            'users_id' => $userpetugas->id,
-            'nip' => '20200140076',
-            'position_id' => 1,
-            'departement_id' => 1,
-            'name' => 'Prizandeva O R',
-            'birth' => date('2002-04-01'),
-            'startdate' => date('2023-03-01'),
-            'address' => 'Indonesia',
-            'phone' => '085799811481',
-        ]);
 
     }
 }

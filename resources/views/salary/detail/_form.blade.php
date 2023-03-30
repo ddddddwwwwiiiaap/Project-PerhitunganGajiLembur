@@ -57,25 +57,6 @@
                     @enderror
                 </td>
             </tr>
-
-            <tbody id="KaryawanHarian" style="display: none">
-                <tr class="bg-white">
-                    <td>Gaji Bulanan <div class="text-right">
-                    </td>
-                    <td class="text-right"><span id="salary_preview">Rp. 0</span></td>
-                </tr>
-            </tbody>
-
-            <tbody id="KaryawanBulanan">
-                <tr class="bg-white">
-                    <td>Gaji {{ $request->status == 'Staff' ? 'Bulanan' : 'Harian' }}</td>
-                    <td colspan="2" class="text-right">
-                        <input type="hidden" name="salary" class="form-control" id="total_salary_hidden" value="0" readonly>
-                        {{ $request->status == 'Staff' ? '' : 'Total : ' }} <span id="total_salary">Rp. 0</span>
-                    </td>
-                </tr>
-
-            </tbody>
         </table>
     </div>
 

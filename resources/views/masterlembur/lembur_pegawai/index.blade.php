@@ -17,7 +17,7 @@
                         </div>
                         <input type="search" placeholder="Search" aria-label="Search..." class="form-control input-flat border-0" id="search">
                     </div>
-                    <a href="{{ route('lembur_pegawai.create') }}" class="btn btn-default app-shadow d-none d-md-inline-block ml-auto">
+                    <a href="{{ route('masterlembur.lembur_pegawai.create') }}" class="btn btn-default app-shadow d-none d-md-inline-block ml-auto">
                         <i class="fas fa-user-plus fa-fw"></i> Tambah
                     </a>
                 </div>
@@ -61,62 +61,105 @@
                                     <tr class="bg-light">
                                         <th>
                                             <center>
-                                                No
+                                                <p>No.</p>
                                             </center>
                                         </th>
                                         <th>
                                             <center>
-                                                Periode
+                                                <p>Periode</p>
                                             </center>
                                         </th>
                                         <th>
                                             <center>
-                                                Kode Kategori Lembur
+                                                <p>Nama</p>
                                             </center>
                                         </th>
                                         <th>
                                             <center>
-                                                NIP
+                                                <p>Tanggal<br> Lembur</p>
                                             </center>
                                         </th>
                                         <th>
                                             <center>
-                                                Nama staff
+                                                <p>Upah<br> Pokok</p>
                                             </center>
                                         </th>
                                         <th>
                                             <center>
-                                                Mulai Lembur
+                                                <p>Premium</p>
                                             </center>
                                         </th>
                                         <th>
                                             <center>
-                                                Selesai Lembur
+                                                <p>Job Grade</p>
                                             </center>
                                         </th>
                                         <th>
                                             <center>
-                                                Jumlah Jam
+                                                <p>Upah per-<br>bulan</p>
                                             </center>
                                         </th>
                                         <th>
                                             <center>
-                                                Besaran Uang
+                                            <p>Jam<br>mulai<br>lembur</p>
+                                            </center>
+                                        </th>
+                                        <th>
+                                            <p>s/d</p>
+                                        </th>
+                                        <th>
+                                            <center>
+                                                <p>Akhir jam<br>lembur yg<br>diperhitungkan</p>
                                             </center>
                                         </th>
                                         <th>
                                             <center>
-                                                Total
+                                                <p>Jml jam</p>
                                             </center>
                                         </th>
                                         <th>
                                             <center>
-                                                Tanggal Buat
+                                                <p>1/173</p>
                                             </center>
                                         </th>
                                         <th>
                                             <center>
-                                                Aksi
+                                                <p>Up.Lembur<br>hr kerja 1<br>jam pertama</p>
+                                            </center>
+                                        </th>
+                                        <th>
+                                            <center>
+                                                <p>Up.Lembur<br>hr kerja jam<br>ke 2 dst</p>
+                                            </center>
+                                        </th>
+                                        <th>
+                                            <center>
+                                                <p>Up.Lembur<br>hari libur jam<br>ke 1-7</p>
+                                            </center>
+                                        </th>
+                                        <th>
+                                            <center>
+                                                <p>Up.Lembur<br>hari libur<br>jam ke 8</p>
+                                            </center>
+                                        </th>
+                                        <th>
+                                            <center>
+                                                <p>Up.Lembur<br>hari libur<br>jam ke 9 dst</p>
+                                            </center>
+                                        </th>
+                                        <th>
+                                            <center>
+                                                <p>Jumlah<br>Upah<br>Lembur</p>
+                                            </center>
+                                        </th>
+                                        <th>
+                                            <center>
+                                                <p>Pembulatan</p>
+                                            </center>
+                                        </th>
+                                        <th>
+                                            <center>
+                                                <p>Aksi</p>
                                             </center>
                                         </th>
                                     </tr>
@@ -132,39 +175,70 @@
                                             <center>{{$data->periode}}</center>
                                         </td>
                                         <td>
-                                            <center>{{$data->Kategori_lembur->kode_lembur}}</center>
-                                        </td>
-                                        <td>
-                                            <center>{{$data->staff->nip}}</center>
-                                        </td>
-                                        <td>
                                             <center>{{$data->staff->name}}</center>
-                                        </td>
-                                        <td>
-                                            <center>{{$data->mulai_lembur}}</center>
-                                        </td>
-                                        <td>
-                                            <center>{{$data->selesai_lembur}}</center>
-                                        </td>
-                                        <td>
-                                            <center>{{$data->jumlah_jam}}</center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                {{ 'Rp. ' . number_format($data->Kategori_lembur->besaran_uang ?? '', 0, ',', '.') }}
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                {{ 'Rp. ' . number_format($data->jumlah_jam * $data->Kategori_lembur->besaran_uang ?? '', 0, ',', '.') }}
-                                            </center>
                                         </td>
                                         <td>
                                             <center>{{$data->tanggal_lembur}}</center>
                                         </td>
                                         <td>
                                             <center>
-                                                <a href="{{ route('lembur_pegawai.edit', $data->id) }}" class="btn btn-sm btn-warning">
+                                                {{ 'Rp. ' . number_format($data->staff->salary_staff ?? '', 0, ',', '.') }}
+                                            </center>
+                                        </td>
+                                        <td>
+                                            {{ 'Rp. ' . number_format($data->staff->position->salary_position ?? '', 0, ',', '.') }}
+                                        </td>
+                                        <td>
+                                            <center>
+                                                {{ 'Rp. ' . number_format($data->staff->departement->salary_departemen ?? '', 0, ',', '.') }}
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                {{ 'Rp. ' . number_format($data->staff->jumlah ?? '', 0, ',', '.') }}
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>{{date('H:i', strtotime($data->mulai_lembur))}}</center>
+                                        </td>
+                                        <td>
+                                            <center>-</center>
+                                        </td>
+                                        <td>
+                                            <center>{{date('H:i', strtotime($data->selesai_lembur))}}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{$data->jumlah_jam}}</center>
+                                        </td>
+                                        <td>
+                                            <center>0.0058</center>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <!--salary_position di tambah salary_departemen dikali jumlah_jam dikali 1/173 dikali 2-->
+                                                {{ 'Rp. ' . number_format($data->staff->jumlah * $data->jumlah_jam * 0.0058 * 2 ?? '', 0, ',', '.') }}
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <!--Untuk membulatkan ribu rupiah dari 500-999 ke atas 0-499 ke bawah-->
+                                                {{ 'Rp. ' . number_format(round($data->staff->jumlah * $data->jumlah_jam * 0.0058 * 2, -3), 0, ',', '.') }}
+
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <a href="{{ route('masterlembur.lembur_pegawai.edit', $data->id) }}" class="btn btn-sm btn-warning">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
                                                 <button type="button" class="btn btn-sm btn-danger" onclick="hapus({{$data->id}})">
@@ -180,11 +254,11 @@
                     <div class="card-footer">
                         <div class="text-right">
                             @if (!empty($filter))
-                            <a href="{{ route('lembur_pegawai.export.excel', ['filter' => $filter]) }}" class="btn btn-success btn-sm" id="export-excel">
+                            <a href="{{ route('masterlembur.lembur_pegawai.export.excel', ['filter' => $filter]) }}" class="btn btn-success btn-sm" id="export-excel">
                                 <i class="fa fa-file-excel-o fa-fw"></i> Export Excel
                             </a>
                             @else
-                            <a href="{{ route('lembur_pegawai.export.excel', ['filter' => 'all']) }}" class="btn btn-success btn-sm" id="export-excel">
+                            <a href="{{ route('masterlembur.lembur_pegawai.export.excel', ['filter' => 'all']) }}" class="btn btn-success btn-sm" id="export-excel">
                                 <i class="fa fa-file-excel-o fa-fw"></i> Export Excel
                             </a>
                             @endif
@@ -197,7 +271,7 @@
     </div>
 </div>
 
-<a href="{{ route('lembur_pegawai.create') }}" class="btn btn-lg rounded-circle btn-primary btn-fly d-block d-md-none app-shadow">
+<a href="{{ route('masterlembur.lembur_pegawai.create') }}" class="btn btn-lg rounded-circle btn-primary btn-fly d-block d-md-none app-shadow">
     <span><i class="fas fa-user-plus fa-sm align-middle"></i></span>
 </a>
 
@@ -244,7 +318,7 @@
             function(isConfirm) {
                 if (isConfirm) {
                     $.ajax({
-                        url: "{{URL::to('/lembur_pegawai/destroy')}}",
+                        url: "{{URL::to('/masterlembur/lembur_pegawai/destroy')}}",
                         data: "id=" + id,
                         success: function(data) {
                             swal("Deleted", data.message, "success");

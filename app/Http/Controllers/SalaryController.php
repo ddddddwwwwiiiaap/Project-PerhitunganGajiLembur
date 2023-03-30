@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Salary;
 use App\Models\Master\Staff;
 use App\Models\Master\Position;
-use App\Models\Lembur_Pegawai;
+use App\Models\MasterLembur\Lembur_Pegawai;
 use App\Models\Kategori_Lembur;
 
 use DB;
@@ -120,15 +120,12 @@ class SalaryController extends Controller
         $jumlah_jam_lembur_periode += $jumlah_jam_lembur;
 
         $staff = Staff::where('id', $request->staff_id)->first();
-        $kategori_lembur = Kategori_Lembur::where('position_id', $staff->position_id)->where('departement_id', $staff->departement_id)->first();
         $position = Position::where('id', $staff->position_id)->first();
+        
 
         $request->merge([
             'jumlah_jam_lembur_periode' => $jumlah_jam_lembur_periode,
-            'gaji_lembur_perjam' => $kategori_lembur->besaran_uang,
-            'jumlah_uang_lembur' => $kategori_lembur->besaran_uang * $jumlah_jam_lembur_periode,
-            'salary' => $position->salary,
-            'total' => $position->salary + ($kategori_lembur->besaran_uang * $jumlah_jam_lembur_periode),
+            'salary' => $position->salary_position,
         ]);
 
         $request->request->add(['tgl_salary' => date('Y-m-d', strtotime($request->tgl_salary))]);

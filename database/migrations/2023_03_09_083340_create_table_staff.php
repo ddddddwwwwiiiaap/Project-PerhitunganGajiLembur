@@ -19,6 +19,8 @@ class CreateTableStaff extends Migration
             $table->text('address')->nullable();
             $table->date('startdate');
             $table->text('phone');
+            $table->double('salary_staff')->default(0);
+            $table->double('jumlah')->nullable()->default(0);
             $table->timestamps();
             $table->softDeletes();
 

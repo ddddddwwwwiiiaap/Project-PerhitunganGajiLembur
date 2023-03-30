@@ -16,6 +16,7 @@ class CreateTableDepartement extends Migration
         Schema::create('tb_departement', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->double('salary_departemen')->default(0);
             $table->timestamps();
         });
     }

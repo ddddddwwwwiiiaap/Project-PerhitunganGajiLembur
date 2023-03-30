@@ -47,17 +47,17 @@
                                     </th>
                                     <th>
                                         <center>
-                                            Position
+                                            Preminum
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            Status
+                                            Job Grade
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            Gaji
+                                            Upah Pokok
                                         </center>
                                     </th>
                                     <th>
@@ -88,12 +88,11 @@
                                     </td>
                                     <td>
                                         <center>
-                                            <span class="badge {{ $item->staff->position->status == 'Staff' ? 'badge-info' : 'badge-secondary' }}">{{ $item->staff->position->status ?? '' }}</span>
+                                            {{ $item->staff->departement->name }}
                                         </center>
-                                    </td>
                                     <td>
                                         <center>
-                                            {{ 'Rp. ' . number_format($item->staff->position->salary ?? '', 0, ',', '.') }} {{ $item->staff->position->status == 'Staff' ? '/ Bln' : '/ Bln' }}
+                                            {{ 'Rp. ' . number_format($item->staff->salary_staff ?? '', 0, ',', '.') }} {{ $item->staff->position->status == 'Staff' ? '/ Bln' : '/ Bln' }}
                                         </center>
                                     </td>
                                     <td>

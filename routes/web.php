@@ -92,7 +92,7 @@ Route::middleware('auth')->group(function () {
             Route::get('salary/detail/{salary}/edit', 'SalaryController@edit')->name('salary.edit');
             //salary editDetail
             Route::get('salary/detail/{salary}/editDetail', 'SalaryController@editDetail')->name('salary.editDetail');
-            
+
             Route::patch('salary/{salary}/update', 'SalaryController@update')->name('salary.update');
             //updateStatus
             Route::get('salary/{salary}/updateStatus', 'SalaryController@updateStatus')->name('salary.updateStatus');
@@ -111,55 +111,56 @@ Route::middleware('auth')->group(function () {
             Route::patch('kategori_lembur/{kategori_lembur}/update', 'kategori_lemburController@update')->name('kategori_lembur.update');
             Route::get('kategori_lembur/{id}', 'Kategori_lemburController@destroy')->name('kategori_lembur.destroy');
         });
-
-        Route::get('lembur_pegawai', 'lembur_pegawaiController@show')->name('lembur_pegawai.show');
-        Route::middleware('role:admin|accounting')->group(function () {
-            Route::get('lembur_pegawai/create', 'lembur_pegawaiController@create')->name('lembur_pegawai.create');
-            Route::post('lembur_pegawai/', 'lembur_pegawaiController@store')->name('lembur_pegawai.store');
-            Route::get('lembur_pegawai/{lembur_pegawai}/edit', 'lembur_pegawaiController@edit')->name('lembur_pegawai.edit');
-            Route::patch('lembur_pegawai/{lembur_pegawai}/update', 'lembur_pegawaiController@update')->name('lembur_pegawai.update');
-            Route::get('lembur_pegawai/{id}', 'lembur_pegawaiController@destroy')->name('lembur_pegawai.destroy');
-            Route::get('lembur_pegawai/export/excel/filter={filter}', 'lembur_pegawaiController@excel')->name('lembur_pegawai.export.excel');
+        Route::namespace('MasterLembur')->prefix('masterlembur')->name('masterlembur.')->group(function () {
+            Route::get('lembur_pegawai', 'lembur_pegawaiController@show')->name('lembur_pegawai.show');
+            Route::middleware('role:admin|accounting')->group(function () {
+                Route::get('lembur_pegawai/create', 'lembur_pegawaiController@create')->name('lembur_pegawai.create');
+                Route::post('lembur_pegawai/', 'lembur_pegawaiController@store')->name('lembur_pegawai.store');
+                Route::get('lembur_pegawai/{lembur_pegawai}/edit', 'lembur_pegawaiController@edit')->name('lembur_pegawai.edit');
+                Route::patch('lembur_pegawai/{lembur_pegawai}/update', 'lembur_pegawaiController@update')->name('lembur_pegawai.update');
+                Route::get('lembur_pegawai/{id}', 'lembur_pegawaiController@destroy')->name('lembur_pegawai.destroy');
+                Route::get('lembur_pegawai/export/excel/filter={filter}', 'lembur_pegawaiController@excel')->name('lembur_pegawai.export.excel');
+            });
         });
     });
 
-        Route::namespace('Master')->prefix('master')->name('master.')->group(function () {
-            Route::get('position', 'PositionController@index')->name('position.index');
-                Route::get('position/create', 'PositionController@create')->name('position.create');
-                Route::post('position', 'PositionController@store')->name('position.store');
-                Route::get('position/{position}/edit', 'PositionController@edit')->name('position.edit');
-                Route::patch('position/{position}/update', 'PositionController@update')->name('position.update');
-                Route::get('position/{id}', 'PositionController@destroy')->name('position.destroy');
+    Route::namespace('Master')->prefix('master')->name('master.')->group(function () {
+        Route::get('position', 'PositionController@index')->name('position.index');
+        Route::get('position/create', 'PositionController@create')->name('position.create');
+        Route::post('position', 'PositionController@store')->name('position.store');
+        Route::get('position/{position}/edit', 'PositionController@edit')->name('position.edit');
+        Route::patch('position/{position}/update', 'PositionController@update')->name('position.update');
+        Route::get('position/{id}', 'PositionController@destroy')->name('position.destroy');
 
-            Route::get('departement', 'DepartementController@index')->name('departement.index');
-            Route::get('staff', 'StaffController@index')->name('staff.index');
-                Route::get('departement/create', 'DepartementController@create')->name('departement.create');
-                Route::post('departement', 'DepartementController@store')->name('departement.store');
-                Route::get('departement/{departement}/edit', 'DepartementController@edit')->name('departement.edit');
-                Route::patch('departement/{departement}/update', 'DepartementController@update')->name('departement.update');
-                Route::get('departement/{id}', 'DepartementController@destroy')->name('departement.destroy');
+        Route::get('departement', 'DepartementController@index')->name('departement.index');
+        Route::get('staff', 'StaffController@index')->name('staff.index');
+        Route::get('departement/create', 'DepartementController@create')->name('departement.create');
+        Route::post('departement', 'DepartementController@store')->name('departement.store');
+        Route::get('departement/{departement}/edit', 'DepartementController@edit')->name('departement.edit');
+        Route::patch('departement/{departement}/update', 'DepartementController@update')->name('departement.update');
+        Route::get('departement/{id}', 'DepartementController@destroy')->name('departement.destroy');
 
-                Route::get('staff/create', 'StaffController@create')->name('staff.create');
-                Route::post('staff', 'StaffController@store')->name('staff.store');
-                Route::get('staff/{staff}/edit', 'StaffController@edit')->name('staff.edit');
-                Route::patch('staff/{staff}/update', 'StaffController@update')->name('staff.update');
-                Route::get('staff/{id}', 'StaffController@destroy')->name('staff.destroy');
-            });
+        Route::get('staff/create', 'StaffController@create')->name('staff.create');
+        Route::post('staff', 'StaffController@store')->name('staff.store');
+        Route::get('staff/{staff}/edit', 'StaffController@edit')->name('staff.edit');
+        Route::patch('staff/{staff}/update', 'StaffController@update')->name('staff.update');
+        Route::get('staff/{id}', 'StaffController@destroy')->name('staff.destroy');
+    });
 
 
-        Route::get('salary', 'SalaryController@index')->name('salary.index');
-        Route::get('salary/detail/id={id}', 'SalaryController@show')->name('salary.show');
-        Route::get('overtime', 'OvertimeController@index')->name('overtime.index');
+    Route::get('salary', 'SalaryController@index')->name('salary.index');
+    Route::get('salary/detail/id={id}', 'SalaryController@show')->name('salary.show');
+    Route::get('overtime', 'OvertimeController@index')->name('overtime.index');
 
-            Route::get('salary/create', 'SalaryController@create')->name('salary.create');
-            Route::post('salary/detail/create', 'SalaryController@store')->name('salary.store');
-            Route::post('salary/detail/create/store', 'SalaryController@storeDetail')->name('salary.detail.store');
-            Route::get('salary/detail/{salary}/edit', 'SalaryController@edit')->name('salary.detail.edit');
+    Route::get('salary/create', 'SalaryController@create')->name('salary.create');
+    Route::post('salary/detail/create', 'SalaryController@store')->name('salary.store');
+    Route::post('salary/detail/create/store', 'SalaryController@storeDetail')->name('salary.detail.store');
+    Route::get('salary/detail/{salary}/edit', 'SalaryController@edit')->name('salary.detail.edit');
 
-            Route::patch('salary/{salary}/update', 'SalaryController@update')->name('salary.update');
-            Route::get('staff/get_salary', 'SalaryController@getSalary');
-            Route::get('salary/{id}', 'SalaryController@destroyDetail')->name('salary.destroyDetail');
-            Route::get('salary/export/excel/id={id}/filter={filter}', 'SalaryController@excel')->name('salary.export.excel');
+    Route::patch('salary/{salary}/update', 'SalaryController@update')->name('salary.update');
+    Route::get('staff/get_salary', 'SalaryController@getSalary');
+    Route::get('salary/{id}', 'SalaryController@destroyDetail')->name('salary.destroyDetail');
+    Route::get('salary/export/excel/id={id}/filter={filter}', 'SalaryController@excel')->name('salary.export.excel');
 
 
     Route::get('kategori_lembur', 'kategori_lemburController@index')->name('kategori_lembur.index');
@@ -169,26 +170,29 @@ Route::middleware('auth')->group(function () {
     Route::patch('kategori_lembur/{kategori_lembur}/update', 'kategori_lemburController@update')->name('kategori_lembur.update');
     Route::get('kategori_lembur/{id}', 'Kategori_lemburController@destroy')->name('kategori_lembur.destroy');
 
-    Route::get('lembur_pegawai', 'lembur_pegawaiController@show')->name('lembur_pegawai.show');
-    Route::get('lembur_pegawai', 'lembur_pegawaiController@index')->name('lembur_pegawai.index');
+    Route::namespace('MasterLembur')->prefix('masterlembur')->name('masterlembur.')->group(function () {
+        Route::get('lembur_pegawai', 'lembur_pegawaiController@show')->name('lembur_pegawai.show');
+        Route::get('lembur_pegawai', 'lembur_pegawaiController@index')->name('lembur_pegawai.index');
         Route::get('lembur_pegawai/create', 'lembur_pegawaiController@create')->name('lembur_pegawai.create');
         Route::post('lembur_pegawai/', 'lembur_pegawaiController@store')->name('lembur_pegawai.store');
         Route::get('lembur_pegawai/{lembur_pegawai}/edit', 'lembur_pegawaiController@edit')->name('lembur_pegawai.edit');
         Route::patch('lembur_pegawai/{lembur_pegawai}/update', 'lembur_pegawaiController@update')->name('lembur_pegawai.update');
         Route::get('lembur_pegawai/{id}', 'lembur_pegawaiController@destroy')->name('lembur_pegawai.destroy');
         Route::get('lembur_pegawai/export/excel/filter={filter}', 'lembur_pegawaiController@excel')->name('lembur_pegawai.export.excel');
+    });
 
-        Route::get('salary', 'SalaryController@index')->name('salary.index');
-        Route::get('salary/detail/id={id}', 'SalaryController@show')->name('salary.show');
-        Route::get('overtime', 'OvertimeController@index')->name('overtime.index');
 
-            Route::get('salary/create', 'SalaryController@create')->name('salary.create');
-            Route::post('salary/detail/create', 'SalaryController@store')->name('salary.store');
-            Route::post('salary/detail/create/store', 'SalaryController@storeDetail')->name('salary.detail.store');
-            Route::get('salary/detail/{salary}/edit', 'SalaryController@edit')->name('salary.detail.edit');
+    Route::get('salary', 'SalaryController@index')->name('salary.index');
+    Route::get('salary/detail/id={id}', 'SalaryController@show')->name('salary.show');
+    Route::get('overtime', 'OvertimeController@index')->name('overtime.index');
 
-            Route::patch('salary/{salary}/update', 'SalaryController@update')->name('salary.update');
-            Route::get('staff/get_salary', 'SalaryController@getSalary');
-            Route::get('salary/{id}', 'SalaryController@destroyDetail')->name('salary.destroyDetail');
-            Route::get('salary/export/excel/id={id}/filter={filter}', 'SalaryController@excel')->name('salary.export.excel');
+    Route::get('salary/create', 'SalaryController@create')->name('salary.create');
+    Route::post('salary/detail/create', 'SalaryController@store')->name('salary.store');
+    Route::post('salary/detail/create/store', 'SalaryController@storeDetail')->name('salary.detail.store');
+    Route::get('salary/detail/{salary}/edit', 'SalaryController@edit')->name('salary.detail.edit');
+
+    Route::patch('salary/{salary}/update', 'SalaryController@update')->name('salary.update');
+    Route::get('staff/get_salary', 'SalaryController@getSalary');
+    Route::get('salary/{id}', 'SalaryController@destroyDetail')->name('salary.destroyDetail');
+    Route::get('salary/export/excel/id={id}/filter={filter}', 'SalaryController@excel')->name('salary.export.excel');
 });

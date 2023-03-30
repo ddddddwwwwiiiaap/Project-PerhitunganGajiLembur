@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="card-header with-border pl-0 pb-1">
-        <span class="col-form-label text-bold">POSITION</span>
+        <span class="col-form-label text-bold">PREMIUM</span>
     </div>
     <br> 
     <div class="form-group row">
@@ -23,16 +23,16 @@
         </div> 
     </div>
     <div class="form-group row">
-        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Salary</label>
+        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Besaran Uang</label>
         <div class="col-12 col-md-5 col-lg-5">
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Rp</span>
                 </div>
-                <input type="text" name="salary" class="form-control @error('salary') is-invalid @enderror" value="{{ old('salary', $position->salary ?? '') }}" placeholder="100.000" autocomplete="off" oninput="format(this)">
-                @error('salary')
+                <input type="text" name="salary_position" class="form-control @error('salary_position') is-invalid @enderror" value="{{ old('salary_position', $position->salary_position ?? '') }}" placeholder="100.000" autocomplete="off" oninput="format(this)">
+                @error('salary_position')
                     <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('salary') }}</strong>
+                        <strong>{{ $errors->first('salary_position') }}</strong>
                     </span>
                 @enderror
             </div>

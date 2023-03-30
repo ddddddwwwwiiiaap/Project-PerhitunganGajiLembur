@@ -72,7 +72,24 @@
     </div>
 
     <div class="form-group row">
-        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Position <span class="text-danger">*</span></label> 
+        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Upah Pokok</label>
+        <div class="col-12 col-md-5 col-lg-5">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+                <input type="text" name="salary_staff" class="form-control @error('salary_staff') is-invalid @enderror" value="{{ old('salary_staff', $staff->salary_staff ?? '') }}" placeholder="100.000" autocomplete="off" oninput="format(this)">
+                @error('salary_staff')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('salary_staff') }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div> 
+    </div> 
+
+    <div class="form-group row">
+        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Premium <span class="text-danger">*</span></label> 
         <div class="col-12 col-md-5 col-lg-5">
             <select name="position_id" class="form-control select2 @error('position_id') is-invalid @enderror">
                 <option value=""></option>
@@ -89,7 +106,7 @@
     </div>
 
     <div class="form-group row">
-        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Departement <span class="text-danger">*</span></label> 
+        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Job Grade <span class="text-danger">*</span></label> 
         <div class="col-12 col-md-5 col-lg-5">
             <select name="departement_id" class="form-control select2 @error('departement_id') is-invalid @enderror">
                 <option value=""></option>
@@ -116,48 +133,6 @@
             @enderror
         </div> 
     </div>
-    <!--@if (!isset($staff->users_id))
-    <div class="form-group row">
-        <div class="col-12 col-md-5 col-lg-5 offset-md-4">
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="makeUserAccount" value="true" {{ old('makeUserAccount') ? 'checked' : '' }} class="toggle-form-user"> Buat akun user untuk karyawan ini.
-                </label>
-            </div>
-        </div>
-    </div>
-    @endif
-    <div id="form-user" style="display: none">
-        <hr>
-        <div class="form-group row">
-            <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Username <span class="text-red">*</span></label>
-            <div class="col-12 col-md-5 col-lg-5">
-                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" value="{{ old('username') ?? '' }}" placeholder="Masukan username.." disabled>
-                @error('username')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('username') }}</strong>
-                    </span>
-                @enderror
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Password <span class="text-red">*</span></label>
-            <div class="col-12 col-md-5 col-lg-5">
-                <p class="form-control-static">Password akan di generate otomatis menggunakan username.</p>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Level User <span class="text-red">*</span></label>
-            <div class="col-12 col-md-5 col-lg-5">
-                @foreach ($roles as $role)
-                    <label class="radio-inline">
-                        <input type="radio" name="role_id" value="{{ $role->id }}" {{ old('role_id') == $role->id ? 'checked' : '' }} disabled>
-                        {{ ucwords($role->display_name) }}
-                    </label>
-                @endforeach
-            </div>
-        </div>
-    </div>-->
 </div>
 <div class="card-footer">
     <div class="offset-md-4">

@@ -24,12 +24,12 @@ class PositionController extends Controller
     public function store(Request $request)
     {
         $request->merge([
-            'salary' => preg_replace('/\D/', '', $request->salary),
+            'salary_position' => preg_replace('/\D/', '', $request->salary_position),
         ]);
 
         $request->validate([
-            'name'=>'required',
-            'salary'=>'required',
+            'name'=>'required|max:100',
+            'salary_position'=>'required',
             'status'=>'required',
         ]);
 
@@ -44,16 +44,20 @@ class PositionController extends Controller
 
     public function edit(Position $position)
     {
-        $data['title'] = "Edit Position";
+        $data['title'] = "Edit Premium";
         $data['position'] = $position;
         return view('master.position.edit', $data);
     }
 
     public function update(Request $request, Position $position)
     {
+        $request->merge([
+            'salary_position' => preg_replace('/\D/', '', $request->salary_position),
+        ]);
+        
         $request->validate([
-            'name'=>'required',
-            'salary'=>'required',
+            'name'=>'required|max:100',
+            'salary_position'=>'required',
             'status'=>'required',
         ]);
 

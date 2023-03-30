@@ -15,8 +15,6 @@ class CreateTableLemburPegawai extends Migration
     {
         Schema::create('tb_lembur_pegawai', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('kategori_lembur_id')->unsigned();
-            $table->foreign('kategori_lembur_id')->on('tb_kategori_lembur')->references('id')->onDelete('Cascade')->onUpdate('Cascade');
             $table->integer('staff_id')->unsigned();
             $table->foreign('staff_id')->on('tb_staff')->references('id')->onDelete('Cascade')->onUpdate('Cascade');
             $table->string('periode')->nullable();

@@ -18,14 +18,14 @@
                                 <h3 class="card-title">{{ $title }}</h3>
                             </div>
                             <div class="back-top">
-                                <a href="{{ route('lembur_pegawai.index') }}" class="btn text-muted">
+                                <a href="{{ route('masterlembur.lembur_pegawai.index') }}" class="btn text-muted">
                                     <i class="fas fa-arrow-left fa-fw"></i>
                                 </a>
                             </div>
                         </div>
-                        <form action="{{ route('lembur_pegawai.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                        <form action="{{ route('masterlembur.lembur_pegawai.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                             @csrf
-                            @include('lembur_pegawai._form')
+                            @include('masterlembur.lembur_pegawai._form')
                         </form>
                         <div id="loading"></div>
                     </div>

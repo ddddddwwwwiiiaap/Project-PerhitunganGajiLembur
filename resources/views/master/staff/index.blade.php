@@ -68,18 +68,29 @@
                                     </th>
                                     <th>
                                         <center>
-                                            Position
+                                            Upah Pokok
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            Departement
+                                            Tunjangan Premium
                                         </center>
                                     </th>
                                     <th>
                                         <center>
-                                            Action
+                                            Tunjangan Job Grade
                                         </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            Upah Pokok
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            Aksi
+                                        </center>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -116,15 +127,24 @@
                                     </td>
                                     <td>
                                         <center>
-                                        {{ $item->position->name ?? '' }} <br>
-                                        <small><span class="badge {{ $item->position->status == 'Staff' ? 'badge-info' : 'badge-secondary' }}">{{ $item->position->status ?? '' }}</span></small>
+                                        Rp. {{ number_format($item->salary_staff ?? '', 0, ',', '.')}}
                                         </center>
                                     </td>
                                     <td>
                                         <center>
-                                            {{ $item->departement->name ?? '' }}
+                                        Rp. {{ number_format($item->position->salary_position ?? '', 0, ',', '.')}}
                                         </center>
                                     </td>
+                                    <td>
+                                        <center>
+                                            Rp. {{ number_format($item->departement->salary_departemen ?? '', 0, ',', '.')}}
+                                        </center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            <!--jumlah antara salary_staff, salary_position, dan salary_departement-->
+                                            Rp. {{ number_format($item->jumlah ?? '', 0, ',', '.')}}
+                                        </center>
                                     <td>
                                         <center>
                                             <a href="{{ route('master.staff.edit', $item->id) }}" class="btn btn-sm btn-warning app-shadow">

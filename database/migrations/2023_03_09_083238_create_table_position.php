@@ -17,7 +17,7 @@ class CreateTablePosition extends Migration
             $table->increments('id');
             $table->string('name');
             $table->enum('status', ['Staff', 'Daily Worker']);
-            $table->double('salary')->default(0);
+            $table->double('salary_position')->default(0);
             $table->timestamps();
         });
     }

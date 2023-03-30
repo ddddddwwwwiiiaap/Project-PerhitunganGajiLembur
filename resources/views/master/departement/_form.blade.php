@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="card-header with-border pl-0 pb-1">
-        <span class="col-form-label text-bold">Departement</span>
+        <span class="col-form-label text-bold">JOB GRADE</span>
     </div>
     <br> 
     <div class="form-group row">
@@ -22,6 +22,22 @@
             @enderror
         </div> 
     </div>
+    <div class="form-group row">
+        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Besaran Uang</label>
+        <div class="col-12 col-md-5 col-lg-5">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+                <input type="text" name="salary_departemen" class="form-control @error('salary_departemen') is-invalid @enderror" value="{{ old('salary_departemen', $departement->salary_departemen ?? '') }}" placeholder="100.000" autocomplete="off" oninput="format(this)">
+                @error('salary_departemen')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('salary_departemen') }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div> 
+    </div> 
 </div>
 <div class="card-footer">
     <div class="offset-md-4">

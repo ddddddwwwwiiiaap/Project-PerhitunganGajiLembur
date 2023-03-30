@@ -30,7 +30,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header bg-light">
-                            Data Departement
+                            Data Job Grade
                             <span id="count" class="badge badge-danger float-right float-xl-right mt-1">{{ $count }}</span>
                         </div>
                         <table id="datatable" class="table table-hover table-striped">
@@ -48,7 +48,12 @@
                                     </th>
                                     <th>
                                         <center>
-                                            Action
+                                            Besaran Uang
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            Aksi
                                         </center>
                                     </th>
                                 </tr>
@@ -65,6 +70,10 @@
                                         <center>
                                             {{ $item->name ?? '' }}
                                         </center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                        Rp. {{ number_format($item->salary_departemen ?? '', 0, ',', '.')}}                                        </center>
                                     </td>
                                     <td>
                                         <center>

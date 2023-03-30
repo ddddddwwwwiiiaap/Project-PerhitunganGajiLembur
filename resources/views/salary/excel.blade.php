@@ -20,7 +20,7 @@ header ("Content-Disposition: attachment; filename=Laporan-salary-staff-".strtol
 
 <body>
     <div style="text-align: center; font-size: 20px;">
-        <b>DATA SALARY STAFF</b>
+        <b>TRANSPORT PELAYANAN WEEKEND BANKING KK POLRES, KK SCH, ATM & AKHIR BULANBL.</b>
     </div>
 
     <br>
@@ -45,41 +45,57 @@ header ("Content-Disposition: attachment; filename=Laporan-salary-staff-".strtol
             <tr style="background-color: royalblue">
                 <th>
                     <center>
-                        No
+                        <p style="text-align: center;">#</p>
                     </center>
                 </th>
                 <th>
                     <center>
-                        Periode
+                        <p style="text-align: center;">Periode</p>
                     </center>
                 </th>
                 <th>
                     <center>
-                        Status
+                        <p style="text-align: center;">Status</p>
                     </center>
                 </th>
                 <th>
                     <center>
-                        Total Jam Lembur
+                        <p style="text-align: center;">Nama</p>
                     </center>
                 </th>
                 <th>
                     <center>
-                        Gaji Lembur Perjam
+                        <p style="text-align: center;">Upah Pokok</p>
                     </center>
                 </th>
                 <th>
                     <center>
-                        Total Gaji Lembur
+                        <p style="text-align: center;">Premium</p>
                     </center>
                 </th>
                 <th>
                     <center>
-                        Gaji Perbulan
+                        <p style="text-align: center;">Job Grade</p>
                     </center>
+                </th>
                 <th>
                     <center>
-                        Total Gaji
+                        <p style="text-align: center;">Jml jam</p>
+                    </center>
+                </th>
+                <th>
+                    <center>
+                        <p style="text-align: center;">1/173</p>
+                    </center>
+                </th>
+                <th>
+                    <center>
+                        <p style="text-align: center;">Jumlah Upah Lembur</p>
+                    </center>
+                </th>
+                <th>
+                    <center>
+                        <p style="text-align: center;">Pembulatan</p>
                     </center>
                 </th>
             </tr>
@@ -99,7 +115,26 @@ header ("Content-Disposition: attachment; filename=Laporan-salary-staff-".strtol
                 </td>
                 <td>
                     <center>
-                        <span class="badge {{ $item->status_gaji == 'sudah di ACC' ? 'badge-success' : 'badge-danger' }}">{{ $item->status_gaji ?? 'belum di ACC' }}</span>
+                        <span class="badge {{ $item->status_gaji == 'Verified' ? 'badge-success' : 'badge-danger' }}">{{ $item->status_gaji ?? 'Unverified' }}</span>
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        {{ $item->staff->name ?? '' }}
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        {{ 'Rp. ' . number_format($item->staff->salary_staff ?? '', 0, ',', '.') }} {{ $item->staff->position->status == 'Staff' ? '/ Bln' : '/ Bln' }}
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        {{ 'Rp. ' . number_format($item->staff->position->salary_position ?? '', 0, ',', '.') }} {{ $item->staff->position->status == 'Staff' ? '/ Bln' : '/ Bln' }}
+                    </center>
+                <td>
+                    <center>
+                        {{ 'Rp. ' . number_format($item->staff->departement->salary_departemen ?? '', 0, ',', '.') }} {{ $item->staff->position->status == 'Staff' ? '/ Bln' : '/ Bln' }}
                     </center>
                 </td>
                 <td>
@@ -109,22 +144,17 @@ header ("Content-Disposition: attachment; filename=Laporan-salary-staff-".strtol
                 </td>
                 <td>
                     <center>
-                        {{ 'Rp. ' . number_format($item->gaji_lembur_perjam, 0, ',', '.') }}
+                        0.0058
                     </center>
                 </td>
                 <td>
                     <center>
-                        {{ 'Rp. ' . number_format($item->jumlah_uang_lembur, 0, ',', '.') }}
+                        {{ 'Rp. ' . number_format($item->staff->jumlah * $item->jumlah_jam_lembur_periode * 0.0058 * 2 ?? '', 0, ',', '.') }}
                     </center>
                 </td>
                 <td>
                     <center>
-                        {{ 'Rp. ' . number_format($item->staff->position->salary ?? '', 0, ',', '.') }} {{ $item->staff->position->status == 'Staff' ? '/ Bln' : '/ Bln' }}
-                    </center>
-                </td>
-                <td>
-                    <center>
-                        {{ 'Rp. ' . number_format($item->total, 0, ',', '.') }}
+                        {{ 'Rp. ' . number_format(round($item->staff->jumlah * $item->jumlah_jam_lembur_periode * 0.0058 * 2, -3), 0, ',', '.') }}
                     </center>
                 </td>
             </tr>

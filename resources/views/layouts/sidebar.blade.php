@@ -37,13 +37,13 @@
                         <li class="nav-item">
                             <a href="{{ route('master.position.index') }}" class="nav-link {{ $sub == 'position' ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-circle-o"></i>
-                                <p>Position</p>
+                                <p>Tunjangan Premium</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('master.departement.index') }}" class="nav-link {{ $sub == 'departement' ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-circle-o"></i>
-                                <p>Departement</p>
+                                <p>Tunjangan Job Grade</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -63,9 +63,9 @@
                 </li> --}}
                 @endif
 
-                <li class="nav-item has-treeview {{ $page == 'master' ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ $page == 'master' ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-laptop"></i>
+                <li class="nav-item has-treeview {{ $page == 'masterlembur' ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ $page == 'masterlembur' ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-clock-o"></i>
                         <p>
                             Lembur
                             <i class="right fas fa-angle-left"></i>
@@ -73,11 +73,11 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('kategori_lembur.index') }}" class="nav-link {{ $page == 'kategori_lembur' ? 'active' : '' }}">
+                            <!--<a href="{{ route('kategori_lembur.index') }}" class="nav-link {{ $page == 'kategori_lembur' ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-circle-o"></i>
                                 <p>Kategori Lembur</p>
-                            </a>
-                            <a href="{{ route('lembur_pegawai.index') }}" class="nav-link {{ $page == 'lembur_pegawai' ? 'active' : '' }}">
+                            </a>-->
+                            <a href="{{ route('masterlembur.lembur_pegawai.index') }}" class="nav-link {{ $page == 'lembur_pegawai' ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-circle-o"></i>
                                 <p>Lembur Pegawai</p>
                             </a>
