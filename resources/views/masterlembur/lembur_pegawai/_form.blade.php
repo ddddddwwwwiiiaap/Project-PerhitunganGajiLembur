@@ -13,12 +13,12 @@
     <br>
 
     <div class="form-group row">
-        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">NIP & Nama Staff <span class="text-danger">*</span></label>
+        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">PN & Nama Staff <span class="text-danger">*</span></label>
         <div class="col-12 col-md-5 col-lg-5">
             <select name="staff_id" class="form-control @error('staff_id') is-invalid @enderror">
                 <option value="">-- Pilih Staff --</option>
                 @foreach ($staff as $item)
-                <option value="{{ $item->id }}" {{ $item->id == old('staff_id', $lembur_pegawai->staff_id ?? '') ? 'selected' : '' }}>{{ $item->nip }} - {{ $item->name }}</option>
+                <option value="{{ $item->id }}" {{ $item->id == old('staff_id', $lembur_pegawai->staff_id ?? '') ? 'selected' : '' }}>{{ $item->pn }} - {{ $item->name }}</option>
                 @endforeach
             </select>
             @error('staff_id')

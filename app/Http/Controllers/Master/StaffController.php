@@ -40,16 +40,16 @@ class StaffController extends Controller
             'name' => 'required|max:100',
             'premium_id' => 'required',
             'jobgrade_id' => 'required',
-            'nip' => 'required',
+            'pn' => 'required',
             'salary_staff' => 'required',
         ]);
 
-        //message nip tidak boleh sama
-        $nip = Staff::where('nip', $request->nip)->first();
-        if ($nip) {
+        //message pn tidak boleh sama
+        $pn = Staff::where('pn', $request->pn)->first();
+        if ($pn) {
             $message = [
                 'alert-type' => 'error',
-                'message' => 'NIP sudah ada'
+                'message' => 'PN sudah ada'
             ];
             return redirect()->route('master.staff.index')->with($message);
         }
@@ -118,12 +118,12 @@ class StaffController extends Controller
         $request->request->add(['jumlah' => $jumlah]);
 
 
-        //message nip tidak boleh sama
-        /*$nip = Staff::where('nip', $request->nip)->first();
-        if ($nip) {
+        //message pn tidak boleh sama
+        /*$pn = Staff::where('pn', $request->pn)->first();
+        if ($pn) {
             $message = [
                 'alert-type' => 'error',
-                'message' => 'NIP sudah ada'
+                'message' => 'pn sudah ada'
             ];
             return redirect()->route('master.staff.index')->with($message);
         }*/

@@ -10,7 +10,7 @@ class Staff extends Model
 {
 
     protected $table = 'tb_staff';
-    protected $fillable = ['nip', 'premium_id', 'jobgrade_id', 'users_id', 'name', 'birth', 'address', 'startdate', 'phone', 'salary_staff', 'jumlah'];
+    protected $fillable = ['pn', 'premium_id', 'jobgrade_id', 'users_id', 'name', 'birth', 'address', 'startdate', 'phone', 'salary_staff', 'jumlah'];
     protected $dates = ['deleted_at'];
 
     public function getNameAttribute($name)

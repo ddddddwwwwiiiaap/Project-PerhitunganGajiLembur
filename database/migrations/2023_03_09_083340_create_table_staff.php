@@ -10,7 +10,7 @@ class CreateTableStaff extends Migration
     {
         Schema::create('tb_staff', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nip')->unique();
+            $table->string('pn')->unique();
             $table->unsignedInteger('premium_id');
             $table->unsignedInteger('jobgrade_id');
             $table->unsignedInteger('users_id')->nullable();

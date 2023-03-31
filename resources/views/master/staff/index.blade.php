@@ -92,7 +92,7 @@
                                     </td>
                                     <td>
                                         <center>
-                                            {{ $item->nip ?? '' }}
+                                            {{ $item->pn ?? '' }}
                                         </center>
                                     </td>
                                     <td>

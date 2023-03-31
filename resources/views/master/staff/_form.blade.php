@@ -26,10 +26,10 @@
     <div class="form-group row">
         <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">PN <span class="text-danger">*</span></label>
         <div class="col-12 col-md-5 col-lg-5">
-            <input type="text" name="nip" class="form-control @error('nip') is-invalid @enderror" value="{{ old('nip', $staff->nip ?? '') }}" placeholder="PN.." autocomplete="off">
-            @error('nip')
+            <input type="text" name="pn" class="form-control @error('pn') is-invalid @enderror" value="{{ old('pn', $staff->pn ?? '') }}" placeholder="PN.." autocomplete="off">
+            @error('pn')
             <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('nip') }}</strong>
+                <strong>{{ $errors->first('pn') }}</strong>
             </span>
             @enderror
         </div>
