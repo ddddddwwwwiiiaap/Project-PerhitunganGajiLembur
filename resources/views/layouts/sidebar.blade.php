@@ -73,10 +73,6 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <!--<a href="{{ route('kategori_lembur.index') }}" class="nav-link {{ $page == 'kategori_lembur' ? 'active' : '' }}">
-                                <i class="nav-icon fa fa-circle-o"></i>
-                                <p>Kategori Lembur</p>
-                            </a>-->
                             <a href="{{ route('masterlembur.lembur_pegawai.index') }}" class="nav-link {{ $page == 'lembur_pegawai' ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-circle-o"></i>
                                 <p>Lembur Pegawai</p>

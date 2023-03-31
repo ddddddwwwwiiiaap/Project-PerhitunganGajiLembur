@@ -18,9 +18,4 @@ class Premium extends Model
     {
         return $this->hasMany(Staff::class);
     }
-
-    public function kategori_lembur()
-    {
-        return $this->belongsTo(kategori_lembur::class);
-    }
 }
