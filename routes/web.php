@@ -103,14 +103,6 @@ Route::middleware('auth')->group(function () {
             Route::get('salary/export/excel/id={id}/filter={filter}', 'SalaryController@excel')->name('salary.export.excel');
         });
 
-        Route::middleware('role:admin|accounting')->group(function () {
-            //kategori_lembur.show
-            Route::get('kategori_lembur/create', 'kategori_lemburController@create')->name('kategori_lembur.create');
-            Route::post('kategori_lembur/', 'kategori_lemburController@store')->name('kategori_lembur.store');
-            Route::get('kategori_lembur/{kategori_lembur}/edit', 'kategori_lemburController@edit')->name('kategori_lembur.edit');
-            Route::patch('kategori_lembur/{kategori_lembur}/update', 'kategori_lemburController@update')->name('kategori_lembur.update');
-            Route::get('kategori_lembur/{id}', 'Kategori_lemburController@destroy')->name('kategori_lembur.destroy');
-        });
         Route::namespace('MasterLembur')->prefix('masterlembur')->name('masterlembur.')->group(function () {
             Route::get('lembur_pegawai', 'lembur_pegawaiController@show')->name('lembur_pegawai.show');
             Route::middleware('role:admin|accounting')->group(function () {
@@ -161,14 +153,6 @@ Route::middleware('auth')->group(function () {
     Route::get('staff/get_salary', 'SalaryController@getSalary');
     Route::get('salary/{id}', 'SalaryController@destroyDetail')->name('salary.destroyDetail');
     Route::get('salary/export/excel/id={id}/filter={filter}', 'SalaryController@excel')->name('salary.export.excel');
-
-
-    Route::get('kategori_lembur', 'kategori_lemburController@index')->name('kategori_lembur.index');
-    Route::get('kategori_lembur/create', 'kategori_lemburController@create')->name('kategori_lembur.create');
-    Route::post('kategori_lembur/', 'kategori_lemburController@store')->name('kategori_lembur.store');
-    Route::get('kategori_lembur/{kategori_lembur}/edit', 'kategori_lemburController@edit')->name('kategori_lembur.edit');
-    Route::patch('kategori_lembur/{kategori_lembur}/update', 'kategori_lemburController@update')->name('kategori_lembur.update');
-    Route::get('kategori_lembur/{id}', 'Kategori_lemburController@destroy')->name('kategori_lembur.destroy');
 
     Route::namespace('MasterLembur')->prefix('masterlembur')->name('masterlembur.')->group(function () {
         Route::get('lembur_pegawai', 'lembur_pegawaiController@show')->name('lembur_pegawai.show');
