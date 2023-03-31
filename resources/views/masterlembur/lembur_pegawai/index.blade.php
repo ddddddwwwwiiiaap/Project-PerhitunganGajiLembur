@@ -66,6 +66,11 @@
                                         </th>
                                         <th>
                                             <center>
+                                                <p>Periode</p>
+                                            </center>
+                                        </th>
+                                        <th>
+                                            <center>
                                                 <p>Nama</p>
                                             </center>
                                         </th>
@@ -96,7 +101,7 @@
                                         </th>
                                         <th>
                                             <center>
-                                            <p>Jam<br>mulai<br>lembur</p>
+                                                <p>Jam<br>mulai<br>lembur</p>
                                             </center>
                                         </th>
                                         <th>
@@ -167,6 +172,9 @@
                                             <center>{{$no++}}</center>
                                         </td>
                                         <td>
+                                            <center>{{$data->periode}}</center>
+                                        </td>
+                                        <td>
                                             <center>{{$data->staff->name}}</center>
                                         </td>
                                         <td>
@@ -217,7 +225,6 @@
                                         </td>
                                         <td>
                                             <center>
-                                                <!--Rp. 38497.10982659-->
                                                 Rp. {{ number_format($data->jumlah_upah_lembur ?? '', 2, ',', '.') }}
                                             </center>
                                         </td>

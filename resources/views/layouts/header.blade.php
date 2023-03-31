@@ -15,7 +15,7 @@
                     <ul class="dropdown-menu pb-0" style="min-width:250px;">
                         <li class="user-header text-center">
                             <br>
-                            
+
                             <img src="{{ asset(Auth::user()->staff->photo ?? 'img/user.jpg') }}" class="img-size-50 img-circle elevation-2" style="width: 50px; height: 50px;">
                             <p>
                                 <br>
@@ -28,10 +28,10 @@
                             <div class="card-body p-0 table-responsive">
                                 <table border="0" class="table table-hover nowrap">
                                     <tr data-href="{{ route('profile') }}" id="link">
-                                        <td><i class="fas fa-user mr-2"></i> Profile</td> 
+                                        <td><i class="fas fa-user mr-2"></i> Profile</td>
                                     </tr>
                                     <tr data-href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        <td><i class="fas fa-sign-out-alt mr-2"></i> Logout</td> 
+                                        <td><i class="fas fa-sign-out-alt mr-2"></i> Logout</td>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
                                         </form>

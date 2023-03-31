@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,22 +20,23 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
+
 <body class="hold-transition @guest login-page login-bg @else skin-blue sidebar-mini @endguest">
     <div id="load">Loading..</div>
     <div class="wrapper">
         @guest
-            @include('layouts.navbar')
+        @include('layouts.navbar')
         @endguest
         @auth
-            @include('layouts.header')
+        @include('layouts.header')
 
-            @include('layouts.sidebar')
+        @include('layouts.sidebar')
         @endauth
 
         @yield('content')
 
         @auth
-            @include('layouts.footer')
+        @include('layouts.footer')
         @endauth
     </div>
 
@@ -43,7 +45,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.0.0-alpha.2/dist/js/adminlte.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js"></script>
     <script src="{{ asset('js/jquery.inputmask.bundle.min.js') }}"></script>
     <link href="{{ asset('src/css/mk-notifications.css')}}" rel="stylesheet">
     <script src="{{ asset('src/js/mk-notifications.js')}}"></script>
@@ -51,10 +53,11 @@
     @yield('scripts')
     @include('alert.mk-notif')
     <script>
-         $('#link').click(function(){
+        $('#link').click(function() {
             window.location = $(this).data('href');
             return false;
         });
     </script>
 </body>
+
 </html>

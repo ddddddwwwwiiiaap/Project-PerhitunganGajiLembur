@@ -13,7 +13,6 @@ header ("Content-Dispremium: attachment; filename=Laporan-salary-staff-".strtolo
     <style>
         #master td {
             vertical-align: middle;
-
         }
     </style>
 </head>

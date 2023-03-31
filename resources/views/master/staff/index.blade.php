@@ -97,17 +97,19 @@
                                     </td>
                                     <td>
                                         <center>
-                                        Rp. {{ number_format($item->salary_staff ?? '', 0, ',', '.')}}
+                                        Rp. {{ number_format($item->salary_staff ?? '', 0, ',', '.')}}<br>
                                         </center>
                                     </td>
                                     <td>
                                         <center>
-                                        Rp. {{ number_format($item->premium->salary_premium ?? '', 0, ',', '.')}}
+                                        Rp. {{ number_format($item->premium->salary_premium ?? '', 0, ',', '.')}}<br>
+                                        <small><span class="badge {{ $item->premium->name == 'Premium' ? 'badge-info' : 'badge-info' }}">{{ $item->premium->name ?? '' }}</span></small>
                                         </center>
                                     </td>
                                     <td>
                                         <center>
-                                            Rp. {{ number_format($item->jobgrade->salary_jobgrade ?? '', 0, ',', '.')}}
+                                            Rp. {{ number_format($item->jobgrade->salary_jobgrade ?? '', 0, ',', '.')}}<br>
+                                            <small><span class="badge {{ $item->jobgrade->name == 'JobGrade' ? 'badge-danger' : 'badge-danger' }}">{{ $item->jobgrade->name ?? '' }}</span></small>
                                         </center>
                                     </td>
                                     <td>

@@ -73,7 +73,7 @@
                                     </td>
                                     <td>
                                         <center>
-                                        Rp. {{ number_format($item->salary_jobgrade ?? '', 0, ',', '.')}}                                        </center>
+                                            Rp. {{ number_format($item->salary_jobgrade ?? '', 0, ',', '.')}} </center>
                                     </td>
                                     <td>
                                         <center>

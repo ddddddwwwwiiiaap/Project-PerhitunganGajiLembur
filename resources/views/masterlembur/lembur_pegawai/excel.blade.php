@@ -13,7 +13,6 @@ header ("Content-Dispremium: attachment; filename=Laporan-Lembur-Pegawai-periode
     <style>
         #master td {
             vertical-align: middle;
-
         }
     </style>
 </head>

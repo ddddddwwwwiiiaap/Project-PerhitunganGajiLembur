@@ -16,26 +16,26 @@ class HomeController extends Controller
         return view('home', $data);
     }
 
-    public function getStaffPosition()
+    public function getStaffPremium()
     {
         $data = DB::table('tb_staff', 'a')
-            ->groupBy('a.position_id')
-            ->orderBy('name_position', 'asc')
-            ->select(DB::raw('count(a.position_id) as count, tb_position.name as name_position'))
+            ->groupBy('a.premium_id')
+            ->orderBy('name_premium', 'asc')
+            ->select(DB::raw('count(a.premium_id) as count, tb_premium.name as name_premium'))
             // ->where('periode', $id)
-            ->join('tb_position', 'tb_position.id', '=', 'a.position_id')
+            ->join('tb_premium', 'tb_premium.id', '=', 'a.premium_id')
             ->get();
         return response()->json($data);
     }
 
-    public function getStaffDepartement()
+    public function getStaffJobGrade()
     {
         $data = DB::table('tb_staff', 'a')
-            ->groupBy('a.departement_id')
-            ->orderBy('name_departement', 'asc')
-            ->select(DB::raw('count(a.departement_id) as count, tb_departement.name as name_departement'))
+            ->groupBy('a.jobgrade_id')
+            ->orderBy('name_jobgrade', 'asc')
+            ->select(DB::raw('count(a.jobgrade_id) as count, tb_jobgrade.name as name_jobgrade'))
             // ->where('periode', $id)
-            ->join('tb_departement', 'tb_departement.id', '=', 'a.departement_id')
+            ->join('tb_jobgrade', 'tb_jobgrade.id', '=', 'a.jobgrade_id')
             ->get();
         return response()->json($data);
     }

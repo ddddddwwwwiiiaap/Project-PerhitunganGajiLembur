@@ -31,12 +31,12 @@
 				<div class="row">
 					<div class="col-md-10 offset-md-1">
 						<div class="col-md-5 col-sm-12 col-12 mb-3 float-left">
-							<div class="text-center">Jumlah Staff berdasarkan Departement</div>
-							<canvas id="BarChartStaffDepartement" width="200" height="200"></canvas>
+							<div class="text-center">Jumlah Staff berdasarkan Job Grade</div>
+							<canvas id="BarChartStaffJobGrade" width="200" height="200"></canvas>
 						</div>
 						<div class="col-md-5 col-sm-12 col-12 mb-3 float-right">
-							<div class="text-center">Jumlah Staff berdasarkan Position</div>
-							<canvas id="BarChartStaffPosition" width="200" height="200"></canvas>
+							<div class="text-center">Jumlah Staff berdasarkan Premium</div>
+							<canvas id="BarChartStaffPremium" width="200" height="200"></canvas>
 						</div>
 					</div>
 				</div>
@@ -49,28 +49,28 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 <script>
 	$('.alert').fadeOut(7000);
-    var bar_staff_departement = document.getElementById('BarChartStaffDepartement').getContext('2d');
-    var bar_staff_position = document.getElementById('BarChartStaffPosition').getContext('2d');
+    var bar_staff_jobgrade = document.getElementById('BarChartStaffJobGrade').getContext('2d');
+    var bar_staff_premium = document.getElementById('BarChartStaffPremium').getContext('2d');
     
-    // Statistik Staff Departement
+    // Statistik Staff Job Grade
 
-    var Departement = [];
-    var CountDepartement = [];
-    $.get("{{ url('/home/getStaffDepartement')}}", function(data){
+    var JobGrade = [];
+    var CountJobGrade = [];
+    $.get("{{ url('/home/getStaffJobGrade')}}", function(data){
 
         $.each(data, function(i,item){
-            Departement.push(item.name_departement);
-            CountDepartement.push(item.count);
+            JobGrade.push(item.name_jobgrade);
+            CountJobGrade.push(item.count);
         });
 
-        var myChart = new Chart(bar_staff_departement, 
+        var myChart = new Chart(bar_staff_jobgrade, 
         {
             type: 'bar',
             data: {
-                labels: Departement,
+                labels: JobGrade,
                 datasets: [{
                     label: 'Jumlah Staff',
-                    data: CountDepartement,
+                    data: CountJobGrade,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -102,24 +102,24 @@
         });
     });
 
-    // Statistik Staff Position
+    // Statistik Staff Premium
 
-    var Position = [];
-    var CountPosition = [];
-    $.get("{{ url('/home/getStaffPosition')}}", function(data){
+    var Premium = [];
+    var CountPremium = [];
+    $.get("{{ url('/home/getStaffPremium')}}", function(data){
         $.each(data, function(i,item){
-            Position.push(item.name_position);
-            CountPosition.push(item.count);
+            Premium.push(item.name_premium);
+            CountPremium.push(item.count);
         });
     
-        var myChart = new Chart(bar_staff_position, {
+        var myChart = new Chart(bar_staff_premium, {
 
             type: 'bar',
             data: {
-                labels: Position,
+                labels: Premium,
                 datasets: [{
                     label: 'Jumlah Staff',
-                    data: CountPosition,
+                    data: CountPremium,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

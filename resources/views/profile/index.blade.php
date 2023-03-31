@@ -47,8 +47,8 @@
                                             <td>:</td>
                                             <td>{{ ucwords($staff->address ?? '-') }}</td>
                                         </tr>
-                                      </tbody>
-                                 </table>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -58,14 +58,14 @@
                         <div class="card-body box-profile">
                             <div class="text-center">
                                 @if (Auth::user()->staff->id == $staff->id)
-                                    <img class="profile-user-img img-fluid img-circle" src="{{ asset($staff->photo ?? 'img/user.jpg') }}" alt="User profile picture" style="width: 100px; height: 100px;">
-                                    <form action="{{ route('profile.upload') }}" method="POST" enctype="multipart/form-data" style="display: none">
-                                        @csrf
-                                        @method('patch')
-                                        <input type="file" name="picture" accept=".jpg, .png, .jpeg" id="UploadFotoProfil">
-                                    </form>
+                                <img class="profile-user-img img-fluid img-circle" src="{{ asset($staff->photo ?? 'img/user.jpg') }}" alt="User profile picture" style="width: 100px; height: 100px;">
+                                <form action="{{ route('profile.upload') }}" method="POST" enctype="multipart/form-data" style="display: none">
+                                    @csrf
+                                    @method('patch')
+                                    <input type="file" name="picture" accept=".jpg, .png, .jpeg" id="UploadFotoProfil">
+                                </form>
                                 @else
-                                    <img class="profile-user-img img-fluid img-circle" src="{{ ('img/user.jpg') }}" alt="User profile picture" style="width: 100px; height: 100px;">//berfungsi 
+                                <img class="profile-user-img img-fluid img-circle" src="{{ ('img/user.jpg') }}" alt="User profile picture" style="width: 100px; height: 100px;">//berfungsi
                                 @endif
                             </div>
                             <h3 class="profile-username text-center  pt-2">{{ ucwords(Auth::user()->staff->name ?? Auth::user()->name) }}</h3>
@@ -77,10 +77,10 @@
                                     <td><i class="fa fa-pencil mr-2 text-warning"></i> Edit Profile</td>
                                 </tr>
                                 <tr data-href="{{ route('users.account.edit', Auth::user()->id) }}" title="Edit username dan password anda." data-toggle="tooltip" data-placement="bottom">
-                                    <td><i class="fas fa-key mr-2"></i> Account</td> 
+                                    <td><i class="fas fa-key mr-2"></i> Account</td>
                                 </tr>
                                 <tr data-href="{{ route('help') }}" title="Klik untuk melihat petunjuk penggunaan menu" data-toggle="tooltip" data-placement="bottom">
-                                    <td><i class="fas fa-question mr-2"></i> Help</td> 
+                                    <td><i class="fas fa-question mr-2"></i> Help</td>
                                 </tr>
                             </table>
                         </div>
@@ -100,8 +100,8 @@
 <script src="{{ asset('js/sweetalert-dev.js') }}"></script>
 <script src="{{ asset('js/datatables.js') }}"></script>
 <script>
-    $(document).ready(function(){
-        $('#url-custom tr').click(function(){
+    $(document).ready(function() {
+        $('#url-custom tr').click(function() {
             window.location = $(this).data('href');
             return false;
         });

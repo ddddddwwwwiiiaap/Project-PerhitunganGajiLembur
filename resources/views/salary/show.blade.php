@@ -162,7 +162,7 @@
                                                 </center>
                                             <td>
                                                 <center>
-                                                {{ 'Rp. ' . number_format($item->staff->jobgrade->salary_jobgrade ?? '', 0, ',', '.') }} {{ $item->staff->premium->status == 'Staff' ? '/ Bln' : '/ Bln' }}
+                                                    {{ 'Rp. ' . number_format($item->staff->jobgrade->salary_jobgrade ?? '', 0, ',', '.') }} {{ $item->staff->premium->status == 'Staff' ? '/ Bln' : '/ Bln' }}
                                                 </center>
                                             </td>
                                             <td>
@@ -177,7 +177,7 @@
                                             </td>
                                             <td>
                                                 <center>
-                                                0.0058
+                                                    0.0058
                                                 </center>
                                             </td>
                                             <td>

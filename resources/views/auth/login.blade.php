@@ -78,7 +78,7 @@
                 <div id="loading"></div>
 
                 <div class="card-footer text-center text-secondary">
-                    Powered by <a href="#" class="font-weight-bold text-secondary" target="_blank">Dwi Aprilya Anggoro Putry & Prizandeva Oktura Rizqy</a>.
+                    <a class="font-weight-bold text-secondary" target="_blank">Sistem Infromasi Gaji Karyawan Lembur</a>.
                 </div>
             </div>
         </div>
