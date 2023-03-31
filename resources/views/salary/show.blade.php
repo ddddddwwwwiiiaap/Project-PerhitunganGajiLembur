@@ -97,6 +97,10 @@
                                             </th>
                                             <th>
                                                 <center>
+                                                    <p style="text-align: center;">Upah per bulan</p>
+                                                </center>
+                                            <th>
+                                                <center>
                                                     <p style="text-align: center;">Total Jumlah Jam</p>
                                                 </center>
                                             </th>
@@ -159,6 +163,11 @@
                                             <td>
                                                 <center>
                                                 {{ 'Rp. ' . number_format($item->staff->jobgrade->salary_jobgrade ?? '', 0, ',', '.') }} {{ $item->staff->premium->status == 'Staff' ? '/ Bln' : '/ Bln' }}
+                                                </center>
+                                            </td>
+                                            <td>
+                                                <center>
+                                                    {{ 'Rp. ' . number_format($item->staff->jumlah ?? '', 0, ',', '.') }}
                                                 </center>
                                             </td>
                                             <td>

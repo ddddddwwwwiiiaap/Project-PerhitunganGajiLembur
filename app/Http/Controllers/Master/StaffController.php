@@ -93,7 +93,7 @@ class StaffController extends Controller
         $data['title'] = "Edit Staff";
         $data['premium'] = Premium::all();
         $data['roles'] = Roles::all();
-        $data['jobgrade'] = JobGrade::all();
+        $data['JobGrade'] = JobGrade::all();
         $data['staff'] = $staff;
         return view('master.staff.edit', $data);
     }

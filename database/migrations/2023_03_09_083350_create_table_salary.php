@@ -19,14 +19,8 @@ class CreateTableSalary extends Migration
             $table->unsignedInteger('lembur_pegawai_id')->nullable();
             $table->double('salary')->default(0);
             $table->string('periode')->nullable();
-            $table->integer('jumlah_jam_lembur');
             $table->integer('jumlah_jam_lembur_periode');
-            $table->integer('gaji_lembur_perjam');
-            $table->integer('jumlah_uang_lembur');
             $table->integer('jumlah_upah_lembur_periode');
-            $table->integer('total_upah');
-            $table->integer('gaji_pokok');
-            $table->double('total')->nullable()->default(0);
             $table->string('status_gaji')->nullable();
             $table->date('tgl_salary');
             $table->string('status')->nullable();

@@ -11,7 +11,7 @@ class Salary extends Model
     use SoftDeletes;
 
     protected $table = 'tb_salary';
-    protected $fillable = ['staff_id', 'lembur_pegawai_id', 'salary', 'periode', 'jumlah_jam_lembur', 'jumlah_jam_lembur_periode', 'gaji_lembur_perjam', 'jumlah_uang_lembur', 'jumlah_upah_lembur_periode', 'total_upah', 'total', 'status_gaji', 'tgl_salary', 'status'];
+    protected $fillable = ['staff_id', 'lembur_pegawai_id', 'salary', 'periode', 'jumlah_jam_lembur_periode', 'jumlah_upah_lembur_periode', 'status_gaji', 'tgl_salary', 'status'];
     protected $dates = ['deleted_at'];
 
     public function staff()

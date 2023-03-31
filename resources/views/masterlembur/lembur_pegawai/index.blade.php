@@ -217,7 +217,8 @@
                                         </td>
                                         <td>
                                             <center>
-                                                Rp. {{ number_format($data->jumlah_upah_lembur ?? '', 0, ',', '.')}}
+                                                <!--Rp. 38497.10982659-->
+                                                Rp. {{ number_format($data->jumlah_upah_lembur ?? '', 2, ',', '.') }}
                                             </center>
                                         </td>
                                         <td>
