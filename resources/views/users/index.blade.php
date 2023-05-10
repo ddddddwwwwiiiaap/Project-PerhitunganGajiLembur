@@ -11,11 +11,7 @@
                 <div class="form-inline">
                     <div class="input-group app-shadow">
                         <div class="input-group-append">
-                            <div class="input-group-text bg-white border-0">
-                                <span><i class="fa fa-search"></i> </span>
-                            </div>
                         </div>
-                        <input type="search" placeholder="Search" aria-label="Search..." class="form-control input-flat border-0" id="search">
                     </div>
                 </div>
             </form>
@@ -36,11 +32,6 @@
                                 <tr>
                                     <th>
                                         <center>
-                                            Nama
-                                        </center>
-                                    </th>
-                                    <th>
-                                        <center>
                                             Username
                                         </center>
                                     </th>
@@ -54,11 +45,6 @@
                             <tbody>
                                 @foreach ($users as $item)
                                 <tr id="hide{{ $item->id }}">
-                                    <td>
-                                        <center>
-                                            {{ strtoupper($item->staff->name ?? '-') }}
-                                        </center>
-                                    </td>
                                     <td>
                                         <center>
                                             {{ $item->username ?? ''}}

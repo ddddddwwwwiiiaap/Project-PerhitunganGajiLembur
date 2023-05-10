@@ -56,108 +56,108 @@
                     </table>
                     <div class="table-responsive">
                         <div class="card-body p-3">
-                            <table id="datatable" class="table table-bordered mb-0" style="font-size: 14px;">
+                            <table id="datatable" class="table table-hover table-striped table-bordered mb-0">
                                 <thead>
                                     <tr class="bg-light">
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
-                                                <p>No.</p>
+                                                <p>No</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Periode</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Nama</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Tanggal<br> Lembur</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Upah<br> Pokok</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Premium</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Job Grade</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Upah per-<br>bulan</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Jam<br>mulai<br>lembur</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <p>s/d</p>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Akhir jam<br>lembur yg<br>diperhitungkan</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Jml jam</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>1/173</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Up.Lembur<br>hr kerja 1<br>jam pertama</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Up.Lembur<br>hr kerja jam<br>ke 2 dst</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Up.Lembur<br>hari libur jam<br>ke 1-7</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Up.Lembur<br>hari libur<br>jam ke 8</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Up.Lembur<br>hari libur<br>jam ke 9 dst</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Jumlah<br>Upah<br>Lembur</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Pembulatan</p>
                                             </center>
                                         </th>
-                                        <th>
+                                        <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                             <center>
                                                 <p>Aksi</p>
                                             </center>

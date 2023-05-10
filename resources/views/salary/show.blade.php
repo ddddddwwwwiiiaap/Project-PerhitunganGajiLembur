@@ -57,71 +57,69 @@
                         </table>
                         <div class="table-responsive">
                             <div class="card-body p-3">
-                                <table class="table table-bordered mb-0" style="font-size: 14px;">
+                                <table class="table table-hover table-striped table-bordered mb-0">
                                     <thead>
                                         <tr class="bg-light">
-                                            <th>
+                                            <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                                 <center>
                                                     <p style="text-align: center;">#</p>
                                                 </center>
                                             </th>
-                                            <th>
+                                            <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                                 <center>
                                                     <p style="text-align: center;">Periode</p>
                                                 </center>
                                             </th>
-                                            <th>
+                                            <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                                 <center>
                                                     <p style="text-align: center;">Status</p>
                                                 </center>
                                             </th>
-                                            <th>
+                                            <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                                 <center>
                                                     <p style="text-align: center;">Nama</p>
                                                 </center>
                                             </th>
-                                            <th>
+                                            <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                                 <center>
                                                     <p style="text-align: center;">Upah<br> Pokok</p>
                                                 </center>
                                             </th>
-                                            <th>
+                                            <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                                 <center>
                                                     <p style="text-align: center;">Premium</p>
                                                 </center>
                                             </th>
-                                            <th>
+                                            <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                                 <center>
                                                     <p style="text-align: center;">Job Grade</p>
                                                 </center>
                                             </th>
-                                            <th>
+                                            <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                                 <center>
                                                     <p style="text-align: center;">Upah per bulan</p>
                                                 </center>
-                                            <th>
+                                            <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                                 <center>
                                                     <p style="text-align: center;">Total Jumlah Jam</p>
                                                 </center>
                                             </th>
-                                            <th>
+                                            <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                                 <center>
                                                     <p style="text-align: center;">1/173</p>
                                                 </center>
                                             </th>
-                                            <th>
+                                            <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                                 <center>
                                                     <p style="text-align: center;">Total<br> Upah<br> Lembur</p>
                                                 </center>
                                             </th>
-                                            <th>
+                                            <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                                 <center>
                                                     <p style="text-align: center;">Persetujuan</p>
                                                 </center>
                                             </th>
-                                        <tr>
                                         </tr>
-
                                     </thead>
                                     <tbody>
                                         @forelse ($salary as $item)

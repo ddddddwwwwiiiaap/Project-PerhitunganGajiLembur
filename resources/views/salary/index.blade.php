@@ -33,34 +33,34 @@
                             Data Gaji Karyawan
                             <span id="count" class="badge badge-danger float-right float-xl-right mt-1">{{ $count }}</span>
                         </div>
-                        <table id="datatable" class="table table-hover table-striped">
+                        <table id="datatable" class="table table-hover table-striped table-bordered mb-0">
                             <thead>
                                 <tr>
-                                    <th>
+                                    <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                         <center>
                                             #
                                         </center>
-                                    <th>
+                                    <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                         <center>
                                             Nama Pegawai
                                         </center>
                                     </th>
-                                    <th>
+                                    <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                         <center>
                                             Preminum
                                         </center>
                                     </th>
-                                    <th>
+                                    <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                         <center>
                                             Job Grade
                                         </center>
                                     </th>
-                                    <th>
+                                    <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                         <center>
                                             Upah Pokok
                                         </center>
                                     </th>
-                                    <th>
+                                    <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                         <center>
                                             Aksi
                                         </center>

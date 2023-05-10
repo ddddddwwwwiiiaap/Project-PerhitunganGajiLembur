@@ -33,30 +33,30 @@
                             Data Premium
                             <span id="count" class="badge badge-danger float-right float-xl-right mt-1">{{ $count }}</span>
                         </div>
-                        <table id="datatable" class="table table-hover table-striped">
+                        <table id="datatable" class="table table-hover table-striped table-bordered mb-0">
                             <thead>
                                 <tr>
-                                    <th>
+                                    <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                         <center>
                                             No
                                         </center>
                                     </th>
-                                    <th>
+                                    <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                         <center>
                                             Nama
                                         </center>
                                     </th>
-                                    <th>
+                                    <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                         <center>
                                             Status
                                         </center>
                                     </th>
-                                    <th>
+                                    <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                         <center>
                                             Besaran Uang
                                         </center>
                                     </th>
-                                    <th>
+                                    <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                         <center>
                                             Aksi
                                         </center>

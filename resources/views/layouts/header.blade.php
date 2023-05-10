@@ -27,9 +27,6 @@
                         <li class="bg-light">
                             <div class="card-body p-0 table-responsive">
                                 <table border="0" class="table table-hover nowrap">
-                                    <tr data-href="{{ route('profile') }}" id="link">
-                                        <td><i class="fas fa-user mr-2"></i> Profile</td>
-                                    </tr>
                                     <tr data-href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <td><i class="fas fa-sign-out-alt mr-2"></i> Logout</td>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -3,7 +3,7 @@ header ("Cache-Control: no-cache, must-revalidate");
 header ("Pragma: no-cache");
 header ("Content-type: application/x-msexcel");
 header ("Content-type: application/octet-stream");
-header ("Content-Dispremium: attachment; filename=Laporan-Lembur-Pegawai-periode-".ucwords($filter ?? 'All').".xls");
+header ("Content-Disposition: attachment; filename=Laporan-Lembur-Pegawai-periode-".ucwords($filter ?? 'All').".xls");
 @endphp
 <!DOCTYPE html>
 <html>
@@ -46,12 +46,12 @@ header ("Content-Dispremium: attachment; filename=Laporan-Lembur-Pegawai-periode
                 </th>
                 <th>
                     <center>
-                        Tanggal<br>Lembur
+                        Tanggal<br> Lembur
                     </center>
                 </th>
                 <th>
                     <center>
-                        Upah<br>Pokok
+                        Upah<br> Pokok
                     </center>
                 </th>
                 <th>
@@ -75,9 +75,7 @@ header ("Content-Dispremium: attachment; filename=Laporan-Lembur-Pegawai-periode
                     </center>
                 </th>
                 <th>
-                    <center>
-                        s/d
-                    </center>
+                    s/d
                 </th>
                 <th>
                     <center>
@@ -189,14 +187,14 @@ header ("Content-Dispremium: attachment; filename=Laporan-Lembur-Pegawai-periode
                 </td>
                 <td>
                     <center>
-                        <!--salary_premium di tambah salary_jobgrade dikali jumlah_jam dikali 1/173 dikali 2-->
-                        {{ 'Rp. ' . number_format($data->staff->jumlah * $data->jumlah_jam * 0.0058 * 2 ?? '', 0, ',', '.') }}
+                        Rp. {{ number_format($data->jumlah_upah_lembur ?? '', 2, ',', '.') }}
                     </center>
                 </td>
                 <td>
                     <center>
                         <!--Untuk membulatkan ribu rupiah dari 500-999 ke atas 0-499 ke bawah-->
-                        {{ 'Rp. ' . number_format(round($data->staff->jumlah * $data->jumlah_jam * 0.0058 * 2, -3), 0, ',', '.') }}
+                        Rp. {{ number_format($data->pembulatan ?? '', 0, ',', '.')}}
+
                     </center>
                 </td>
             </tr>

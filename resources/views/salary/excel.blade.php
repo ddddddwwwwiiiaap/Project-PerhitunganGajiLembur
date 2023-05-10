@@ -3,7 +3,7 @@ header ("Cache-Control: no-cache, must-revalidate");
 header ("Pragma: no-cache");
 header ("Content-type: application/x-msexcel");
 header ("Content-type: application/octet-stream");
-header ("Content-Dispremium: attachment; filename=Laporan-salary-staff-".strtolower($staff->name).ucwords($filter ?? 'All').".xls");
+header ("Content-Disposition: attachment; filename=Laporan-salary-staff-".strtolower($staff->name).ucwords($filter ?? 'All').".xls");
 @endphp
 <!DOCTYPE html>
 <html>
@@ -44,57 +44,56 @@ header ("Content-Dispremium: attachment; filename=Laporan-salary-staff-".strtolo
             <tr style="background-color: royalblue">
                 <th>
                     <center>
-                        <p style="text-align: center;">#</p>
+                        #
                     </center>
                 </th>
                 <th>
                     <center>
-                        <p style="text-align: center;">Periode</p>
+                        Periode
                     </center>
                 </th>
                 <th>
                     <center>
-                        <p style="text-align: center;">Status</p>
+                        Status
                     </center>
                 </th>
                 <th>
                     <center>
-                        <p style="text-align: center;">Nama</p>
+                        Nama
                     </center>
                 </th>
                 <th>
                     <center>
-                        <p style="text-align: center;">Upah Pokok</p>
+                        Upah<br> Pokok
                     </center>
                 </th>
                 <th>
                     <center>
-                        <p style="text-align: center;">Premium</p>
+                        Premium
                     </center>
                 </th>
                 <th>
                     <center>
-                        <p style="text-align: center;">Job Grade</p>
+                        Job Grade
                     </center>
                 </th>
                 <th>
                     <center>
-                        <p style="text-align: center;">Jml jam</p>
+                        Upah per bulan
+                    </center>
+                <th>
+                    <center>
+                        Total Jumlah Jam
                     </center>
                 </th>
                 <th>
                     <center>
-                        <p style="text-align: center;">1/173</p>
+                        1/173
                     </center>
                 </th>
                 <th>
                     <center>
-                        <p style="text-align: center;">Jumlah Upah Lembur</p>
-                    </center>
-                </th>
-                <th>
-                    <center>
-                        <p style="text-align: center;">Pembulatan</p>
+                        Total<br> Upah<br> Lembur
                     </center>
                 </th>
             </tr>
@@ -138,6 +137,11 @@ header ("Content-Dispremium: attachment; filename=Laporan-salary-staff-".strtolo
                 </td>
                 <td>
                     <center>
+                        {{ 'Rp. ' . number_format($item->staff->jumlah ?? '', 0, ',', '.') }}
+                    </center>
+                </td>
+                <td>
+                    <center>
                         {{ $item->jumlah_jam_lembur_periode . ' Jam' }}
                     </center>
                 </td>
@@ -148,12 +152,7 @@ header ("Content-Dispremium: attachment; filename=Laporan-salary-staff-".strtolo
                 </td>
                 <td>
                     <center>
-                        {{ 'Rp. ' . number_format($item->staff->jumlah * $item->jumlah_jam_lembur_periode * 0.0058 * 2 ?? '', 0, ',', '.') }}
-                    </center>
-                </td>
-                <td>
-                    <center>
-                        {{ 'Rp. ' . number_format(round($item->staff->jumlah * $item->jumlah_jam_lembur_periode * 0.0058 * 2, -3), 0, ',', '.') }}
+                        {{ 'Rp. ' . number_format($item->jumlah_upah_lembur_periode ?? '', 0, ',', '.') }}
                     </center>
                 </td>
             </tr>
